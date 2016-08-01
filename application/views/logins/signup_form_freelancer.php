@@ -81,7 +81,7 @@
 			  outline: none;
 			  box-shadow: none;
 			  background: none;
-			  border-radius: 5px;
+			  border-radius: 0px;
 			  padding: 10px;
 			  font-size: 1.6em;
 			  width: 100%;
@@ -188,7 +188,7 @@
 						<tr>
 					    	<td>
 					        	<div class="heading">
-					            	<h3>Register User Account</h3>
+					            	<h3>Register as Freelancer</h3>
 					            	<hr>
 					            </div>
 					        </td>
@@ -229,7 +229,7 @@
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon"><i class="fa fa-home"></i></span>
-								<textarea name="address" class="form-control" placeholder="Address" rows="10" cols="27"></textarea>
+					            <input type="text" name = "address" class="form-control" placeholder="Address">
 					        </div>
 					    </td>
 					    </tr>
