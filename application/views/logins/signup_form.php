@@ -57,7 +57,6 @@
 			  
 			}
 			.login form .input-group {
-				width: 100%;
 			  border-bottom: 1px solid #AAA;
 			  border-top: 1px solid rgba(255, 255, 255, 0.1);
 			}
@@ -171,11 +170,11 @@
           </div><!-- /.container-fluid -->
         </nav>
 
-		<?php if($this->session->flashdata('failed')): ?>
-			<div class="alert alert-danger">
-				<?php echo $this->session->flashdata('failed') ?>
-			</div>
-		<?php endif; ?>
+        <?php if($this->session->flashdata('success')): ?>
+  			<div class="alert alert-success">
+  				<?php echo $this->session->flashdata('success'); ?>
+  			</div>
+  			<?php endif; ?>
 
 		<div class="col-md-1"></div>
 
@@ -210,7 +209,7 @@
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">E-mail</span>
+					            <span class="input-group-addon"><i class="fa fa-file-photo-o"></i></span>
 					            <input type="text" name = "email" class="form-control" placeholder="Email">
 					        </div>
 					    </td>
@@ -218,7 +217,7 @@
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">Telephone</span>
+					            <span class="input-group-addon"><i class="fa fa-file-photo-o"></i></span>
 					            <input type="text" name = "telephone" class="form-control" placeholder="Telephone">
 					        </div>
 					    </td>
@@ -226,57 +225,22 @@
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">Address</span>
+					            <span class="input-group-addon"><i class="fa fa-file-photo-o"></i></span>
 					            <div class="col-sm-13">
 								<textarea name="address" class="form-control" placeholder="Address" rows="3" cols="35"></textarea></div>					      
 					        </div>
 					    </td></tr>
-					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">IRD Number</span>
-					            <input type="text" name = "ird_number" class="form-control" placeholder="IRD Number">
-					        </div>
-					    </td>
-					    </tr>
-					    <tr>
-					    	<td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">Driver License</span>
-					            <input type="text" name = "driver_license" class="form-control" placeholder="E-mail">
-					        </div>
-					    	</td>
-					    </tr>
-					    <tr>
-					    	<td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">License Type</span>
-					            <select class="form-control" name="license_type">
-					            	<option value="learner">Learner</option>
-					            	<option value="restricted">Restricted</option>
-					            	<option value="full">Full License</option>
-					            </select>
-					        </div>
-					    	</td>
-					    </tr>
-					    <tr>
-					    <td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">Photo License (Front)</span>
-					            <input type="file" name = "front-license" class="form-control" placeholder="Photo">
-					        </div>
-					    </td>
-					    </tr>
-					    <tr>
-					    <td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">Photo License (Back)</span>
-					            <input type="file" name = "back-license" class="form-control" placeholder="Photo">
+					            <span class="input-group-addon"><i class="fa fa-file-photo-o"></i></span>
+					            <input type="file" name = "image" class="form-control">
 					        </div>
 					    </td>
 					    </tr>
 					   	<tr>
-					    	<td><a href="<?php echo base_url('main/signup_submit')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up</a></td>
+					    	<td>
+					    	<input type="submit" name="submit" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;">
+					    	</td>
 						</tr>
 					</table>
 					</form>

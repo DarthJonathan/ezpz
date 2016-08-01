@@ -12,7 +12,7 @@
 		}
 
 		public function signup_submit(){
-				if($this->input->post('signup')){
+				if($this->input->post('submit')){
 				//configuration
 				$config['upload_path'] = './uploads';
 				$config['allowed_types'] = 'gif|jpg|png';
@@ -24,7 +24,7 @@
 				$this->upload->initialize($config);
 
 				//upload
-				if($this->upload->do_upload('photo')){
+				if($this->upload->do_upload('image')){
 					$image = $this->upload->data();
 				}
 
@@ -34,7 +34,21 @@
 				$telephone = $this->input->post('telephone');
 				$address = $this->input->post('address');
 
-				$this->db->query("INSERT INTO 'user' SET 'username' = '$username', 'password' = '$password', 'email' = '$email', 'telephone' = '$telephone', 'address' = '$address', 'photo' = '$image'");
+				$data = array(
+
+					'username' => $username,
+					'password' => $password,
+					'email' => $email,
+					'telephone' => $telephone,
+					'address' => $address,
+					'photo' => $image['file_name']
+
+					);
+
+				$this->login_model->insert_data('user',$data);
+
+				$this->session->setflashdata('success', 'User has been added');
+
 				redirect('main');
 			}
 		}
