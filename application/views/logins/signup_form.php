@@ -229,11 +229,7 @@
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon"><i class="fa fa-home"></i></span>
-<<<<<<< HEAD
 								<textarea name="address" class="form-control" placeholder="Address" rows="10" cols="26"></textarea>					      
-=======
-					            <textarea class="form-control" name="address" id="" cols="30" rows="10" placeholder="Address"></textarea>
->>>>>>> origin/master
 					        </div>
 					    </td>
 					    </tr>
@@ -246,7 +242,9 @@
 					    </td>
 					    </tr>
 					   	<tr>
-					    	<td><a href="<?php echo base_url('main/signup_submit')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up</a></td>
+					    	<td>
+					    	<input type="submit" name="signup" class="btn btn-block btn-lg btn-primary float" id="loginButton" value="Sign Up" style="display: block; margin-top:1em; width: 100%;">
+					    	</td>
 						</tr>
 					</table>
 					</form>

@@ -12,7 +12,7 @@
 		}
 
 		public function signup_submit(){
-
+				if($this->input->post('signup')){
 				//configuration
 				$config['upload_path'] = './uploads';
 				$config['allowed_types'] = 'gif|jpg|png';
@@ -36,6 +36,7 @@
 
 				$this->db->query("INSERT INTO 'user' SET 'username' = '$username', 'password' = '$password', 'email' = '$email', 'telephone' = '$telephone', 'address' = '$address', 'photo' = '$image'");
 				redirect('main');
+			}
 		}
 
 	}
