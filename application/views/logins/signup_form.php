@@ -229,11 +229,8 @@
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon"><i class="fa fa-home"></i></span>
-<<<<<<< HEAD
-								<textarea name="address" class="form-control" placeholder="Address" rows="10" cols="26"></textarea>					      
-=======
-					            <textarea class="form-control" name="address" id="" cols="30" rows="10" placeholder="Address"></textarea>
->>>>>>> origin/master
+					            <div class="col-sm-13">
+								<textarea name="address" class="form-control" placeholder="Address" rows="3" cols="35"></textarea></div>					      
 					        </div>
 					    </td>
 					    </tr>
