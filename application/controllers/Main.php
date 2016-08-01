@@ -12,7 +12,6 @@
 		}
 
 		public function signup_submit(){
-			if($this->input->post('signup')){
 
 				//configuration
 				$config['upload_path'] = './uploads';
@@ -25,7 +24,7 @@
 				$this->upload->initialize($config);
 
 				//upload
-				if($this->upload->do_upload('image')){
+				if($this->upload->do_upload('photo')){
 					$image = $this->upload->data();
 				}
 
@@ -36,10 +35,7 @@
 				$address = $this->input->post('address');
 
 				$this->db->query("INSERT INTO 'user' SET 'username' = '$username', 'password' = '$password', 'email' = '$email', 'telephone' = '$telephone', 'address' = '$address', 'photo' = '$image'");
-
-				redirect('/main');
-
-			}
+				redirect('main');
 		}
 
 	}

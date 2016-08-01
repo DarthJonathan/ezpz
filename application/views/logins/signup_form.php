@@ -229,12 +229,20 @@
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon"><i class="fa fa-home"></i></span>
-								<textarea name="address" class="form-control" placeholder="Address" rows="10" cols="27"></textarea>
+								<textarea name="address" class="form-control" placeholder="Address" rows="10" cols="26"></textarea>					      
+					        </div>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-upload"></i></span>
+					            <input type="file" name = "photo" class="form-control" placeholder="Photo">
 					        </div>
 					    </td>
 					    </tr>
 					   	<tr>
-					    	<td><a href="<?php echo base_url('main/signup_submit')?>" id="loginButton" name="signup" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up</a></td>
+					    	<td><a href="<?php echo base_url('main/signup_submit')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up</a></td>
 						</tr>
 					</table>
 					</form>
