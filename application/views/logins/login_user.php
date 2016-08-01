@@ -136,8 +136,6 @@
 	<div class="col-xs-12 col-md-1"></div>
 
 	<div class="col-xs-12 col-md-10">
-
-		<div>
           
           <nav class="navbar navbar-inverse">
           <div class="container-fluid">
@@ -174,13 +172,12 @@
           </div><!-- /.container-fluid -->
         </nav>
 
-        </div>
-
 		<?php if($this->session->flashdata('failed')): ?>
 			<div class="alert alert-danger">
 				<?php echo $this->session->flashdata('failed') ?>
 			</div>
 		<?php endif; ?>
+
 		
 		<div class="login">
 			<?php echo form_open('main/login', array ("id" => "loginForm")) ?>

@@ -70,6 +70,7 @@
 			}
 			.login form .input-group span i {
 			  font-size: 1.5em;
+			  width: 100px;
 			  
 			}
 			.login form input.form-control {
@@ -134,8 +135,6 @@
 	<div class="col-xs-12 col-md-1"></div>
 
 	<div class="col-xs-12 col-md-10">
-
-		<div>
           
           <nav class="navbar navbar-inverse">
           <div class="container-fluid">
@@ -169,72 +168,79 @@
           </div><!-- /.container-fluid -->
         </nav>
 
-        </div>
-
 		<?php if($this->session->flashdata('failed')): ?>
 			<div class="alert alert-danger">
 				<?php echo $this->session->flashdata('failed') ?>
 			</div>
 		<?php endif; ?>
+
+		<div class="col-md-6">
+
 		
-		<div class="login">
-			<?php echo form_open('main/signup_submit') ?>
-			<table align="center">
-				<tr>
-			    	<td>
-			        	<div class="heading">
-			            	<h3>Register User Account</h3>
-			            	<hr>
-			            </div>
-			        </td>
-			    </tr>
-				<tr>
-			    <td>
-			    	<div class="input-group input-group-lg">
-			            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-			            <input type="text" name ="username" class="form-control" placeholder="Username">
-			        </div>
-			    </td>
-			    </tr>
-				<tr>
-			    <td>
-			    	<div class="input-group input-group-lg">
-			            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-			            <input type="password" name = "password" class="form-control" placeholder="Password">
-			        </div>
-			    </td>
-			    </tr>
-			    <tr>
-			    <td>
-			    	<div class="input-group input-group-lg">
-			            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-			            <input type="text" name = "email" class="form-control" placeholder="Email">
-			        </div>
-			    </td>
-			    </tr>
-			    <tr>
-			    <td>
-			    	<div class="input-group input-group-lg">
-			            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-			            <input type="text" name = "telephone" class="form-control" placeholder="Telephone">
-			        </div>
-			    </td>
-			    </tr>
-			    <tr>
-			    <td>
-			    	<div class="input-group input-group-lg">
-			            <span class="input-group-addon"><i class="fa fa-home"></i></span>
-			            <input type="text" name = "address" class="form-control" placeholder="Address">
-			        </div>
-			    </td>
-			    </tr>
-			   	<tr>
-			    	<td><a href="<?php echo base_url('main/signup')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up</a></td>
-				</tr>
-			</table>
-			</form>
+
 		</div>
 
+		<div class="col-md-6">	
+		
+				<div class="login">
+					<?php echo form_open('main/signup_submit') ?>
+					<table align="center">
+						<tr>
+					    	<td>
+					        	<div class="heading">
+					            	<h3>Register User Account</h3>
+					            	<hr>
+					            </div>
+					        </td>
+					    </tr>
+						<tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					            <input type="text" name ="username" class="form-control" placeholder="Username">
+					        </div>
+					    </td>
+					    </tr>
+						<tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+					            <input type="password" name = "password" class="form-control" placeholder="Password">
+					        </div>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+					            <input type="text" name = "email" class="form-control" placeholder="Email">
+					        </div>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+					            <input type="text" name = "telephone" class="form-control" placeholder="Telephone">
+					        </div>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-home"></i></span>
+					            <input type="text" name = "address" class="form-control" placeholder="Address">
+					        </div>
+					    </td>
+					    </tr>
+					   	<tr>
+					    	<td><a href="<?php echo base_url('main/signup_submit')?>" id="loginButton" name="signup" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up</a></td>
+						</tr>
+					</table>
+					</form>
+				</div>
+
+		</div>
 
 	</div>
 
