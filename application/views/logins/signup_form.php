@@ -168,11 +168,11 @@
           </div><!-- /.container-fluid -->
         </nav>
 
-		<?php if($this->session->flashdata('failed')): ?>
-			<div class="alert alert-danger">
-				<?php echo $this->session->flashdata('failed') ?>
-			</div>
-		<?php endif; ?>
+        <?php if($this->session->flashdata('success')): ?>
+  			<div class="alert alert-success">
+  				<?php echo $this->session->flashdata('success'); ?>
+  			</div>
+  			<?php endif; ?>
 
 		<div class="col-md-6">
 
@@ -238,14 +238,14 @@
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-upload"></i></span>
-					            <input type="file" name = "photo" class="form-control" placeholder="Photo">
+					            <span class="input-group-addon"><i class="fa fa-file-photo-o"></i></span>
+					            <input type="file" name = "image" class="form-control">
 					        </div>
 					    </td>
 					    </tr>
 					   	<tr>
 					    	<td>
-					    	<input type="submit" name="signup" class="btn btn-block btn-lg btn-primary float" id="loginButton" value="Sign Up" style="display: block; margin-top:1em; width: 100%;">
+					    	<input type="submit" name="submit" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;">
 					    	</td>
 						</tr>
 					</table>
