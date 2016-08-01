@@ -171,12 +171,6 @@
           </div><!-- /.container-fluid -->
         </nav>
 
-		<?php if($this->session->flashdata('failed')): ?>
-			<div class="alert alert-danger">
-				<?php echo $this->session->flashdata('failed') ?>
-			</div>
-		<?php endif; ?>
-
 		<div class="col-md-1"></div>
 
 			<div class="col-md-10">

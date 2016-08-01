@@ -41,7 +41,6 @@
 					'email' => $email,
 					'telephone' => $telephone,
 					'address' => $address,
-					'photo' => $image['file_name']
 
 					);
 

@@ -32,7 +32,7 @@
 			background:#F2F4F5;
 			padding-top:4em;
 			border-radius:10px;
-			padding: 20px;
+			padding: 15px;
 			margin: 1% auto 0 auto;
 		}
 
@@ -66,9 +66,7 @@
 			.login form .input-group span {
 			  background: transparent;
 			  min-width: 53px;
-			  width: 240px;
 			  border: none;
-			  text-align: left;
 			}
 			.login form .input-group span i {
 			  font-size: 1.5em;
@@ -176,16 +174,21 @@
   			</div>
   			<?php endif; ?>
 
-		<div class="col-md-1"></div>
+		<div class="col-md-6">
 
-			<div class="col-md-10">
+		
+
+		</div>
+
+		<div class="col-md-6">	
+		
 				<div class="login">
 					<?php echo form_open('main/signup_submit') ?>
 					<table align="center">
 						<tr>
 					    	<td>
 					        	<div class="heading">
-					            	<h3>Register as Freelancer</h3>
+					            	<h3>Register User Account</h3>
 					            	<hr>
 					            </div>
 					        </td>
@@ -193,7 +196,7 @@
 						<tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">Username</span>
+					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
 					            <input type="text" name ="username" class="form-control" placeholder="Username">
 					        </div>
 					    </td>
@@ -201,7 +204,7 @@
 						<tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">Password</span>
+					            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
 					            <input type="password" name = "password" class="form-control" placeholder="Password">
 					        </div>
 					    </td>
@@ -209,7 +212,7 @@
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-file-photo-o"></i></span>
+					            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
 					            <input type="text" name = "email" class="form-control" placeholder="Email">
 					        </div>
 					    </td>
@@ -217,7 +220,7 @@
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-file-photo-o"></i></span>
+					            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
 					            <input type="text" name = "telephone" class="form-control" placeholder="Telephone">
 					        </div>
 					    </td>
@@ -225,11 +228,14 @@
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-file-photo-o"></i></span>
+					            <span class="input-group-addon"><i class="fa fa-home"></i></span>
 					            <div class="col-sm-13">
-								<textarea name="address" class="form-control" placeholder="Address" rows="3" cols="35"></textarea></div>					      
+								<textarea name="address" class="form-control" placeholder="Address" rows="3" cols="35"></textarea>
+								</div>	
 					        </div>
-					    </td></tr>
+					    </td>
+					    </tr>
+					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon"><i class="fa fa-file-photo-o"></i></span>
@@ -245,9 +251,10 @@
 					</table>
 					</form>
 				</div>
-			</div>
+
 		</div>
 
+	</div>
 
 	<div class="col-xs-12 col-md-1"></div>
 
