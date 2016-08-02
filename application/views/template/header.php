@@ -30,10 +30,8 @@
 		
 		.login{
 
-			background:#CCC;
+			background:#F0F0F2;
 			padding-top:4em;
-			max-width:500px;
-			min-height:250px;
 			border-radius:10px;
 			padding: 15px;
 			margin: 1% auto 0 auto;
@@ -62,6 +60,7 @@
 			.login form .input-group {
 			  border-bottom: 1px solid #AAA;
 			  border-top: 1px solid rgba(255, 255, 255, 0.1);
+			  width: 100%;
 			}
 			.login form .input-group:last-of-type {
 			  border-top: none;
@@ -73,11 +72,10 @@
 			}
 			.login form .input-group span i {
 			  font-size: 1.5em;
-			  
+			  width: 50px;
 			}
 			.login form input.form-control {
 			  display: block;
-			  width: auto;
 			  height: auto;
 			  border: none;
 			  outline: none;
@@ -86,7 +84,6 @@
 			  border-radius: 0px;
 			  padding: 10px;
 			  font-size: 1.6em;
-			  width: 100%;
 			  background: transparent;
 			  color: black;
 			}
@@ -132,3 +129,5 @@
 </head>
 
 <body>
+
+				
