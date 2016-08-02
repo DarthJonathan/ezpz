@@ -11,8 +11,26 @@
 			//Check if the thing is present
 			$check = array(
 
-				'username' 	=> $data['username'],
-				'email'		=> $data['email']
+				'username' 	=> $data['username']
+
+				);
+
+			//Check On The User Database
+			if($this->db->get_where('user', $check)->num_rows() > 0)
+			{
+				$flag++;
+			}
+			
+			//Check On The Driver Database
+			if ($this->db->get_where('driver', $check)->num_rows() > 0)
+			{
+				$flag++;
+			}
+
+			//Check if the thing is present
+			$check = array(
+
+				'email' 	=> $data['email']
 
 				);
 

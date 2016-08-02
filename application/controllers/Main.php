@@ -92,7 +92,7 @@
 					//Check if The Username is unique
 					if(!$this->login_model->insert_data_new_user('driver', $data))
 					{
-						$this->session->set_flashdata('error', 'Username has been Registered 2');
+						$this->session->set_flashdata('error', 'Username or Password has been Registered');
 						redirect('main');
 					}else
 					{
