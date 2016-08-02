@@ -115,7 +115,8 @@
 				$password = $this->input->post('password');
 
 				$this->load->model('login_model');
-				if(!$data_user = $this->login_model->getUserdata($username))
+				$data_username = array('username'  => $username);
+				if(!$data_user = $this->login_model->getUserdata($data_username))
 				{
 					$this->session->set_flashdata('error', 'Username or Password is Wrong (debug 1)');
 					redirect('main');
@@ -160,6 +161,43 @@
 			}else
 			{
 				redirect('main');
+			}
+		}
+
+		public function forget ($param1 = 'forget')
+		{
+			if($param1 == 'forget')
+			{
+				$data['page_title'] = 'Login';
+				$this->load->view('template/header', $data);
+				$this->load->view('logins/forget', $data);
+				$this->load->view('template/footer', $data);
+			}else if($param1 == 'reset')
+			{
+				$email = $this->input->post('email');
+				$new_pass = substr(md5(microtime()),rand(0,26),5);
+				$this->load->model('login_model');
+
+				$user_data = array('email' => $email);
+
+				if($this->login_model->getUserdata($user_data))
+				{
+					$data = array (
+
+					'password'  => $new_pass
+
+					);
+
+					if($this->login_model->resetPassword($email, $data))
+					{
+						$this->session->set_flashdata('success', 'Reset Password Success! Please Check Your Email!');
+						redirect('main');
+					}
+				}else
+				{
+					$this->session->set_flashdata('error', 'No Account Registered With That Email!');
+					redirect('main');
+				}
 			}
 		}
 
