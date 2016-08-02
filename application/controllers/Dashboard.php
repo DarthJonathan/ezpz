@@ -4,17 +4,18 @@
 	class Dashboard extends CI_Controller{
 
 		public function index(){
-			$this->load->view('template/header');
 
 				if(!$this->session->userdata('user_id'))
 				{
 					redirect(base_url());
 				}else
 				{
-					echo 'logged_in';
+					$data['page_title']	= 'Dashboard';
+					$this->load->view('dashboard/template/header', $data);
+					$this->load->view('dashboard/dashboard.php');
 				}
 
-			$this->load->view('template/footer');
+			$this->load->view('dashboard/template/footer');
 		}
 
 		public function logout ()
@@ -23,7 +24,7 @@
 			redirect('main');
 		}
 
-		
+
 
 	}
 

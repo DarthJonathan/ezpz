@@ -4,11 +4,12 @@
 	class Main extends CI_Controller{
 
 		public function index(){
-			$this->load->view('template/header');
 
 				if(!$this->session->userdata('user_id'))
 				{
-					$this->load->view('logins/login_user');
+					$data['page_title'] = 'Login';
+					$this->load->view('template/header', $data);
+					$this->load->view('logins/login_user', $data);
 				}else
 				{
 					redirect('dashboard');
@@ -19,17 +20,20 @@
 
 		public function signup($mode = 'user')
 		{
-			$this->load->view('template/header');
 
 				if(!$this->session->userdata('user_id'))
 				{
 					if($mode == 'user')
 					{
-						$this->load->view('logins/signup_form');
+						$data['page_title'] = 'Sign Up User';
+						$this->load->view('template/header', $data);
+						$this->load->view('logins/signup_form', $data);
 					}
 						else if($mode == 'driver')
 					{
-						$this->load->view('logins/signup_form_driver');
+						$data['page_title'] = 'Sign Up Driver';
+						$this->load->view('template/header', $data);
+						$this->load->view('logins/signup_form_driver', $data);
 					}
 				}else
 				{
@@ -38,29 +42,12 @@
 			$this->load->view('template/footer');
 		}
 
-		public function signup_submit(){
+		public function signup_submit($mode = 'user'){
 			
-			if($this->input->post('submit'))
+			if($this->input->post())
 			{
-					// //configuration
-					// $config['upload_path'] 		= './uploads/';
-					// $config['file_name']		= 'profile_picture.jpg';
-					// $config['allowed_types'] 	= 'jpg';
-					// $config['max_size'] 		= 5000;
-					
-					// //initialization
-					// $this->upload->initialize($config);
-
-					// //upload
-					// if($this->upload->do_upload('image')){
-						
-					// 	$photo_link = $config['upload_path'] . $config['file_name'];
-
-					// }else
-					// {
-					// 	$error = array('error' => $this->upload->display_errors());
-					// 	$this->session->set_flashdata('error', $error);
-					// }
+				if($mode == 'user')
+				{
 
 					$data = array(
 
@@ -75,15 +62,44 @@
 					$this->load->model('login_model');
 
 					//Check if The Username is unique
-					if(!$this->login_model->insert_data_new_user($data))
+					if(!$this->login_model->insert_data_new_user('user', $data))
 					{
-						$this->session->set_flashdata('error', 'Username has been Registered');
+						$this->session->set_flashdata('error', 'Username has been Registered 1');
 						redirect('main');
 					}else
 					{
 						$this->session->set_flashdata('success', 'User has been added');
 						redirect('main');
 					}
+
+				}else if($mode == 'driver')
+				{
+					$data = array(
+
+						'username' 			=> $this->input->post('username'),
+						'password' 			=> password_hash($this->input->post('password'),PASSWORD_BCRYPT),
+						'email' 			=> $this->input->post('email'),
+						'phone'		 		=> $this->input->post('telephone'),
+						'address' 			=> $this->input->post('address'),
+						'ird'	 			=> $this->input->post('ird_number'),
+						'driver_licence' 	=> $this->input->post('driver_license'),
+						'licence_type' 		=> $this->input->post('license_type')
+
+						);
+
+					$this->load->model('login_model');
+
+					//Check if The Username is unique
+					if(!$this->login_model->insert_data_new_user('driver', $data))
+					{
+						$this->session->set_flashdata('error', 'Username has been Registered 2');
+						redirect('main');
+					}else
+					{
+						$this->session->set_flashdata('success', 'User has been added');
+						redirect('main');
+					}
+				}
 			}else
 			{
 				$this->session->set_flashdata('error', 'Please Fill All The Forms!');
@@ -107,16 +123,33 @@
 				{
 					if(password_verify($password, $data_user->password))
 					{
-						$session_user 	= array (
+						if($data_user->driver_licence == NULL)
+						{
+							$session_user 	= array (
 
-							'username'		=> $username,
-							'user_id'		=> $data_user->id,
-							'isLogged'		=> TRUE
-							
-						);
-						$this->session->set_userdata($session_user);
+								'username'		=> $username,
+								'user_id'		=> $data_user->id,
+								'isLogged'		=> TRUE,
+								'type'			=> 'user'
+								
+							);
+							$this->session->set_userdata($session_user);
 
-						redirect('/dashboard');
+							redirect('/dashboard');
+						}else
+						{
+							$session_user 	= array (
+
+								'username'		=> $username,
+								'user_id'		=> $data_user->id,
+								'isLogged'		=> TRUE,
+								'type'			=> 'driver'
+								
+							);
+							$this->session->set_userdata($session_user);
+
+							redirect('/dashboard');
+						}
 					}else
 					{
 						$this->session->set_flashdata('error', 'Username or Password is Wrong (debug 2)');

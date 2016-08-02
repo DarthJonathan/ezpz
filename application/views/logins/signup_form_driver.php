@@ -1,9 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<div class="container">
+		
 		<div class="col-md-1"></div>
 
 			<div class="col-md-10">
 				<div class="login">
-					<?php echo form_open('main/signup_submit') ?>
+					<?php echo form_open('main/signup_submit/driver') ?>
 					<table align="center">
 						<tr>
 					    	<td>
@@ -65,7 +67,7 @@
 					    	<td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon">Driver License</span>
-					            <input type="text" name = "driver_license" class="form-control" placeholder="E-mail">
+					            <input type="text" name = "driver_license" class="form-control" placeholder="Licence Number">
 					        </div>
 					    	</td>
 					    </tr>
@@ -81,32 +83,12 @@
 					        </div>
 					    	</td>
 					    </tr>
-					    <tr>
-					    <td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">Photo License (Front)</span>
-					            <input type="file" name = "front-license" class="form-control" placeholder="Photo">
-					        </div>
-					    </td>
-					    </tr>
-					    <tr>
-					    <td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">Photo License (Back)</span>
-					            <input type="file" name = "back-license" class="form-control" placeholder="Photo">
-					        </div>
-					    </td>
-					    </tr>
 					   	<tr>
-					    	<td><a href="<?php echo base_url('main/signup_submit')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up</a></td>
+					    	<td><input type="submit" name="submit" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;" value="Sign Up"></td>
 						</tr>
 					</table>
 					</form>
 				</div>
 			</div>
 		</div>
-
-
-	<div class="col-xs-12 col-md-1"></div>
-
 </div>
