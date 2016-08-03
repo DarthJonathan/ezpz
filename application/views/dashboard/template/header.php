@@ -133,3 +133,31 @@
 </head>
 
 <body>
+<!--NavBar-->
+<div class="container-fluid">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span> 
+	      </button>
+	      <a class="navbar-brand" href="#">EZPZ</a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav navbar-left">
+	        <li class="active"><a href="#" class="nav-link">Home</a></li>
+	        <li><a href="#" class="nav-link">About Us</a></li>
+	        <li><a href="#" class="nav-link">Restaurants</a></li> 
+	        <li><a href="#" class="nav-link">Top Up Wallet</a></li> 
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+</div>
+<!--Navbar End-->
