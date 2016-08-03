@@ -14,7 +14,7 @@
 
 	<div class="col-md-10 col-xs-12">
 		<div class="login">
-			<?php echo form_open('main/signup_submit/driver', array('name'=>'signup_driver_form', 'id'=>'signUpDriverForm', 'onSubmit' => 'form_validation(); return false;')) ?>
+			<?php echo form_open('accounts/signup_submit/driver', array('name'=>'signup_driver_form', 'id'=>'signUpDriverForm', 'onSubmit' => 'form_validation(); return false;')) ?>
 			<table align="center">
 				<tr>
 					<td>

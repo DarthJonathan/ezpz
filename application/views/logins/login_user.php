@@ -15,12 +15,32 @@ if($this->session->flashdata('failed')): ?>
 	</div>
 <?php endif; ?>
 
+<script>
+
+function formValidate ()
+{
+	var username = document.forms["loginForm"]["username"].value;
+	var password = document.forms["loginForm"]["password"].value;
+
+	if(username == null || username == '' && password == null || password == '')
+	{
+		alert('Please Fill All Login Form');
+		return false;
+	}
+	else
+	{
+		document.getElementById('loginForm').submit();
+	}
+}
+
+</script>
+
 		<div class="col-md-4">	</div>
 
 		<div class="col-md-4">
 
 				<div class="login">
-					<?php echo form_open('main/login', array ("id" => "loginForm")) ?>
+					<?php echo form_open('accounts/login', array ("id" => "loginForm", 'name' => 'loginForm', 'onSubmit' => 'formValidate(); return false')) ?>
 					<table align="center">
 						<tr>
 					    	<td>
@@ -33,7 +53,7 @@ if($this->session->flashdata('failed')): ?>
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-					            <input type="text" name ="username" class="form-control" placeholder="Username">
+					            <input type="text" name ="username" class="form-control" id="username" placeholder="Username" required>
 					        </div>
 					    </td>
 					    </tr>
@@ -41,7 +61,7 @@ if($this->session->flashdata('failed')): ?>
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-					            <input type="password" name = "password" class="form-control" placeholder="Password">
+					            <input type="password" name = "password" id="password" class="form-control" placeholder="Password" required>
 					        </div>
 					    </td>
 					    </tr>
@@ -49,13 +69,13 @@ if($this->session->flashdata('failed')): ?>
 					    	<td><input type="submit" name="submit" value="Login" onClick="submitForm ()" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;"></td>
 						</tr>
 					   	 <tr>
-					    	<td><a href="<?php echo base_url('main/signup')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up</a></td>
+					    	<td><a href="<?php echo base_url('accounts/signup')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up</a></td>
 						</tr>
 						<tr>
-					    	<td><a href="<?php echo base_url('main/signup/driver')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up as Driver</a></td>
+					    	<td><a href="<?php echo base_url('accounts/signup/driver')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up as Driver</a></td>
 						</tr>
 						<tr>
-					    	<td><a href="<?php echo base_url('main/forget')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Forget Password</a></td>
+					    	<td><a href="<?php echo base_url('accounts/forget')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Forget Password</a></td>
 						</tr>
 					</table>
 					</form>

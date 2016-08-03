@@ -18,7 +18,8 @@
 	<div class="col-md-6 col-xs-12">	
 
 					<div class="login">
-						<?php echo form_open('main/signup_submit',array('name'=>'signup_user_form', 'id'=>'signUpUserForm', 'onSubmit' => 'form_validation(); return false;')) ?>
+						<?php echo form_open('accounts/signup_submit', array('name'=>'signup_user_form', 'id'=>'signUpUserForm', 'onSubmit' => 'form_validation(); return false;') ) ?>
+
 						<table align="center">
 							<tr>
 						    	<td>
