@@ -12,11 +12,11 @@
 	      <a class="navbar-brand" href="#">EZPZ</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
-	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#">Home</a></li>
-	        <li><a href="#">About Us</a></li>
-	        <li><a href="#">Restaurants</a></li> 
-	        <li><a href="#">Top Up Wallet</a></li> 
+	      <ul class="nav navbar-nav navbar-left">
+	        <li class="active"><a href="#" class="nav-link">Home</a></li>
+	        <li><a href="#" class="nav-link">About Us</a></li>
+	        <li><a href="#" class="nav-link">Restaurants</a></li> 
+	        <li><a href="#" class="nav-link">Top Up Wallet</a></li> 
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
 	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -51,7 +51,7 @@
 <div class="container-fluid food">
 	<div class="container">
 	<div class="row">
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 		    <div class="hovereffect">
 		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
 		            <div class="overlay">
@@ -62,7 +62,7 @@
 		            </div>
 		    </div>
 		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 		    <div class="hovereffect">
 		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
 		            <div class="overlay">
@@ -73,7 +73,7 @@
 		            </div>
 		    </div>
 		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 		    <div class="hovereffect">
 		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
 		            <div class="overlay">
@@ -84,7 +84,7 @@
 		            </div>
 		    </div>
 		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 		    <div class="hovereffect">
 		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
 		            <div class="overlay">
@@ -97,7 +97,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 		    <div class="hovereffect">
 		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
 		            <div class="overlay">
@@ -108,7 +108,7 @@
 		            </div>
 		    </div>
 		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 		    <div class="hovereffect">
 		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
 		            <div class="overlay">
@@ -119,7 +119,7 @@
 		            </div>
 		    </div>
 		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 		    <div class="hovereffect">
 		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
 		            <div class="overlay">
@@ -130,7 +130,7 @@
 		            </div>
 		    </div>
 		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
 		    <div class="hovereffect">
 		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
 		            <div class="overlay">

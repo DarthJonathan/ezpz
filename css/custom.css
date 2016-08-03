@@ -1,6 +1,9 @@
 /*For navbar*/
-.nav .navbar-nav li>a{
+.nav.navbar-nav.navbar-left a,.nav.navbar-nav.navbar-right a{
 	color: #fff;
+}
+.nav.navbar-nav.navbar-left a:hover,.nav.navbar-nav.navbar-right a:hover{
+	color: #e67e22;
 }
 /*Css for the full width image div*/
 .image-full{
@@ -12,7 +15,7 @@
 	width: 50%;
 }
 
-/*For the section*/
+/*For the food section*/
 .section-head{
 	height: 60px;
 	background-color: #000;
@@ -22,6 +25,9 @@
 }
 .section-head h3{
 	margin-top: 15px;
+}
+.food{
+	margin-bottom: 20px;
 }
 /*Image + Hover*/
 .hovereffect {
