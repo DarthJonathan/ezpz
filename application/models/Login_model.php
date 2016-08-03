@@ -76,7 +76,9 @@
 								Password :" . $data['password'] . "\n
 								
 								For Safety Please Quickly Change Your Password!";
-					$headers = 'From: noreply@ezpz.com' . "\r\n" .
+
+					$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+					$headers .= 'From: noreply@ezpz.com' . "\r\n" .
 								'Reply-To: jonathan.hosea@gethassee.com' . "\r\n" .
 								'X-Mailer: PHP/' . phpversion();
 					
@@ -103,7 +105,9 @@
 								Password :" . $data['password'] . "\n
 								
 								For Safety Please Quickly Change Your Password!";
-					$headers = 'From: noreply@ezpz.com' . "\r\n" .
+
+					$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+					$headers .= 'From: noreply@ezpz.com' . "\r\n" .
 								'Reply-To: jonathan.hosea@gethassee.com' . "\r\n" .
 								'X-Mailer: PHP/' . phpversion();
 					
@@ -150,7 +154,85 @@
 		public function email($type, $email, $data)
 		{
 			if($type == 'new_password')
-			{}
+			{
+					$to = $email;
+					$subject = "Your Reseted Password";
+					$message = "Hello!
+								Here is your reseted password\n
+								
+								Password :" . $data . "\n
+								
+								For Safety Please Quickly Change Your Password!";
+
+					$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+					$headers .= 'From: noreply@ezpz.com' . "\r\n" .
+								'Reply-To: jonathan.hosea@gethassee.com' . "\r\n" .
+								'X-Mailer: PHP/' . phpversion();
+					
+					if(!mail($to, $subject, $message, $headers))
+					{
+						return false;
+					}
+			}else if($type == 'verify_account')
+			{
+					$to = $email;
+					$subject = "Your to Your New EZPZ Account!";
+					$message = "Hello!
+								Here is your link for account verification\n";
+								
+					$message .=	'<a href=' . '"' . $data . '">Click Here to Verify.</a>';
+								
+					$message .=	" Please Enjoy Our Services!";
+
+					$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+					$headers .= 'From: noreply@ezpz.com' . "\r\n" .
+								'Reply-To: jonathan.hosea@gethassee.com' . "\r\n" .
+								'X-Mailer: PHP/' . phpversion();
+					
+					if(!mail($to, $subject, $message, $headers))
+					{
+						return false;
+					}
+			}
+		}
+
+		public function verify_account($md5)
+		{
+
+				$seperated_code = explode('~', $md5);
+				$data = array(
+
+					'username' => $seperated_code[0], 
+					'verification_code' => $seperated_code[1]
+
+					);
+
+
+				$set = array (
+						
+					'is_verified' 			=> 1,
+					'verification_code'		=> NULL
+
+					);
+
+				if($this->db->get_where('user', $data)->num_rows() > 0)
+				{
+
+					$this->db->set($set);
+					$this->db->where($data);
+					return $this->db->update('user');
+
+				}else if($this->db->get_where('driver', $data)->num_rows() > 0)
+				{
+					
+					$this->db->set($set);
+					$this->db->where($data);
+					return $this->db->update('driver');
+
+				}else
+				{
+					return false;
+				}
 		}
 		
 	}

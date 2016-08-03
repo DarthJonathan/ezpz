@@ -7,7 +7,7 @@
 
 				if(!$this->session->userdata('user_id'))
 				{
-					redirect(base_url());
+					redirect('accounts/');
 				}else
 				{
 					$data['page_title']	= 'Dashboard';
@@ -213,11 +213,11 @@
 				$data_username = array('username'  => $this->session->userdata('username'));
 				$data_user = $this->login_model->getUserdata($data_username);
 
-				if(password_verify($password, password_hash($data_user->password, PASSWORD_BCRYPT)))
+				if(password_verify($password, $data_user->password))
 				{
-					$new_data = array('password' => $newpass);
+					$new_data = array('password' => password_hash($newpass, PASSWORD_BCRYPT));
 
-					if($this->login_model->updateUserdata($this->session->set('type'), $new_data))
+					if($this->login_model->updateUserdata($this->session->userdata('type'), $new_data))
 		            {
 		                $this->session->set_flashdata('success', 'Updating Password Success!');
 		                $this->login_model->email('new_password', $data_user->email, $new_data);

@@ -17,7 +17,7 @@ if($this->session->flashdata('failed')): ?>
 
 		
 		<div class="login">
-			<?php echo form_open('main/forget/reset', array ("id" => "loginForm")) ?>
+			<?php echo form_open('accounts/forget/reset', array ("id" => "loginForm")) ?>
 			<table align="center">
 				<tr>
 			    	<td>

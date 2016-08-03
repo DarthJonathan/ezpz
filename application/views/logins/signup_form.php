@@ -18,7 +18,7 @@
 	<div class="col-md-6 col-xs-12">	
 			
 					<div class="login">
-						<?php echo form_open('main/signup_submit') ?>
+						<?php echo form_open('accounts/signup_submit') ?>
 						<table align="center">
 							<tr>
 						    	<td>
