@@ -130,10 +130,10 @@
 		{
 			if($this->db->get_where('user', $data)->num_rows() > 0)
 			{
-				return $this->db->get('user')->row();
+				return $this->db->get_where('user', $data)->row();
 			}else if($this->db->get_where('driver', $data)->num_rows() > 0)
 			{
-				return $this->db->get('driver')->row();
+				return $this->db->get_where('driver', $data)->row();
 			}else
 			{
 				return false;
