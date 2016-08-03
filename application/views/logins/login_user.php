@@ -15,12 +15,28 @@ if($this->session->flashdata('failed')): ?>
 	</div>
 <?php endif; ?>
 
+<script>
+
+function formValidate ()
+{
+	var username = document.forms["loginForm"]["username"].value;
+	var password = document.forms["loginForm"]["password"].value;
+
+	if(username == null || username == '')
+	{
+		alert('Please Fill All Login Form');
+		return false;
+	}
+}
+
+</script>
+
 		<div class="col-md-4">	</div>
 
 		<div class="col-md-4">
 
 				<div class="login">
-					<?php echo form_open('main/login', array ("id" => "loginForm")) ?>
+					<?php echo form_open('main/login', array ("id" => "loginForm", 'name' => 'loginForm', 'onSubmit' => 'formValidate();')) ?>
 					<table align="center">
 						<tr>
 					    	<td>
@@ -33,7 +49,7 @@ if($this->session->flashdata('failed')): ?>
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-					            <input type="text" name ="username" class="form-control" placeholder="Username">
+					            <input type="text" name ="username" class="form-control" id="username" placeholder="Username">
 					        </div>
 					    </td>
 					    </tr>
@@ -41,7 +57,7 @@ if($this->session->flashdata('failed')): ?>
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-					            <input type="password" name = "password" class="form-control" placeholder="Password">
+					            <input type="password" name = "password" id="password" class="form-control" placeholder="Password">
 					        </div>
 					    </td>
 					    </tr>
