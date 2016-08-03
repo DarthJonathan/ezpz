@@ -1,28 +1,31 @@
-.column-card{
+.card{
 	box-sizing:border-box; 
 	box-shadow: 5px 5px 2px black; 
 	border: 2px solid black;
-}
-
-
-.card{
-	height:100px; 
-	width:200px;
-	padding: 10px;  
+	margin: 1%;
+	height:150px;  
 	overflow:hidden;
 }
 
 
 .card-body{
-	height:80px; 
-	width:100px; 
-	float:left;
+	height:100%;
+	width:65%; 
+	float:right;
 }
 
 
 .image{
-	height:80px; 
-	width:80px; 
+	height:100%; 
+	width:35%; 
 	float:left;
+}
+
+.image i{
+	margin-left: 25%;
+}
+
+.brand{
+	font-weight: bold;
 }
 
