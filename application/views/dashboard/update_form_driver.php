@@ -91,6 +91,48 @@ function formValidate ()
 						</tr>
 					</table>
 					</form>
+
+					<?php echo form_open('dashboard/change_password/submit') ?>
+					<table align="center">
+						<tr>
+					    	<td>
+					        	<div class="heading">
+					            	<h3>Update Driver Password</h3>
+					            	<hr>
+					            </div>
+					        </td>
+					    </tr>
+						<tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					            <input type="password" name ="old_password" class="form-control" placeholder="Old Password" required="required">
+					        </div>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					            <input type="password" name ="new_password" class="form-control" placeholder="New Password" required="required">
+					        </div>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					            <input type="password" name ="conf_password" class="form-control" placeholder="Confirm Password" required="required">
+					        </div>
+					    </td>
+					    </tr>
+					   	<tr>
+					    	<td>
+					    	<input type="submit" name="submit" value="Update" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;">
+					    	</td>
+						</tr>
+					</table>
+					</form>
 				</div>
 
 		</div>

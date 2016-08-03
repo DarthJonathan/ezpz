@@ -128,11 +128,10 @@
 
 		public function getUserdata ($data = '')
 		{
-			$this->db->where($data);
-			if($this->db->get('user')->num_rows() > 0)
+			if($this->db->get_where('user', $data)->num_rows() > 0)
 			{
 				return $this->db->get('user')->row();
-			}else if($this->db->get('driver')->num_rows() > 0)
+			}else if($this->db->get_where('driver', $data)->num_rows() > 0)
 			{
 				return $this->db->get('driver')->row();
 			}else
@@ -146,6 +145,12 @@
 			$this->db->set($data);
 			$this->db->where('id', $this->session->userdata('user_id'));
 			return $this->db->update($table);
+		}
+
+		public function email($type, $email, $data)
+		{
+			if($type == 'new_password')
+			{}
 		}
 		
 	}
