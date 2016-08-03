@@ -64,7 +64,7 @@
 					//Check if The Username is unique
 					if(!$this->login_model->insert_data_new_user('user', $data))
 					{
-						$this->session->set_flashdata('error', 'Username has been Registered 1');
+						$this->session->set_flashdata('error', 'Username or Email has been Registered');
 						redirect('main');
 					}else
 					{
@@ -92,7 +92,7 @@
 					//Check if The Username is unique
 					if(!$this->login_model->insert_data_new_user('driver', $data))
 					{
-						$this->session->set_flashdata('error', 'Username or Password has been Registered');
+						$this->session->set_flashdata('error', 'Username or Email has been Registered');
 						redirect('main');
 					}else
 					{
@@ -107,6 +107,7 @@
 			}
 		}
 
+		
 		public function login ()
 		{
 			if($this->input->post())
@@ -126,10 +127,22 @@
 					{
 						if($data_user->driver_licence == NULL)
 						{
+							//Check if user have completed their data
+							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo_front == NULL && $data_user->photo_back == NULL)
+							{
+								$complete = FALSE;
+							}else
+							{
+								$complete = True;
+							}
+
+							//Set the session for login
 							$session_user 	= array (
 
 								'username'		=> $username,
+								'name'			=> $data_user->firstname .' '. $data_user->lastname,
 								'user_id'		=> $data_user->id,
+								'data_complete'	=> $complete,
 								'isLogged'		=> TRUE,
 								'type'			=> 'user'
 								
@@ -138,11 +151,22 @@
 
 							redirect('/dashboard');
 						}else
-						{
+						{	//Check if user have completed their data
+							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo == NULL)
+							{
+								$complete = False;
+							}else
+							{
+								$complete = True;
+							}
+
+							//Set the session for login
 							$session_user 	= array (
 
 								'username'		=> $username,
+								'name'			=> $data_user->firstname .' '. $data_user->lastname,
 								'user_id'		=> $data_user->id,
+								'data_complete'	=> $complete,
 								'isLogged'		=> TRUE,
 								'type'			=> 'driver'
 								
