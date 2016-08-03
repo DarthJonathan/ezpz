@@ -1,0 +1,28 @@
+.column-card{
+	box-sizing:border-box; 
+	box-shadow: 5px 5px 2px black; 
+	border: 2px solid black;
+}
+
+
+.card{
+	height:100px; 
+	width:200px;
+	padding: 10px;  
+	overflow:hidden;
+}
+
+
+.card-body{
+	height:80px; 
+	width:100px; 
+	float:left;
+}
+
+
+.image{
+	height:80px; 
+	width:80px; 
+	float:left;
+}
+

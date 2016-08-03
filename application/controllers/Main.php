@@ -65,7 +65,7 @@
 					if(!$this->login_model->insert_data_new_user('user', $data))
 					{
 						$this->session->set_flashdata('error', 'Username has been Registered 1');
-						redirect('main');
+						redirect('main/signup');
 					}else
 					{
 						$this->session->set_flashdata('success', 'User has been added');
@@ -93,7 +93,7 @@
 					if(!$this->login_model->insert_data_new_user('driver', $data))
 					{
 						$this->session->set_flashdata('error', 'Username or Password has been Registered');
-						redirect('main');
+						redirect('main/signup');
 					}else
 					{
 						$this->session->set_flashdata('success', 'User has been added');
