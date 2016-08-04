@@ -1,3 +1,5 @@
 CREATE TABLE `ezpz`.`admin` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(255) NOT NULL , `password` VARCHAR(255) NOT NULL , `created` DATE NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 SELECT * FROM `restaurants`
 ALTER TABLE `restaurants` ADD `created` DATE NOT NULL AFTER `email`;
+
+ALTER TABLE `restaurants` CHANGE `name` `name` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `address` `address` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `cuisine` `cuisine` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `opentime` `opentime` TIME NULL, CHANGE `closetime` `closetime` TIME NULL, CHANGE `opendays` `opendays` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `longitude` `longitude` DOUBLE NULL, CHANGE `latitude` `latitude` DOUBLE NULL, CHANGE `photo` `photo` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `phone` `phone` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL, CHANGE `created` `created` DATE NULL;
