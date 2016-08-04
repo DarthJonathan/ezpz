@@ -15,40 +15,33 @@
 <div class="container-fluid padding-top-five">
 	<h2 style="margin-left:1%;">Section Name</h2>
 	<hr></hr>
-	<div class="col-md-4 col-xs-12">
-		<div class="panel panel-default panel-horizontal">
-		    <div class="panel-body">
-		        <p class="brand">Restaurant Brand</p>
-				<p>Address</p>
-				<p>Open</p>
-		    </div>
-		    <div class="panel-heading">
-		        <p>Image</p>
-		    </div>
-		</div>
-	</div>
-	<div class="col-md-4 col-xs-12">
-		<div class="panel panel-default panel-horizontal">
-		    <div class="panel-body">
-		        <p class="brand">Restaurant Brand</p>
-				<p>Address</p>
-				<p>Open</p>
-		    </div>
-		    <div class="panel-heading">
-		        <p>Image</p>
-		    </div>
-		</div>
-	</div>
-	<div class="col-md-4 col-xs-12">
-		<div class="panel panel-default panel-horizontal">
-		    <div class="panel-body">
-		        <p class="brand">Restaurant Brand</p>
-				<p>Address</p>
-				<p>Open</p>
-		    </div>
-		    <div class="panel-heading">
-		        <p>Image</p>
-		    </div>
-		</div>
-	</div>
+	<?php 
+
+	$counter=0;
+	//Get Restaurant
+	foreach($restaurants_name as $restaurant): ?>
+		<?php 
+		//Put Div row in every first of three
+		if($counter % 3 ==  0): ?>
+			<div class="row">
+		<?php endif; ?>
+
+			<div class="col-md-4 col-xs-12">
+				<div class="panel panel-default panel-horizontal">
+				    <div class="panel-body">
+				        <p class="brand"><?php echo $restaurant; ?></p>
+						<p>Address</p>
+						<p>Open</p>
+				    </div>
+				    <div class="panel-heading">
+				        <p>Image</p>
+				    </div>
+				</div>
+			</div>
+		<?php
+		//Put Div close in every three of three 
+		if($counter % 3 ==  2): ?>
+			</div>
+		<?php endif; $counter++;?>
+	<?php endforeach;?>
 </div>
