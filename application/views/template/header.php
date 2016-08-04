@@ -169,7 +169,8 @@
 	      </ul>
 		  <?php else : ?>
 		  <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#"><?php echo $this->session->userdata('username') ?></a>
+	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->session->userdata('username') ?>
+        	<span class="caret"></span></a>
 		        <ul class="dropdown-menu">
 		          <li><a href="#">Edit Profile</a></li>
 		          <li><a href="#">Change Password</a></li>
