@@ -34,8 +34,7 @@
 					
 			if(!mail($to, $subject, $message, $headers))
 			{
-				echo 'INII';
-				exit();
+				return false;
 			}
 
 			$data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
@@ -43,9 +42,15 @@
 			return $this->db->insert('restaurants', $data);
 		}
 
-		public function getUsers ($table)
+		public function getUsers ($table, $id = '')
 		{
-			
+			if($id == '')
+			{
+				return $this->db->get($table)->result();
+			}else
+			{
+				return $this->db->get_where($table, array('id' => $id))->row();
+			}
 		}
 		
 	}

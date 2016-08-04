@@ -101,6 +101,138 @@
 			}
 		}
 
+		public function users ($type = '',$id = '')
+		{
+			$this->load->model('admin_model');
+
+			switch ($type)
+			{
+				case 'user':
+				{
+					if($id == '')
+					{
+						$users = $this->admin_model->getUsers($type);
+						$data['users'] = $users;
+						$data['type']= $type;
+						$data['page_title'] = 'Reset Admin Password';
+						$this->load->view('admin/template/header', $data);
+						$this->load->view('admin/view_users', $data);
+						$this->load->view('admin/template/footer', $data);
+					}else
+					{
+						$data_user = $this->admin_model->getUsers($type, $id);
+
+						//Check if user have completed their data
+							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo == NULL)
+							{
+								$complete = False;
+							}else
+							{
+								$complete = True;
+							}
+
+						$session_user 	= array (
+
+								'username'		=> $data_user->username,
+								'name'			=> $data_user->firstname .' '. $data_user->lastname,
+								'user_id'		=> $data_user->id,
+								'data_complete'	=> $complete,
+								'is_verified'	=> $data_user->is_verified,
+								'isLogged'		=> TRUE,
+								'type'			=> 'driver'
+								
+							);
+						$this->session->set_userdata($session_user);
+						redirect('dashboard/');
+					}
+				}break;
+
+				case 'driver':
+				{
+					if($id == '')
+					{
+						$users = $this->admin_model->getUsers($type);
+						$data['users'] = $users;
+						$data['type']= $type;
+						$data['page_title'] = 'Reset Admin Password';
+						$this->load->view('admin/template/header', $data);
+						$this->load->view('admin/view_users', $data);
+						$this->load->view('admin/template/footer', $data);
+					}else
+					{
+						$data_user  = $this->admin_model->getUsers($type, $id);
+						
+						//Check if user have completed their data
+							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo_front == NULL && $data_user->photo_back == NULL)
+							{
+								$complete = FALSE;
+							}else
+							{
+								$complete = True;
+							}
+
+						$session_user 	= array (
+
+								'username'		=> $data_user->username,
+								'name'			=> $data_user->firstname .' '. $data_user->lastname,
+								'user_id'		=> $data_user->id,
+								'data_complete'	=> $complete,
+								'is_verified'	=> $data_user->is_verified,
+								'isLogged'		=> TRUE,
+								'type'			=> 'user'
+								
+							);
+						$this->session->set_userdata($session_user);
+						redirect('dashboard/');
+					}
+				}break;
+
+				case 'client':
+				{
+					if($id == '')
+					{
+						$users = $this->admin_model->getUsers('restaurants');
+						$data['users'] = $users;
+						$data['type']= $type;
+						$data['page_title'] = 'Reset Admin Password';
+						$this->load->view('admin/template/header', $data);
+						$this->load->view('admin/view_users', $data);
+						$this->load->view('admin/template/footer', $data);
+					}else
+					{
+						$data_user = $this->admin_model->getUsers('restaurants', $id);
+
+						//Check if user have completed their data
+							if($data_user->name == NULL && $data_user->address == NULL && $data_user->opentime == NULL && $data_user->closetime == NULL && $data_user->opendays == NULL && $data_user->longitude == NULL  && $data_user->latitude == NULL && $data_user->photo == NULL  && $data_user->phone == NULL)
+							{
+								$complete = FALSE;
+							}else
+							{
+								$complete = True;
+							}
+
+						$session_user 	= array (
+
+								'username'		=> $data_user->username,
+								'name'			=> $data_user->name,
+								'user_id'		=> $data_user->id,
+								'data_complete'	=> $complete,
+								'isLogged'		=> TRUE,
+								'type'			=> 'clients'
+								
+							);
+						$this->session->set_userdata($session_user);
+						redirect('dashboard/');
+					}
+				}break;
+
+				default:
+				{
+					redirect('/admin');
+				}break;
+			}
+		}
+
 		public function clients($param1 = 'new')
 		{
 			if(!$this->session->userdata('admin_isLogged'))
