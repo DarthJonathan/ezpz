@@ -57,7 +57,7 @@
 						    <td>
 						    	<div class="input-group input-group-lg">
 						            <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-						            <input type='tel' pattern='[\+]\d{4}\d{4}\d{4}' title='Phone Number (Format: +9999-9999-9999)' class="form-control" name="telephone" placeholder="Telephone">
+						            <input type='tel' pattern='[\+]\d{4}\d{4}\d{3}' title='Phone Number (Format: +9999-999-9999)' class="form-control" name="telephone" placeholder="Telephone">
 						            <!-- <input type="text" name = "telephone" class="form-control" placeholder="Telephone"> -->
 						        </div>
 						    </td>
