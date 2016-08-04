@@ -5,7 +5,7 @@
 
 		public function index(){
 
-				if(!$this->session->userdata('admin_login'))
+				if(!$this->session->userdata('admin_isLogged'))
 				{
 					$data['page_title'] = 'Login Admin';
 					$this->load->view('admin/template/header', $data);
@@ -39,9 +39,8 @@
 					{
 						$session_user = array (
 
-							'isLogged'		=> True,
-							'admin_login'	=> True,
-							'username'		=> $username
+							'admin_isLogged'		=> True,
+							'admin_username'		=> $username
 
 							);
 
@@ -100,6 +99,71 @@
 					redirect('admin/');
 				}
 			}
+		}
+
+		public function clients($param1 = 'new')
+		{
+			if(!$this->session->userdata('admin_isLogged'))
+				{
+					redirect('admin/');
+				}
+
+			if($param1 == 'new')
+			{
+				$data['page_title'] = 'New Client Account';
+				$this->load->view('admin/template/header', $data);
+				$this->load->view('admin/new_client', $data);
+				$this->load->view('admin/template/footer', $data);
+			}else if($param1 == 'submit')
+			{
+				if($this->input->post())
+				{
+					$username 	= $this->input->post('username');
+					$email 		= $this->input->post('email');
+					$password 	= substr(md5(microtime()),rand(0,26),5);
+
+					$data 		= array (
+
+						'username'	=> $username,
+						'email'		=> $email,
+						'password'	=> $password
+
+						);
+
+					$this->load->model('admin_model');
+					if($this->admin_model->createNewClient($data))
+					{
+						$this->session->set_flashdata('success', 'Create New Client Succeded!');
+						redirect('admin/');
+					}else
+					{
+						$this->session->set_flashdata('error', 'Create New Client Failed!');
+						redirect('admin/');
+					}
+
+				}else
+				{
+					redirect('admin/');
+				}
+			}else
+			{
+				redirect('admin/');
+			}
+		}
+
+		public function see_as($param1 = '')
+		{
+			if(!$this->session->userdata('admin_isLogged'))
+				{
+					redirect('admin/');
+				}
+
+		}
+
+		public function logout()
+		{
+			session_destroy();
+			redirect('main');
 		}
 
 		//For Creating a new Admin

@@ -16,8 +16,36 @@
 
 		public function createNewClient($data)
 		{
-			$pass = substr(md5(microtime()),rand(0,26),5);
+			$email = $data['email'];
 
+			$to = $email;
+			$subject = "Your Reseted Password";
+			$message = "Hello!
+						Here is your reseted password\n
+								
+						Password :" . $data['password'] . "\n
+								
+						For Safety Please Quickly Change Your Password!";
+
+			$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+			$headers .= 'From: noreply@ezpz.com' . "\r\n" .
+						'Reply-To: jonathan.hosea@gethassee.com' . "\r\n" .
+						'X-Mailer: PHP/' . phpversion();
+					
+			if(!mail($to, $subject, $message, $headers))
+			{
+				echo 'INII';
+				exit();
+			}
+
+			$data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+
+			return $this->db->insert('restaurants', $data);
+		}
+
+		public function getUsers ($table)
+		{
+			
 		}
 		
 	}
