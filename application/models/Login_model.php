@@ -68,6 +68,34 @@
 
 		}
 
+		public function getAccountType ($username)
+		{
+			//Check if the thing is present
+			$check = array(
+
+				'username' 	=> $username
+
+				);
+
+			//Check On The User Database
+			if($this->db->get_where('user', $check)->num_rows() > 0)
+			{
+				return 'user';
+			}
+			
+			//Check On The Driver Database
+			if ($this->db->get_where('driver', $check)->num_rows() > 0)
+			{
+				return 'driver';
+			}
+
+			//Check On The Clients Database
+			if ($this->db->get_where('restaurants', $check)->num_rows() > 0)
+			{
+				return 'clients';
+			}
+		}
+
 		public function resetPassword($email,  $data = array())
 		{
 			//Check if the thing is present

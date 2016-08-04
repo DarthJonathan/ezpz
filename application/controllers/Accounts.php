@@ -140,7 +140,9 @@
 				{
 					if(password_verify($password, $data_user->password))
 					{
-						if($data_user->driver_licence == NULL)
+						$type = $this->login_model->getAccountType($username);
+
+						if($type == 'driver')
 						{
 							//Check if user have completed their data
 							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo_front == NULL && $data_user->photo_back == NULL)
@@ -166,8 +168,34 @@
 							$this->session->set_userdata($session_user);
 
 							redirect('/dashboard');
+						}else if($type == 'clients')
+						{
+							//Check if user have completed their data
+							if($data_user->name == NULL && $data_user->address == NULL && $data_user->opentime == NULL && $data_user->closetime == NULL && $data_user->opendays == NULL && $data_user->longitude == NULL  && $data_user->latitude == NULL && $data_user->photo == NULL  && $data_user->phone == NULL)
+							{
+								$complete = FALSE;
+							}else
+							{
+								$complete = True;
+							}
+
+							//Set the session for login
+							$session_user 	= array (
+
+								'username'		=> $username,
+								'name'			=> $data_user->name,
+								'user_id'		=> $data_user->id,
+								'data_complete'	=> $complete,
+								'isLogged'		=> TRUE,
+								'type'			=> 'clients'
+								
+							);
+							$this->session->set_userdata($session_user);
+
+							redirect('/dashboard');
 						}else
-						{	//Check if user have completed their data
+						{	
+							//Check if user have completed their data
 							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo == NULL)
 							{
 								$complete = False;
