@@ -9,9 +9,9 @@
 			return 	$this->db->get_where('restaurants', array('name' => $name))->row();
 		}
 
-		public function get_dish_data()
+		public function get_dish_data($resto)
 		{
-			return 	$this->db->get_where('dishes', array('name' => $name))->row();
+			return 	$this->db->get_where('dishes', array('restaurant_id' => $resto))->row();
 		}
 		
 	}
