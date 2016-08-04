@@ -27,6 +27,12 @@
 				$flag++;
 			}
 
+			//Check On The Clients Database
+			if ($this->db->get_where('restaurants', $check)->num_rows() > 0)
+			{
+				$flag++;
+			}
+
 			//Check if the thing is present
 			$check = array(
 
@@ -42,6 +48,12 @@
 			
 			//Check On The Driver Database
 			if ($this->db->get_where('driver', $check)->num_rows() > 0)
+			{
+				$flag++;
+			}
+
+			//Check On The Clients Database
+			if ($this->db->get_where('restaurants', $check)->num_rows() > 0)
 			{
 				$flag++;
 			}
@@ -123,6 +135,35 @@
 				return $this->db->update('driver');
 			}
 
+			//Check On The Clients Database
+			else if ($this->db->get_where('restaurants', $check)->num_rows() > 0)
+			{
+					$to = $email;
+					$subject = "Your Reseted Password";
+					$message = "Hello!
+								Here is your reseted password\n
+								
+								Password :" . $data['password'] . "\n
+								
+								For Safety Please Quickly Change Your Password!";
+
+					$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
+					$headers .= 'From: noreply@ezpz.com' . "\r\n" .
+								'Reply-To: jonathan.hosea@gethassee.com' . "\r\n" .
+								'X-Mailer: PHP/' . phpversion();
+					
+					if(!mail($to, $subject, $message, $headers))
+					{
+						return false;
+					}
+
+				$new_data = array('password' => password_hash($data['password'], PASSWORD_BCRYPT));
+
+				$this->db->set($new_data);
+				$this->db->where($check);
+				return $this->db->update('driver');
+			}
+
 			else
 			{
 				return false;
@@ -138,6 +179,9 @@
 			}else if($this->db->get_where('driver', $data)->num_rows() > 0)
 			{
 				return $this->db->get_where('driver', $data)->row();
+			}else if($this->db->get_where('restaurants', $data)->num_rows() > 0)
+			{
+				return $this->db->get_where('restaurants', $data)->row();
 			}else
 			{
 				return false;
