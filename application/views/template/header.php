@@ -140,19 +140,27 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span> 
 	      </button>
-	      <a class="navbar-brand" href="#">EZPZ</a>
+	      <a class="navbar-brand" href="<?php echo base_url('main') ?>">EZPZ</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav navbar-left">
-	        <li class="active"><a href="#" class="nav-link">Home</a></li>
-	        <li><a href="#" class="nav-link">About Us</a></li>
+	        <li><a href="<?php echo base_url('main') ?>" class="nav-link">Home</a></li>
+	        <li><a href="<?php echo base_url('main/about/') ?>" class="nav-link">About Us</a></li>
 	        <li><a href="<?php echo base_url('restaurant/') ?>" class="nav-link">Restaurants</a></li> 
 	        <li><a href="#" class="nav-link">Top Up Wallet</a></li> 
 	      </ul>
+
+	      <?php if(!$this->session->userdata('user_id')) : ?>		
 	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	        <li><a href="<?php echo base_url('accounts/signup') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	        <li><a href="<?php echo base_url('accounts/') ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	      </ul>
+		  <?php else : ?>
+		  <ul class="nav navbar-nav navbar-right">
+	        <li><a href="<?php echo base_url('dashboard/logout') ?>"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+	      </ul>
+	  	  <?php endif; ?>
+
 	    </div>
 	  </div>
 	</nav>
