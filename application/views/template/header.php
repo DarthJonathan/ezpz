@@ -157,9 +157,14 @@
 	      </ul>
 		  <?php else : ?>
 		  <ul class="nav navbar-nav navbar-right">
-			
-	        <li><a href="#"><?php echo $this->session->userdata('username') ?></a></li>
+	        <li><a href="#"><?php echo $this->session->userdata('username') ?></a>
+		        <ul class="dropdown-menu">
+		          <li><a href="#">Edit Profile</a></li>
+		          <li><a href="#">Change Password</a></li>
+		        </ul>
+	        </li>
 	        <li><a href="<?php echo base_url('dashboard/logout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+
 	      </ul>
 	  	  <?php endif; ?>
 
