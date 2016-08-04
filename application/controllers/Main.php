@@ -5,6 +5,7 @@
 
 		public function index(){
 			$data['page_title'] = 'Home';
+			$data['cuisines']	= array('Apel', 'Udang', 'kentang', 'Irvan', ' Jonathan', 'setyawan', 'felita');
 			$this->load->view('template/header', $data);
 			$this->load->view('home', $data);	
 			$this->load->view('template/footer');
