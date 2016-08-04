@@ -19,102 +19,38 @@
 <div class="container-fluid col-sm-12 section-head">
 	<div class="container">
 	<div class="row">
-	<h3>Food Section</h3></div></div>
+	<h3>Cuisine Selections</h3></div></div>
 </div>
 <div class="container-fluid food">
 	<div class="container">
-	<div class="row">
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-		    <div class="hovereffect">
-		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
-		            <div class="overlay">
-		                <h2>Effect 12</h2>
-						<p> 
-							<a href="#">view restaurants</a>
-						</p> 
-		            </div>
-		    </div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-		    <div class="hovereffect">
-		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
-		            <div class="overlay">
-		                <h2>Effect 12</h2>
-						<p> 
-							<a href="#">view restaurants</a>
-						</p> 
-		            </div>
-		    </div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-		    <div class="hovereffect">
-		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
-		            <div class="overlay">
-		                <h2>Effect 12</h2>
-						<p> 
-							<a href="#">view restaurants</a>
-						</p> 
-		            </div>
-		    </div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-		    <div class="hovereffect">
-		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
-		            <div class="overlay">
-		                <h2>Effect 12</h2>
-						<p> 
-							<a href="#">view restaurants</a>
-						</p> 
-		            </div>
-		    </div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-		    <div class="hovereffect">
-		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
-		            <div class="overlay">
-		                <h2>Effect 12</h2>
-						<p> 
-							<a href="#">view restaurants</a>
-						</p> 
-		            </div>
-		    </div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-		    <div class="hovereffect">
-		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
-		            <div class="overlay">
-		                <h2>Effect 12</h2>
-						<p> 
-							<a href="#">view restaurants</a>
-						</p> 
-		            </div>
-		    </div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-		    <div class="hovereffect">
-		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
-		            <div class="overlay">
-		                <h2>Effect 12</h2>
-						<p> 
-							<a href="#">view restaurants</a>
-						</p> 
-		            </div>
-		    </div>
-		</div>
-		<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-		    <div class="hovereffect">
-		        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
-		            <div class="overlay">
-		                <h2>Effect 12</h2>
-						<p> 
-							<a href="#">view restaurants</a>
-						</p> 
-		            </div>
-		    </div>
-		</div>
-	</div>
+	<?php 
+
+	$counter=0;
+	//Get Restaurant
+	foreach($cuisines as $cuisine): ?>
+		<?php 
+		//Put Div row in every first of three
+		if($counter % 3 ==  0): ?>
+			<div class="row">
+		<?php endif; ?>
+
+			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+			    <div class="hovereffect">
+			        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
+			            <div class="overlay">
+			                <h2>$cuisinie</h2>
+							<p> 
+								<a href="<?php echo base_url('restaurant/cusine/$cuisine') ?>">View Restaurants</a>
+							</p> 
+			            </div>
+			    </div>
+			</div>
+		<?php
+		//Put Div close in every three of three 
+		if($counter % 3 ==  2): ?>
+			</div>
+		<?php endif; $counter++;?>
+	<?php endforeach;?>
 </div>
 
 

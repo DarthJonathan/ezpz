@@ -5,6 +5,11 @@
 .nav.navbar-nav.navbar-left a:hover,.nav.navbar-nav.navbar-right a:hover{
 	color: #e67e22;
 }
+
+/* Global */
+
+
+
 /*Css for the full width image div*/
 .image-full{
 	height: 500px;
@@ -50,6 +55,11 @@
   top: 0;
   left: 0;
   padding: 50px 20px;
+}
+
+.overlay a
+{
+  text-decoration: none;
 }
 
 .hovereffect img {
