@@ -31,17 +31,17 @@ function formValidate ()
 
 </script>
 <div class="container-fluid" style="padding-top:5%;">
+		<?php if($this->session->flashdata('error')): ?>
+			<div class="alert alert-danger">
+			<?php echo $this->session->flashdata('error') ?>
+			</div>
+		<?php endif; ?>
 		<div class="col-md-4">	</div>
 
 		<div class="col-md-4">
 
 				<div class="login">
 					<?php echo form_open('accounts/login', array ("id" => "loginForm", 'name' => 'loginForm', 'onSubmit' => 'formValidate(); return false')) ?>
-					<?php if($this->session->flashdata('error')): ?>
-							<div class="alert alert-danger" style="margin:5px auto 0px;">
-							<?php echo $this->session->flashdata('error') ?>
-							</div>
-					<?php endif; ?>
 					<table align="center">
 						<tr>
 					    	<td>
