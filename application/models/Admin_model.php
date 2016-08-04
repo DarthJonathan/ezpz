@@ -9,7 +9,12 @@
 			return $this->db->get_where('admin', $data)->row();
 		}
 
-		public function create_new_client($data)
+		public function newAdmin ($data)
+		{
+			return $this->db->insert('admin', $data);
+		}
+
+		public function createNewClient($data)
 		{
 			$pass = substr(md5(microtime()),rand(0,26),5);
 

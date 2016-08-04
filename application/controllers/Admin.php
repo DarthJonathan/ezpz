@@ -1,21 +1,23 @@
 <?php 
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class Accounts extends CI_Controller{
+	class Admin extends CI_Controller{
 
 		public function index(){
 
-				if(!$this->session->userdata('user_id'))
+				if(!$this->session->userdata('admin_login'))
 				{
-					$data['page_title'] = 'Login';
-					$this->load->view('template/header', $data);
-					$this->load->view('logins/login_user', $data);
+					$data['page_title'] = 'Login Admin';
+					$this->load->view('admin/template/header', $data);
+					$this->load->view('admin/login', $data);
 				}else
 				{
-					redirect('dashboard');
+					$data['page_title'] = 'Admin Dashboard';
+					$this->load->view('admin/template/header', $data);
+					$this->load->view('admin/dashboard', $data);
 				}
 
-			$this->load->view('template/footer');
+			$this->load->view('admin/template/footer');
 		}
 		
 		public function login ()
@@ -37,12 +39,15 @@
 					{
 						$session_user = array (
 
+							'isLogged'		=> True,
+							'admin_login'	=> True,
+							'username'		=> $username
+
 							);
-						
+
 						$this->session->set_userdata($session_user);
 
-						redirect('/admin');
-						}
+						redirect('admin/');
 					}else
 					{
 						$this->session->set_flashdata('error', 'Username or Password is Wrong (debug 2)');
@@ -52,7 +57,7 @@
 
 			}else
 			{
-				redirect('main');
+				redirect('admin/');
 			}
 		}
 
@@ -60,10 +65,10 @@
 		{
 			if($param1 == 'forget')
 			{
-				$data['page_title'] = 'Login';
-				$this->load->view('template/header', $data);
-				$this->load->view('logins/forget', $data);
-				$this->load->view('template/footer', $data);
+				$data['page_title'] = 'Reset Admin Password';
+				$this->load->view('admin/template/header', $data);
+				$this->load->view('admin/forget', $data);
+				$this->load->view('admin/template/footer', $data);
 			}else if($param1 == 'reset')
 			{
 				$email = $this->input->post('email');
@@ -83,40 +88,65 @@
 					if($this->login_model->resetPassword($email, $data))
 					{
 						$this->session->set_flashdata('success', 'Reset Password Success! Please Check Your Email!');
-						redirect('accounts/');
+						redirect('admin/');
 					}else
 					{
 						$this->session->set_flashdata('error', 'Email not sent!');
-						redirect('accounts/');
+						redirect('admin/');
 					}
 				}else
 				{
 					$this->session->set_flashdata('error', 'No Account Registered With That Email!');
-					redirect('accounts/');
+					redirect('admin/');
 				}
 			}
 		}
 
-		public function email_verify($md5 = '')
+		//For Creating a new Admin
+		public function create_new ($param1 ='')
 		{
-			if($md5 == '')
+			if($param1 == '')
 			{
-				redirect('main');
-			}else
+				$data['page_title'] = 'Create New Admin';
+				$this->load->view('admin/template/header', $data);
+				$this->load->view('admin/new', $data);
+				$this->load->view('admin/template/footer', $data);
+			}else if($param1 == 'submit')
 			{
-				$this->load->model('login_model');
-				if($this->login_model->verify_account($md5))
+				if($this->input->post())
 				{
-					$this->session->set_flashdata('success', 'Account Verification is Successful!');
-					redirect('dashboard/');
+					$username = $this->input->post('username');
+					$password = $this->input->post('password');
+					$email = $this->input->post('email');
+
+					$data = array (
+
+						'username'		=> $username,
+						'password'		=> password_hash($password, PASSWORD_BCRYPT),
+						'email'			=> $email,
+						'created'		=> date()
+
+						);
+
+					$this->load->model('admin_model');
+					if($this->admin_model->newAdmin($data))
+					{
+						$this->session->set_flashdata('success', 'Create Success!');
+						redirect('admin/');
+					}else
+					{
+						$this->session->set_flashdata('error', 'Create error!');
+						redirect('admin/');
+					}
+
 				}else
 				{
-					$this->session->set_flashdata('error', 'Account Verification is not Successful!');
-					session_destroy();
-					redirect('accounts/');
+					redirect('admin/');
 				}
+			}else
+			{
+				redirect('/admin');
 			}
-
 		}
 
 	}

@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<a href="<?php echo base_url() ?>"
+			<a href="<?php echo base_url() ?>">Create New Data</a>
 		</div>
 	</div>
 </div>
