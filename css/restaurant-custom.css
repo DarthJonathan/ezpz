@@ -1,31 +1,24 @@
-.card{
-	box-sizing:border-box; 
-	box-shadow: 5px 5px 2px black; 
-	border: 2px solid black;
-	margin-left: 1%;
-	margin-top: 5%;
-	height:150px;  
-	overflow:hidden;
+/*Image header*/
+.image-full-section{
+	height: 300px;
+	background: url(http://placehold.it/350x250);
+	padding-top: 18%;
+	background-color: #666;
+}
+/*Panel Settings*/
+.panel-horizontal .panel-heading {
+	margin-bottom: 0;
+	border-bottom: 0;
+	border-right: 1px solid transparent;
+	border-top-right-radius: 0;
+	width: 150px;
 }
 
-
-.card-body{
-	height:100%;
-	width:65%; 
-	float:right;
+.panel-horizontal .panel-body {
+	float: left;
+	padding-bottom: 0;
+	margin: 0 0 15px 150px;
 }
-
-
-.image{
-	height:100%; 
-	width:35%; 
-	float:left;
-}
-
-.image i{
-	margin-left: 25%;
-}
-
 .brand{
 	font-weight: bold;
 }
