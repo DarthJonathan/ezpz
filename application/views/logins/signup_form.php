@@ -1,30 +1,23 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<?php if($this->session->flashdata('error')): ?>
-  	<div class="alert alert-danger">
-  		<?php echo $this->session->flashdata('error'); ?>
-  	</div>
-<?php endif; ?>
-
-		
+<div class="container-fluid" style="padding-top:5%;">		
 <div class="col-md-1">	</div>
-
 <div class="col-md-10 col-xs-12">	
-
-	<div class="col-md-6 col-xs-12">
-		
-			
+	<div class="col-md-6 col-xs-12">			
 	</div>
-
 	<div class="col-md-6 col-xs-12">	
-
 					<div class="login">
 						<?php echo form_open('accounts/signup_submit', array('name'=>'signup_user_form', 'id'=>'signUpUserForm', 'onSubmit' => 'form_validation(); return false;') ) ?>
+						<?php if($this->session->flashdata('error')): ?>
+							  	<div class="alert alert-danger">
+	  							<?php echo $this->session->flashdata('error'); ?>
+	  							</div>
+						<?php endif; ?>
 
 						<table align="center">
 							<tr>
 						    	<td>
 						        	<div class="heading">
-						            	<h3>Register User Account</h3>
+						            	<h3 style="margin-bottom:0px;">Register User Account</h3>
 						            	<hr>
 						            </div>
 						        </td>
@@ -86,6 +79,7 @@
 </div>
 
 <div class="col-md-1">	</div>
+</div>
 
 <script type="text/javascript">
 

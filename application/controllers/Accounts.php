@@ -69,12 +69,14 @@
 					if(!$this->login_model->insert_data_new_user('user', $data))
 					{
 						$this->session->set_flashdata('error', 'Username or Email has been Registered');
-						redirect('accounts');
+
+						redirect('accounts/');
 					}else
 					{
 						$this->login_model->email('verify_account', $data['email'], $verification_string);
 						$this->session->set_flashdata('success', 'User has been added');
-						redirect('accounts');
+
+						redirect('accounts/');
 					}
 
 				}else if($mode == 'driver')
@@ -101,12 +103,16 @@
 					if(!$this->login_model->insert_data_new_user('driver', $data))
 					{
 						$this->session->set_flashdata('error', 'Username or Email has been Registered');
-						redirect('accounts');
+
+						redirect('accounts/');
+
 					}else
 					{
 						$this->login_model->email('verify_account', $data['email'], $verification_string);
 						$this->session->set_flashdata('success', 'User has been added');
-						redirect('accounts');
+
+						redirect('accounts/');
+
 					}
 				}
 			}else
@@ -256,7 +262,7 @@
 				{
 					$this->session->set_flashdata('error', 'Account Verification is not Successful!');
 					session_destroy();
-					redirect('main');
+					redirect('accounts/');
 				}
 			}
 
