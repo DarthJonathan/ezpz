@@ -79,15 +79,7 @@
 					    <tr>
 					    	<td><input type="submit" name="submit" value="Login" onClick="submitForm ()" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;"></td>
 						</tr>
-					   	 <tr>
-					    	<td><a href="<?php echo base_url('accounts/signup')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up</a></td>
-						</tr>
-						<tr>
-					    	<td><a href="<?php echo base_url('accounts/signup/driver')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Sign Up as Driver</a></td>
-						</tr>
-						<tr>
-					    	<td><a href="<?php echo base_url('accounts/forget')?>" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;">Forget Password</a></td>
-						</tr>
+					   	 
 					</table>
 					</form>
 					

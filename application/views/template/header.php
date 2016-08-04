@@ -157,7 +157,9 @@
 	      </ul>
 		  <?php else : ?>
 		  <ul class="nav navbar-nav navbar-right">
-	        <li><a href="<?php echo base_url('dashboard/logout') ?>"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+			
+	        <li><a href="#"><?php echo $this->session->userdata('username') ?></a></li>
+	        <li><a href="<?php echo base_url('dashboard/logout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 	      </ul>
 	  	  <?php endif; ?>
 

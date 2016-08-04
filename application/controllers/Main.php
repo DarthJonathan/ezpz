@@ -23,10 +23,10 @@
 			$this->load->view('template/header',$data);
 			$this->load->view('add_partner');
 			$this->load->view('template/footer');
-
-			
-
 		}
+
+
+
 	}
 
  ?>
