@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-		
+<div class="container-fluid padding-top-five">
 <?php if($this->session->flashdata('error')): ?>
 	<div class="alert alert-danger">
 		<?php echo $this->session->flashdata('error') ?>
@@ -28,10 +28,7 @@ function formValidate ()
 }
 
 </script>
-
-		<div class="col-md-6"></div>
-
-		<div class="col-md-6">	
+		<div class="col-md-12">	
 		
 				<div class="login">
 					<?php echo form_open_multipart('dashboard/complete_data/submit/driver') ?>
