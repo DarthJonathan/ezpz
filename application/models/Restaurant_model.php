@@ -6,12 +6,12 @@
 
 		public function get_restaurant_data($name)
 		{
-			return 	$this->db->get
+			return 	$this->db->get_where('restaurants', array('name' => $name))->row();
 		}
 
 		public function get_dish_data()
 		{
-
+			return 	$this->db->get_where('dishes', array('name' => $name))->row();
 		}
 		
 	}
