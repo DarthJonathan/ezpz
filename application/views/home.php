@@ -30,7 +30,7 @@
 	foreach($cuisines as $cuisine): ?>
 		<?php 
 		//Put Div row in every first of three
-		if($counter % 3 ==  0): ?>
+		if($counter % 4 ==  0): ?>
 			<div class="row">
 		<?php endif; ?>
 
@@ -38,7 +38,7 @@
 			    <div class="hovereffect">
 			        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
 			            <div class="overlay">
-			                <h2>$cuisinie</h2>
+			                <h2><?php echo $cuisine; ?></h2>
 							<p> 
 								<a href="<?php echo base_url('restaurant/cusine/$cuisine') ?>">View Restaurants</a>
 							</p> 
@@ -47,7 +47,7 @@
 			</div>
 		<?php
 		//Put Div close in every three of three 
-		if($counter % 3 ==  2): ?>
+		if($counter % 4 ==  3): ?>
 			</div>
 		<?php endif; $counter++;?>
 	<?php endforeach;?>
