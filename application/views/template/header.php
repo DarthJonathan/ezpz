@@ -6,12 +6,12 @@
 	<title><?php echo $page_title; ?> - EZPZ</title>
     
     <!-- Stylesheet -->
+    <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/flat-ui.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
     <!-- Begin Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/flat-ui.min.js"></script>
     
@@ -146,7 +146,7 @@
 	      <ul class="nav navbar-nav navbar-left">
 	        <li class="active"><a href="#" class="nav-link">Home</a></li>
 	        <li><a href="#" class="nav-link">About Us</a></li>
-	        <li><a href="<?php echo base_url('restaurant/restaurants') ?>" class="nav-link">Restaurants</a></li> 
+	        <li><a href="<?php echo base_url('restaurant/') ?>" class="nav-link">Restaurants</a></li> 
 	        <li><a href="#" class="nav-link">Top Up Wallet</a></li> 
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
