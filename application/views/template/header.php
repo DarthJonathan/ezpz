@@ -146,7 +146,7 @@
 	      <ul class="nav navbar-nav navbar-left">
 	        <li class="active"><a href="#" class="nav-link">Home</a></li>
 	        <li><a href="#" class="nav-link">About Us</a></li>
-	        <li><a href="#" class="nav-link">Restaurants</a></li> 
+	        <li><a href="<?php echo base_url('restaurant/restaurants') ?>" class="nav-link">Restaurants</a></li> 
 	        <li><a href="#" class="nav-link">Top Up Wallet</a></li> 
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
