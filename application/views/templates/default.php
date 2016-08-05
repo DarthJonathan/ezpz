@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<?php date_default_timezone_set('Asia/Jakarta'); ?>
+
 <!doctype html>
 <html>
 <head>
