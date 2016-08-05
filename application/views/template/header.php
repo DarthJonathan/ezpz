@@ -12,11 +12,18 @@
     <link href="<?php echo base_url() ?>css/flat-ui.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="<?php echo base_url() ?>css/multipicker.css" rel="stylesheet">
+	<link href="<?php echo base_url() ?>css/multipicker.min.css" rel="stylesheet">
+	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
 
     <!-- Begin Scripts -->
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="<?php echo base_url() ?>js/flat-ui.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery-3.1.0.js"></script>
+    <script src="<?php echo base_url() ?>js/multipicker.js"></script>
+    <script src="<?php echo base_url() ?>js/multipicker.min.js"></script>
+    <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
     
     <style>
 		@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
