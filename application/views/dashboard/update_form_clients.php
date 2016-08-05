@@ -75,6 +75,45 @@ function formValidate ()
 							    </div>
 							</td>
 						</tr>
+						<tr>
+							<td>
+								<div class="input-group input-group-lg">
+									<div id="map" style="height:400px; margin-top:1em; margin-bottom:1em;"></div>
+									<div id="latlong">
+									    <p>Latitude: <input size="20" type="text" id="latbox" name="lat" ></p>
+									    <p>Longitude: <input size="20" type="text" id="lngbox" name="lng" ></p>
+									  </div>
+	 								<script>
+								      var map;
+								      function initMap() {
+								        var myLatlng = new google.maps.LatLng(-6.152402510005295,106.89429051052855);
+
+										var myOptions = {
+										     zoom: 15,
+										     center: myLatlng,
+										     mapTypeId: google.maps.MapTypeId.ROADMAP
+										     }
+										  map = new google.maps.Map(document.getElementById("map"), myOptions); 
+
+  										var marker = new google.maps.Marker({
+										  draggable: true,
+										  position: myLatlng, 
+										  map: map,
+										  title: "Your Restaurant"
+										  });
+
+										  google.maps.event.addListener(marker, 'dragend', function (event) {
+											    document.getElementById("latbox").value = this.getPosition().lat();
+											    document.getElementById("lngbox").value = this.getPosition().lng();
+											});
+
+								      }
+								    </script>
+								    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmTsHuYy6fLCGmHRPZs20KRkEnfLE4anA&callback=initMap"
+								    async defer></script>
+								</div>
+							</td>
+						</tr>
 						 <tr>
 							<td>
 							    <div class="input-group input-group-lg">
