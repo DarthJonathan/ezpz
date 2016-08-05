@@ -3,25 +3,27 @@
 
 	class Restaurant extends CI_Controller{
 
-		public function index($name = '', $dish = ''){
-
-			if($name == '')
-			{
-					$data['page_title']	= 'Restaurants';
-					$data['restaurants_name']=array('Sederhana','Dodol','ShaoKao','McD','KFC','BK');
-					$this->load->view('template/header', $data);
-					$this->load->view('restaurant/restaurant_list.php', $data);
-			}else
-			{
-				$data['page_title'] = '';
+		public function cuisine($cuisine = ''){
+				$cuisine_name = str_replace('%20', ' ', $cuisine);
+				$data['cuisine_name'] = $cuisine_name;
+				$data['page_title']	= 'Restaurants';
+				$data['restaurants']=$this->db->get_where('restaurants',array('cuisine' => $cuisine_name) )->result();
 				$this->load->view('template/header', $data);
-				$this->load->view('home', $data);	
-			}
-
-			$this->load->view('template/footer');
+				$this->load->view('restaurant/restaurant_list.php', $data);
+				$this->load->view('template/footer');
 		}
 		
 
+		public function detail($name = ''){
+
+			$restaurant_name = str_replace('%20', ' ', $name);
+			$data['page_title']	= $restaurant_name;
+			$data['restaurant'] = $this->db->get_where('restaurants', array('username' => $restaurant_name))->row();
+			$this->load->view('template/header', $data);
+			$this->load->view('restaurant/restaurant_details.php', $data);
+			$this->load->view('template/footer');
+
+		}
 	}
 
  ?>

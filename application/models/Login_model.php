@@ -89,7 +89,11 @@
 				return 'driver';
 			}
 
+<<<<<<< HEAD
 			//Check On The Clients Database
+=======
+			// //Check On The Clients Database
+>>>>>>> origin/master
 			if ($this->db->get_where('restaurants', $check)->num_rows() > 0)
 			{
 				return 'clients';

@@ -17,6 +17,21 @@
   color:#fff;
 }
 
+/* */
+.fa{
+  color: white;
+}
+
+/* panel */
+.panel a{
+  text-decoration: none;
+  color: black;
+}
+.panel a:hover,a:active{
+  text-decoration: none;
+  color: black;
+}
+
 /*Css for the full width image div*/
 .image-full{
 	height: 500px;

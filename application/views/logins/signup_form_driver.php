@@ -1,15 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<div class="container padding-top-five">
 <?php if($this->session->flashdata('error')): ?>
   	<div class="alert alert-success">
   		<?php echo $this->session->flashdata('error'); ?>
   	</div>
-<?php endif; ?>
-
-
-
-
-<div class="container">
-		
+<?php endif; ?>		
 	<div class="col-md-1"></div>
 
 	<div class="col-md-10 col-xs-12">
