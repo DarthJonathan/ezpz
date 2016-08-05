@@ -52,16 +52,9 @@
 							mkdir($config['upload_path'], 0777, true);
 						}
 
-		                if ( ! $this->upload->do_upload('photo'))
+		                if ($this->upload->do_upload('photo'))
 		                {
-		                        $error = array('error' => $this->upload->display_errors());
-		                        $this->session->set_flashdata('error', $error['error']);
-
-		                        redirect('dashboard/complete_data');
-		                }
-		                else
-		                {
-		                	//Get the link for the database
+		                    //Get the link for the database
 		                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
 		                }
 
@@ -78,6 +71,11 @@
 
 						);
 
+						if($this->input->post('username') != $this->session->userdata('username'))
+						{
+							$this->session->set_userdata('username', $this->input->post('username'));
+						}
+
 		                $this->load->model('login_model');
 		                if($this->login_model->updateUserdata($type, $data))
 		                {
@@ -87,9 +85,6 @@
 
 					}else if($type == 'driver')
 					{ 
-
-						$firstname = $this->input->post('firstname');
-						$lastname = $this->input->post('lastname');
 
 						$config['upload_path']          = 'uploads/driver/' . $this->session->userdata('user_id');
 						$config['overwrite']			= True;
@@ -104,16 +99,9 @@
 						}
 
 		                //Driver Licence Front
-		                if ( ! $this->upload->do_upload('photo_front'))
+		                if ($this->upload->do_upload('photo_front'))
 		                {
-		                        $error = array('error' => $this->upload->display_errors());
-		                        $this->session->set_flashdata('error', $error['error'] . ' Front Photo');
-
-		                        redirect('dashboard/complete_data');
-		                }
-		                else
-		                {
-		                	//Get the link for the database
+		                    //Get the link for the database
 		                    $photo_front = $config ['upload_path'] . '/' . $config ['file_name'];
 		                }
 
@@ -121,16 +109,9 @@
 		                $config['file_name']			= 'photo_back.jpg';
 						$this->upload->initialize($config);
 
-		                if ( ! $this->upload->do_upload('photo_back'))
+		                if ($this->upload->do_upload('photo_back'))
 		                {
-		                        $error = array('error' => $this->upload->display_errors());
-		                        $this->session->set_flashdata('error', $error['error'] . ' Back Photo');
-
-		                        redirect('dashboard/complete_data');
-		                }
-		                else
-		                {
-		                	//Get the link for the database
+		                    //Get the link for the database
 		                    $photo_back = $config ['upload_path'] . '/' . $config ['file_name'];
 		                }
 
@@ -138,36 +119,82 @@
 		                $config['file_name']			= 'photo.jpg';
 						$this->upload->initialize($config);
 
-		                if ( ! $this->upload->do_upload('photo'))
+		                if ( $this->upload->do_upload('photo'))
 		                {
-		                        $error = array('error' => $this->upload->display_errors());
-		                        $this->session->set_flashdata('error', $error['error'] . ' Profile Photo');
-
-		                        redirect('dashboard/complete_data');
-		                }
-		                else
-		                {
-		                	//Get the link for the database
+		                    //Get the link for the database
 		                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
 		                }
 
-		                $data = array (
+		                
+		                $data = array(
 
-		                	'firstname'				=> $firstname,
-		                	'lastname'				=> $lastname,
-		                	'photo_front'			=> $photo_front,
-		                	'photo_back'			=> $photo_back,
-		                	'photo'					=> $photo	
+						'username' 			=> $this->input->post('username'),
+						'password' 			=> password_hash($this->input->post('password'),PASSWORD_BCRYPT),
+						'email' 			=> $this->input->post('email'),
+						'phone' 			=> $this->input->post('telephone'),
+						'firstname'			=> $this->input->post('firstname'),
+						'lastname'			=> $this->input->post('lastname'),
+						'address' 			=> $this->input->post('address'),
+						'ird'	 			=> $this->input->post('ird'),
+						'driver_licence' 	=> $this->input->post('driver_licence'),
+						'photo_front'		=> $photo_front,
+						'photo_back'		=> $photo_back,
+						'photo'				=> $photo
 
-		                	);
+						);
+
+						if($this->input->post('username') != $this->session->userdata('username'))
+						{
+							$this->session->set_userdata('username', $this->input->post('username'));
+						}
+
+					}else if($type == 'clients')
+					{
+						$config['upload_path']          = 'uploads/clients/' . $this->session->userdata('user_id');
+						$config['overwrite']			= True;
+						$config['file_name']			= 'photo.jpg';
+						$this->upload->initialize($config);
+
+						//Check if the folder for the upload existed
+						if(!file_exists($config['upload_path']))
+						{
+							//if not make the folder so the upload is possible
+							mkdir($config['upload_path'], 0777, true);
+						}
+
+		                if ($this->upload->do_upload('photo'))
+		                {
+		                    //Get the link for the database
+		                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
+		                }
+
+		                $data = array(
+
+						'username' 			=> $this->input->post('username'),
+						'password' 			=> password_hash($this->input->post('password'),PASSWORD_BCRYPT),
+						'email' 			=> $this->input->post('email'),
+						'phone' 			=> $this->input->post('telephone'),
+						'name'				=> $this->input->post('name'),
+						'cuisine'			=> $this->input->post('cuisine'),
+						'opentime'			=> $this->input->post('opentime'),
+						'closetime'			=> $this->input->post('closetime'),
+						'address' 			=> $this->input->post('address'),
+						'opendays' 			=> $this->input->post('opendays'),
+						'photo'				=> $photo
+
+						);
+
+						if($this->input->post('username') != $this->session->userdata('username'))
+						{
+							$this->session->set_userdata('username', $this->input->post('username'));
+						}
 
 		                $this->load->model('login_model');
-		                if($this->login_model->updateUserdata($type, $data))
+		                if($this->login_model->updateUserdata('restaurants', $data))
 		                {
 		                	$this->session->set_flashdata('success', 'Updating Data Success!');
 		                	redirect('dashboard/');
 		                }
-
 					}else
 					{
 						redirect('main');
@@ -180,16 +207,24 @@
 				}
 			}else
 			{
+				$this->load->model('login_model');
+				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
+
 				if($this->session->userdata('type') == 'user')
 				{
-					$data['page_title'] = 'Update Data User';
+					$data['page_title'] 	= 'Update Data User';
 					$this->load->view('template/header', $data);
 					$this->load->view('dashboard/update_form_user', $data);
-				}else
+				}else if($this->session->userdata('type') == 'driver')
 				{
 					$data['page_title'] = 'Update Driver Data';
 					$this->load->view('template/header', $data);
 					$this->load->view('dashboard/update_form_driver', $data);
+				}else
+				{
+					$data['page_title'] = 'Update Restaurant Data';
+					$this->load->view('template/header', $data);
+					$this->load->view('dashboard/update_form_clients', $data);
 				}
 
 				$this->load->view('template/footer');

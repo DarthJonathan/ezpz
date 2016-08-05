@@ -31,12 +31,12 @@ function formValidate ()
 		<div class="col-md-12">	
 		
 				<div class="login">
-					<?php echo form_open_multipart('dashboard/complete_data/submit/driver') ?>
+					<?php echo form_open_multipart('dashboard/complete_data/submit/clients') ?>
 					<table align="center">
 						<tr>
 					    	<td>
 					        	<div class="heading">
-					            	<h3>Update Driver Account</h3>
+					            	<h3>Update Clients Account</h3>
 					            	<hr>
 					            </div>
 					        </td>
@@ -75,66 +75,38 @@ function formValidate ()
 							    </div>
 							</td>
 						</tr>
-						<tr>
+						 <tr>
 							<td>
 							    <div class="input-group input-group-lg">
-							        <span class="input-group-addon">IRD Number</span>
-							        <input type="text" name = "ird_number" class="form-control" value="<?php echo $userdata->ird; ?>">
+							        <span class="input-group-addon">Cuisine</span>
+							        <input type="text" name ="cuisine" class="form-control" value="<?php echo $userdata->cuisine; ?>">
 							    </div>
 							</td>
 						</tr>
-						<tr>
+						 <tr>
 							<td>
 							    <div class="input-group input-group-lg">
-							        <span class="input-group-addon">Driver License</span>
-							        <input type="text" name = "driver_license" class="form-control" value="<?php echo $userdata->driver_licence; ?>">
+							        <span class="input-group-addon">Open Time</span>
+							        <input type="time" name ="opentime" class="form-control" value="<?php echo $userdata->opentime; ?>">
 							    </div>
 							</td>
 						</tr>
-						<tr>
+						 <tr>
 							<td>
 							    <div class="input-group input-group-lg">
-							        <span class="input-group-addon">License Type</span>
-							        <select class="form-control" name="license_type" value="<?php echo $userdata->licence_type; ?>">
-							            <option value="learner">Learner</option>
-							            <option value="restricted">Restricted</option>
-							            <option value="full">Full License</option>
-							        </select>
+							        <span class="input-group-addon">Close Time</span>
+							        <input type="time" name ="closetime" class="form-control" value="<?php echo $userdata->closetime; ?>">
 							    </div>
 							</td>
 						</tr>
-						<tr>
-					    <td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
-					            <input type="text" name ="firstname" class="form-control" placeholder="First Name" required="required" value="<?php echo $userdata->lastname; ?>">
-					        </div>
-					    </td>
-					    </tr>
-						<tr>
-					    <td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-					            <input type="text" name = "lastname" class="form-control" placeholder="Last Name" required="required" value="<?php echo $userdata->lastname; ?>">
-					        </div>
-					    </td>
-					    </tr>
-					    <tr>
-					    <td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-					            <input type="file" name = "photo_front" class="form-control" placeholder="Licence Photo Front" required="required" >
-					        </div>
-					    </td>
-					    </tr>
-					    <tr>
-					    <td>
-					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-					            <input type="file" name = "photo_back" class="form-control" placeholder="Licence Photo Behind" required="required">
-					        </div>
-					    </td>
-					    </tr>
+						 <tr>
+							<td>
+							    <div class="input-group input-group-lg">
+							        <span class="input-group-addon">Open Days</span>
+							        <input type="text" name ="opendays" class="form-control" value="<?php echo $userdata->opendays; ?>">
+							    </div>
+							</td>
+						</tr>
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">

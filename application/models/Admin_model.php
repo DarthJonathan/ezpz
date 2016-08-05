@@ -19,10 +19,11 @@
 			$email = $data['email'];
 
 			$to = $email;
-			$subject = "Your Reseted Password";
+			$subject = "Your New EzPz Login";
 			$message = "Hello!
-						Here is your reseted password\n
+						Here is your login password\n
 								
+						Username :" . $data['password'] . "\n
 						Password :" . $data['password'] . "\n
 								
 						For Safety Please Quickly Change Your Password!";
@@ -37,7 +38,7 @@
 				return false;
 			}
 
-			$data['password'] = password_hash($data['password'], PASSWORD_BCRYPT);
+			$data['password'] 	= password_hash($data['password'], PASSWORD_BCRYPT);
 
 			return $this->db->insert('restaurants', $data);
 		}

@@ -258,7 +258,8 @@
 
 						'username'	=> $username,
 						'email'		=> $email,
-						'password'	=> $password
+						'password'	=> $password,
+						'created'	=> date('Y-m-d')
 
 						);
 
@@ -320,7 +321,7 @@
 						'username'		=> $username,
 						'password'		=> password_hash($password, PASSWORD_BCRYPT),
 						'email'			=> $email,
-						'created'		=> date()
+						'created'		=> date('Y-m-d')
 
 						);
 
