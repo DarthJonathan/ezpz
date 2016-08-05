@@ -91,16 +91,23 @@
 					    <tr>
 					    	<td><input type="submit" name="submit" value="Login" onClick="submitForm ()" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;"></td>
 						</tr>
+						
 					   	 
 					</table>
 					</form>
+					
 					
 				</div>
 
 		</div>
 
 		<div class="col-md-6">	</div>
-
+		<div id="map" style="height:600px"></div>
+    
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmTsHuYy6fLCGmHRPZs20KRkEnfLE4anA&callback=initMap">
+    </script>
+    
 	<script>
 		$('#multi').multiSelect();
 		$('#multiDays').multiSelect();

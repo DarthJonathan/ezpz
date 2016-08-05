@@ -75,6 +75,76 @@ function formValidate ()
 							    </div>
 							</td>
 						</tr>
+						<tr>
+							<td>
+								<div class="input-group input-group-lg">
+									<div id="map" style="height:400px; margin-top:1em; margin-bottom:1em;"></div>
+									<div id="latlong">
+									    <input size="20" type="hidden" id="latbox" name="lat" >
+									    <input size="20" type="hidden" id="lngbox" name="lng" >
+									  </div>
+	 								<script>
+								      var map;
+								      function initMap() {
+								      	
+
+								        var myLatlng = new google.maps.LatLng(<?php if($userdata->latitude == NULL || $userdata->longitude == NULL){
+								      		echo '-6.152402510005295,106.89429051052855';
+								      		}else{
+								      			echo $userdata->latitude.','.$userdata->longitude;
+								      		}?>);
+
+										var myOptions = {
+										     zoom: 15,
+										     center: myLatlng,
+										     mapTypeId: google.maps.MapTypeId.ROADMAP
+										     }
+										  map = new google.maps.Map(document.getElementById("map"), myOptions); 
+
+  										var marker = new google.maps.Marker({
+										  draggable: true,
+										  position: myLatlng, 
+										  map: map,
+										  title: "Your Restaurant"
+										  });
+
+										  google.maps.event.addListener(marker, 'dragend', function (event) {
+											    document.getElementById("latbox").value = this.getPosition().lat();
+											    document.getElementById("lngbox").value = this.getPosition().lng();
+											    update_location();
+											});
+										 
+								      }
+
+								      function update_location(){
+
+								      	lat = document.getElementById("latbox").value;
+								      	lng = document.getElementById("lngbox").value;
+								      	
+										$.ajax({		                
+											url: "<?php echo base_url(); ?>" + 'restaurant/update_location/' + encodeURIComponent(lat) + '/' + encodeURIComponent(lng),
+											type: 'GET',
+											success: function(data) 
+											{
+									 			//location.reload();
+											},
+										});
+
+								      }
+
+								       
+
+								      
+										
+										
+									
+								    </script>
+								    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmTsHuYy6fLCGmHRPZs20KRkEnfLE4anA&callback=initMap"
+								    async defer></script>
+								</div>
+								
+							</td>
+						</tr>
 						 <tr>
 							<td>
 							    <div class="input-group input-group-lg">
