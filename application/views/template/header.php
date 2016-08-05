@@ -11,16 +11,17 @@
     <link href="<?php echo base_url() ?>css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/flat-ui.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Begin Scripts -->
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/flat-ui.min.js"></script>
+    <script src="<?php echo base_url() ?>js/jquery-3.1.0.js"></script>
     
     <style>
 		@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
 		@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
 		@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
 	
-		
 		body
 		{
 			background-image: url("images/login/display.jpg");
@@ -159,7 +160,7 @@
 	        <?php if($this->session->userdata('type') == 'user' || $this->session->userdata('type') == 'driver' || $this->session->userdata('type') == 'clients'): ?>
 	        	<li><a href="<?php echo base_url('dashboard/complete_data'); ?>" class="nav-link">Update My Information</a></li>
 	        <?php endif; ?>
-	      
+	      	<li role="separator" class="divider" style="background-color: white; height: 1px"></li>
 	      </ul>
 
 	      <?php if(!$this->session->userdata('user_id')) : ?>		

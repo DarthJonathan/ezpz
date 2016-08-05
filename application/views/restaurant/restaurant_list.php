@@ -29,7 +29,7 @@
 			<div class="col-md-4 col-xs-12">
 				<div class="panel panel-default panel-horizontal">
 				    <div class="panel-body">
-				        <p class="brand"><?php echo $restaurant; ?></p>
+				        <p class="brand"><a href="<?php echo base_url('restaurant/index/'.$restaurant) ?>"><?php echo $restaurant; ?></a></p>
 						<p>Address</p>
 						<p>Open</p>
 				    </div>
