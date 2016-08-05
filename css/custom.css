@@ -17,6 +17,11 @@
   color:#fff;
 }
 
+/* */
+.fa{
+  color: white;
+}
+
 /* panel */
 .panel a{
   text-decoration: none;

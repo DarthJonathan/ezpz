@@ -165,11 +165,13 @@
 
 	      <?php if(!$this->session->userdata('user_id')) : ?>		
 	      <ul class="nav navbar-nav navbar-right">
+	      <li><a href=""><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.4em"></i></a></li>
 	        <li><a href="<?php echo base_url('accounts/signup') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 	        <li><a href="<?php echo base_url('accounts/') ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	      </ul>
 		  <?php else : ?>
 		  <ul class="nav navbar-nav navbar-right">
+		  	<li><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
 	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->session->userdata('username') ?>
         	<span class="caret"></span></a>
 		        <ul class="dropdown-menu">
