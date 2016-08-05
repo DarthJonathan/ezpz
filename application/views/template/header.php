@@ -157,10 +157,6 @@
 				<li><a href="#" class="nav-link">Top Up Wallet</a></li>
 	    	<?php endif; ?>
 	        
-	        <!-- Menu Available available in all login types -->
-	        <?php if($this->session->userdata('type') == 'user' || $this->session->userdata('type') == 'driver' || $this->session->userdata('type') == 'clients'): ?>
-	        	<li><a href="<?php echo base_url('dashboard/complete_data'); ?>" class="nav-link">Update My Information</a></li>
-	        <?php endif; ?>
 	      	<li role="separator" class="divider" style="background-color: white; height: 1px"></li>
 	      </ul>
 
@@ -176,7 +172,11 @@
 	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->session->userdata('username') ?>
         	<span class="caret"></span></a>
 		        <ul class="dropdown-menu">
-		          <li><a href="#">Edit Profile</a></li>
+
+		        <?php if($this->session->userdata('type') == 'user' || $this->session->userdata('type') == 'driver' || $this->session->userdata('type') == 'clients'): ?>
+		          <li><a href="<?php echo base_url('dashboard/complete_data'); ?>" class="nav-link">Edit Profile</a></li>
+				<?php endif; ?>
+
 		          <li><a href="#">Change Password</a></li>
 		        </ul>
 	        </li>
