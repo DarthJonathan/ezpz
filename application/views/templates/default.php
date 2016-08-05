@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php date_default_timezone_set('Asia/Jakarta'); ?>
 <!doctype html>
 <html>
 <head>
@@ -146,6 +147,8 @@ function initMap() {
 </head>
 
 <body>
+
+
 <!--NavBar-->
 <div class="container-fluid">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -203,6 +206,8 @@ function initMap() {
 	  </div>
 	</nav>
 </div>
+
+
 
 <?php echo $body ?>
 
