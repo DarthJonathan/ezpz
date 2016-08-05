@@ -40,7 +40,12 @@
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon">Cuisine</span>
-					            <input type="text" name = "cuisine"  class="form-control"  required>
+					            <select multiple="multiple" id="cuisine-select" name="cuisine-select[]">
+								  <option value='elem_1'>Asian</option>
+								  <option value='elem_2'>Italian</option>
+								  <option value='elem_3'>Indonesian</option>
+								  <option value='elem_4'>African</option>
+								</select>
 					        </div>
 					    </td>
 					    </tr>
@@ -64,7 +69,15 @@
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon">Open Days</span>
-					            <input type="text" name = "opendays"  class="form-control"  required>
+					            <select multiple="multiple" id="cuisine-select" name="cuisine-select[]">
+								  <option value='day_1'>Monday</option>
+								  <option value='day_2'>Tuesday</option>
+								  <option value='day_3'>Wednesday</option>
+								  <option value='day_4'>Thursday</option>
+								  <option value='day_2'>Friday</option>
+								  <option value='day_3'>Saturday</option>
+								  <option value='day_4'>Sunday</option>
+								</select>
 					        </div>
 					    </td>
 					    </tr>
@@ -89,5 +102,9 @@
 
 		<div class="col-md-6">	</div>
 
-	
+	<script>
+		
+	</script>
+
 </div>
+

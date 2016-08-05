@@ -27,7 +27,23 @@
 				$this->load->view('template/footer');
 			}else if($param1 == 'submit')
 			{
-				echo $this->input->post('opentime');
+				$new_pass = substr(md5(microtime()),rand(0,26),5);
+
+				$data = array(
+					'username' => $this->input->post('name'),
+					'password' => $new_pass,
+					'name' => $this->input->post('name'),
+					'address' => $this->input->post('address'),
+					'cuisine' => $this->input->post('cuisine'),
+					'opentime' => $this->input->post('opentime'),
+					'closetime' => $this->input->post('closetime'),
+					'opendays' => $this->input->post('opendays'),
+					'photo' => $this->input->post('photo'),
+					'phone' => $this->input->post('phone'),
+					'email' => $this->input->post('email'),
+					'created' => date('Y-m-d')
+					);
+
 				
 			}
 			
