@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<div class="container-fluid padding-top-five">
 <?php if($this->session->flashdata('success')): ?>
   	<div class="alert alert-success">
   		<?php echo $this->session->flashdata('success'); ?>
@@ -114,10 +115,6 @@ function formValidate ()
 					</table>
 					</form>
 				</div>
-
 		</div>
-
 	</div>
-
-
-</div>
+</div></div>
