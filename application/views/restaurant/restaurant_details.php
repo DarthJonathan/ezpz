@@ -20,7 +20,7 @@
 		    <div class="panel-body">
 		        <p class="brand">Restaurant Brand</p>
 				<p>Address</p>
-				<p>Open</p>
+				<p>Open Hour : <?php echo date('H:i',strtotime($restaurant->opentime)).' - '.date('H:i',strtotime($restaurant->closetime))  ?></p>
 		    </div>
 		    <div class="panel-heading">
 		        <p>Image</p>

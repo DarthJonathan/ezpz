@@ -213,21 +213,16 @@
 				if($this->session->userdata('type') == 'user')
 				{
 					$data['page_title'] 	= 'Update Data User';
-					$this->load->view('template/header', $data);
-					$this->load->view('dashboard/update_form_user', $data);
+					$this->template->load('default','dashboard/update_form_user' ,$data);	
 				}else if($this->session->userdata('type') == 'driver')
 				{
 					$data['page_title'] = 'Update Driver Data';
-					$this->load->view('template/header', $data);
-					$this->load->view('dashboard/update_form_driver', $data);
+					$this->template->load('default','dashboard/update_form_driver' ,$data);	
 				}else
 				{
 					$data['page_title'] = 'Update Restaurant Data';
-					$this->load->view('template/header', $data);
-					$this->load->view('dashboard/update_form_clients', $data);
+					$this->template->load('default','dashboard/update_form_clients' ,$data);	
 				}
-
-				$this->load->view('template/footer');
 			}
 		
 		}
