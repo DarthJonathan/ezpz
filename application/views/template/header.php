@@ -11,7 +11,7 @@
     <link href="<?php echo base_url() ?>css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/flat-ui.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
-	<link rel="stylesheet" href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css">
+	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Begin Scripts -->
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
