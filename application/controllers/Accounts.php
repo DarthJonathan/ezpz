@@ -162,7 +162,7 @@
 								'data_complete'	=> $complete,
 								'is_verified'	=> $data_user->is_verified,
 								'isLogged'		=> TRUE,
-								'type'			=> 'user'
+								'type'			=> 'driver'
 								
 							);
 							$this->session->set_userdata($session_user);
@@ -213,7 +213,7 @@
 								'data_complete'	=> $complete,
 								'is_verified'	=> $data_user->is_verified,
 								'isLogged'		=> TRUE,
-								'type'			=> 'driver'
+								'type'			=> 'user'
 								
 							);
 							$this->session->set_userdata($session_user);

@@ -39,9 +39,7 @@
 					
 					if($type == 'user')
 					{
-						$firstname = $this->input->post('firstname');
-						$lastname = $this->input->post('lastname');
-
+						
 						$config['upload_path']          = 'uploads/user/' . $this->session->userdata('user_id');
 						$config['overwrite']			= True;
 						$config['file_name']			= 'photo.jpg';
@@ -67,13 +65,18 @@
 		                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
 		                }
 
-		                $data = array (
+		                $data = array(
 
-		                	'firstname'		=> $firstname,
-		                	'lastname'		=> $lastname,
-		                	'photo'			=> $photo	
+						'username' 			=> $this->input->post('username'),
+						'password' 			=> password_hash($this->input->post('password'),PASSWORD_BCRYPT),
+						'email' 			=> $this->input->post('email'),
+						'telephone' 		=> $this->input->post('telephone'),
+						'firstname'			=> $this->input->post('firstname'),
+						'lastname'			=> $this->input->post('lastname'),
+						'address' 			=> $this->input->post('address'),
+						'photo'				=> $photo
 
-		                	);
+						);
 
 		                $this->load->model('login_model');
 		                if($this->login_model->updateUserdata($type, $data))

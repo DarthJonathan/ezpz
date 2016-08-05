@@ -147,7 +147,19 @@
 	        <li><a href="<?php echo base_url('main') ?>" class="nav-link">Home</a></li>
 	        <li><a href="<?php echo base_url('main/about/') ?>" class="nav-link">About Us</a></li>
 	        <li><a href="<?php echo base_url('restaurant/') ?>" class="nav-link">Restaurants</a></li> 
-	        <li><a href="#" class="nav-link">Top Up Wallet</a></li> 
+	        
+	        <!-- Menu Available available in diffrent login types -->
+	        <?php if($this->session->userdata('type') == 'user'): ?>
+	        	<li><a href="#" class="nav-link">Top Up Wallet</a></li>
+	        <?php elseif($this->session->userdata('type') == 'driver'): ?>
+				<li><a href="#" class="nav-link">Top Up Wallet</a></li>
+	    	<?php endif; ?>
+	        
+	        <!-- Menu Available available in all login types -->
+	        <?php if($this->session->userdata('type') == 'user' || $this->session->userdata('type') == 'driver' || $this->session->userdata('type') == 'clients'): ?>
+	        	<li><a href="<?php echo base_url('dashboard/complete_data'); ?>" class="nav-link">Update My Information</a></li>
+	        <?php endif; ?>
+	      
 	      </ul>
 
 	      <?php if(!$this->session->userdata('user_id')) : ?>		
