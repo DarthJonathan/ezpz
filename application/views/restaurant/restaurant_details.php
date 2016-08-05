@@ -13,7 +13,7 @@
 	</div>
 </div>
 <div class="container-fluid padding-top-five">
-	<h2 style="margin-left:1%;">Section Name</h2>
+	<h2 style="margin-left:1%;"><?php echo $restaurant->username ?></h2>
 	<hr></hr>
 	<div class="col-md-4 col-xs-12">
 		<div class="panel panel-default panel-horizontal">

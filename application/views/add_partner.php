@@ -3,7 +3,7 @@
 		<div class="col-md-6">
 
 				<div class="login">
-					<?php echo form_open('main/login', array ("id" => "loginForm", 'name' => 'loginForm', 'onSubmit' => 'formValidate(); return false')) ?>
+					<?php echo form_open('main/add_partner/submit', array ("id" => "loginForm", 'name' => 'loginForm', 'onSubmit' => 'formValidate(); return false')) ?>
 					<table align="center">
 						<tr>
 					    	<td>

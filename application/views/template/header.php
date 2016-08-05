@@ -11,11 +11,8 @@
     <link href="<?php echo base_url() ?>css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/flat-ui.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
-<<<<<<< HEAD
 	<link rel="stylesheet" href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css">
-=======
-    
->>>>>>> origin/master
+
     <!-- Begin Scripts -->
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/flat-ui.min.js"></script>
@@ -175,7 +172,7 @@
 	      </ul>
 		  <?php else : ?>
 		  <ul class="nav navbar-nav navbar-right">
-		  	<li><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
+		  	<li><a href=""><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.4em"></i></a></li>
 	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->session->userdata('username') ?>
         	<span class="caret"></span></a>
 		        <ul class="dropdown-menu">

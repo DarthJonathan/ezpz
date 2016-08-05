@@ -13,13 +13,13 @@
 	</div>
 </div>
 <div class="container-fluid padding-top-five">
-	<h2 style="margin-left:1%;">Section Name</h2>
+	<h2 style="margin-left:1%;"><?php echo $cuisine_name ?></h2>
 	<hr></hr>
 	<?php 
 
 	$counter=0;
 	//Get Restaurant
-	foreach($restaurants_name as $restaurant): ?>
+	foreach($restaurants as $restaurant): ?>
 		<?php 
 		//Put Div row in every first of three
 		if($counter % 3 ==  0): ?>
@@ -29,9 +29,9 @@
 			<div class="col-md-4 col-xs-12">
 				<div class="panel panel-default panel-horizontal">
 				    <div class="panel-body">
-				        <p class="brand"><a href="<?php echo base_url('restaurant/index/'.$restaurant) ?>"><?php echo $restaurant; ?></a></p>
-						<p>Address</p>
-						<p>Open</p>
+				        <p class="brand"><a href="<?php echo base_url('restaurant/detail/'.$restaurant->username) ?>"><?php echo $restaurant->username; ?></a></p>
+						<p><?php echo $restaurant->address ?></p>
+						<p><?php echo $restaurant->opentime.' - '.$restaurant->closetime?></p>
 				    </div>
 				    <div class="panel-heading">
 				        <p>Image</p>

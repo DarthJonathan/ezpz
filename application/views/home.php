@@ -83,7 +83,7 @@
 			            <div class="overlay">
 			                <h2><?php echo $cuisine; ?></h2>
 							<p> 
-								<a href="<?php echo base_url('restaurant/cusine/$cuisine') ?>">View Restaurants</a>
+								<a href="<?php echo base_url('restaurant/cuisine/'.$cuisine) ?>">View Restaurants</a>
 							</p> 
 			            </div>
 			    </div>
