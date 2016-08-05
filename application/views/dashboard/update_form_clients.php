@@ -80,13 +80,19 @@ function formValidate ()
 								<div class="input-group input-group-lg">
 									<div id="map" style="height:400px; margin-top:1em; margin-bottom:1em;"></div>
 									<div id="latlong">
-									    <p>Latitude: <input size="20" type="text" id="latbox" name="lat" ></p>
-									    <p>Longitude: <input size="20" type="text" id="lngbox" name="lng" ></p>
+									    <input size="20" type="hidden" id="latbox" name="lat" >
+									    <input size="20" type="hidden" id="lngbox" name="lng" >
 									  </div>
 	 								<script>
 								      var map;
 								      function initMap() {
-								        var myLatlng = new google.maps.LatLng(-6.152402510005295,106.89429051052855);
+								      	
+
+								        var myLatlng = new google.maps.LatLng(<?php if($userdata->latitude == NULL || $userdata->longitude == NULL){
+								      		echo '-6.152402510005295,106.89429051052855';
+								      		}else{
+								      			echo $userdata->latitude.','.$userdata->longitude;
+								      		}?>);
 
 										var myOptions = {
 										     zoom: 15,
@@ -105,13 +111,38 @@ function formValidate ()
 										  google.maps.event.addListener(marker, 'dragend', function (event) {
 											    document.getElementById("latbox").value = this.getPosition().lat();
 											    document.getElementById("lngbox").value = this.getPosition().lng();
+											    update_location();
 											});
+										 
+								      }
+
+								      function update_location(){
+
+								      	lat = document.getElementById("latbox").value;
+								      	lng = document.getElementById("lngbox").value;
+								      	
+										$.ajax({		                
+											url: "<?php echo base_url(); ?>" + 'restaurant/update_location/' + encodeURIComponent(lat) + '/' + encodeURIComponent(lng),
+											type: 'GET',
+											success: function(data) 
+											{
+									 			//location.reload();
+											},
+										});
 
 								      }
+
+								       
+
+								      
+										
+										
+									
 								    </script>
 								    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmTsHuYy6fLCGmHRPZs20KRkEnfLE4anA&callback=initMap"
 								    async defer></script>
 								</div>
+								
 							</td>
 						</tr>
 						 <tr>

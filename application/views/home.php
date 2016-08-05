@@ -21,9 +21,10 @@
 	<div class="row">
 	<h3>What You Can Do</h3></div></div>
 </div>
-<div class="container-fluid padding-top-five">
+<div class="container-fluid padding-top-five" style="overflow:auto">
 	<div class="container">
-			<div class="col-lg-4 col-md-4 col-sm-4">
+		<div class="row">
+			<div class="col-sm-4">
 				<div class="panel panel-info text-center">
 					<div class="panel-heading">
 						Get Your Food Delivered
@@ -34,7 +35,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4">
+			<div class="col-sm-4">
 				<div class="panel panel-warning text-center">
 					<div class="panel-heading">
 						Be Our Freelancer
@@ -45,7 +46,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4">
+			<div class="col-sm-4">
 				<div class="panel panel-danger text-center">
 					<div class="panel-heading">
 						Be Our Partner Restaurant
@@ -56,6 +57,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 	</div>
 </div>
 <!--What you can do div end, cuisine selection start-->
