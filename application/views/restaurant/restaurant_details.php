@@ -31,12 +31,15 @@
 		    		<div class="col-md-8">
 		    			<div class="panel-body"><h3 style="display:inline;" >Menu</h3><input type="number" name="" class="food-number pull-right" placeholder=" 0">
 					      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.AAAAAAAAAAAAAAAAAAAAAAA</p>
+					      <p>Price : $9</p>
 					    </div>
 		    			<div class="panel-body"><h3 style="display:inline;" >Menu</h3><input type="number" name="" class="food-number pull-right" placeholder=" 0">
 					      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.AAAAAAAAAAAAAAAAAAAAAAA</p>
+					      <p>Price : $9</p>
 					    </div>
 					    <div class="panel-body"><h3 style="display:inline;" >Menu</h3><input type="number" name="" class="food-number pull-right" placeholder=" 0">
 					      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.AAAAAAAAAAAAAAAAAAAAAAA</p>
+					      <p>Price : $9</p>
 					    </div>
 					    <p class="btn btn-warning pull-right">Add to Cart</p>
 		    		</div>
