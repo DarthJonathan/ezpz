@@ -71,13 +71,13 @@
 					{
 						$this->session->set_flashdata('error', 'Username or Email has been Registered');
 
-						redirect('accounts/');
+						redirect('accounts/signup/user');
 					}else
 					{
 						$this->login_model->email('verify_account', $data['email'], $verification_string);
 						$this->session->set_flashdata('success', 'User has been added');
 
-						redirect('accounts/');
+						redirect('accounts/signup/user');
 					}
 
 				}else if($mode == 'driver')
@@ -106,21 +106,21 @@
 					{
 						$this->session->set_flashdata('error', 'Username or Email has been Registered');
 
-						redirect('accounts/');
+						redirect('accounts/signup/driver');
 
 					}else
 					{
 						$this->login_model->email('verify_account', $data['email'], $verification_string);
 						$this->session->set_flashdata('success', 'User has been added');
 
-						redirect('accounts/');
+						redirect('accounts/signup/driver');
 
 					}
 				}
 			}else
 			{
 				$this->session->set_flashdata('error', 'Please Fill All The Forms!');
-				redirect('accounts');
+				redirect('accounts/');
 			}
 		}
 

@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <div class="container padding-top-five">
 <?php if($this->session->flashdata('error')): ?>
-  	<div class="alert alert-success">
+  	<div class="alert alert-danger">
   		<?php echo $this->session->flashdata('error'); ?>
   	</div>
 <?php endif; ?>		
