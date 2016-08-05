@@ -59,7 +59,8 @@
 						'telephone' 		=> $this->input->post('telephone'),
 						'address' 			=> $this->input->post('address'),
 						'is_verified'		=> 0,
-						'verification_code'	=> $verification_code
+						'verification_code'	=> $verification_code,
+						'created'			=> date('Y-m-d')
 
 						);
 
@@ -93,7 +94,8 @@
 						'driver_licence' 	=> $this->input->post('driver_license'),
 						'licence_type' 		=> $this->input->post('license_type'),
 						'is_verified'		=> 0,
-						'verification_code'	=> $verification_code
+						'verification_code'	=> $verification_code,
+						'created'			=> date('Y-m-d')
 
 						);
 
