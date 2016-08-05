@@ -16,7 +16,7 @@
 
 
     <!-- Begin Scripts -->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+   
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/flat-ui.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery-3.1.0.js"></script>
