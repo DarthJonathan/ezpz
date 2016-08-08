@@ -16,13 +16,13 @@
 				);
 
 			//Check On The User Database
-			if($this->db->get_where('user', $check)->num_rows() > 0)
+			if($this->db->get_where('users', $check)->num_rows() > 0)
 			{
 				$flag++;
 			}
 			
 			//Check On The Driver Database
-			if ($this->db->get_where('driver', $check)->num_rows() > 0)
+			if ($this->db->get_where('drivers', $check)->num_rows() > 0)
 			{
 				$flag++;
 			}
@@ -41,13 +41,13 @@
 				);
 
 			//Check On The User Database
-			if($this->db->get_where('user', $check)->num_rows() > 0)
+			if($this->db->get_where('users', $check)->num_rows() > 0)
 			{
 				$flag++;
 			}
 			
 			//Check On The Driver Database
-			if ($this->db->get_where('driver', $check)->num_rows() > 0)
+			if ($this->db->get_where('drivers', $check)->num_rows() > 0)
 			{
 				$flag++;
 			}
@@ -78,15 +78,15 @@
 				);
 
 			//Check On The User Database
-			if($this->db->get_where('user', $check)->num_rows() > 0)
+			if($this->db->get_where('users', $check)->num_rows() > 0)
 			{
-				return 'user';
+				return 'users';
 			}
 			
 			//Check On The Driver Database
-			if ($this->db->get_where('driver', $check)->num_rows() > 0)
+			if ($this->db->get_where('drivers', $check)->num_rows() > 0)
 			{
-				return 'driver';
+				return 'drivers';
 			}
 
 			//Check on client database
@@ -106,7 +106,7 @@
 				);
 
 			//Check On The User Database
-			if($this->db->get_where('user', $check)->num_rows() > 0)
+			if($this->db->get_where('users', $check)->num_rows() > 0)
 			{
 					$to = $email;
 					$subject = "Your Reseted Password";
@@ -119,7 +119,7 @@
 
 					$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
 					$headers .= 'From: noreply@ezpz.com' . "\r\n" .
-								'Reply-To: jonathan.hosea@gethassee.com' . "\r\n" .
+								'Reply-To: irpanwinata@gmail.com' . "\r\n" .
 								'X-Mailer: PHP/' . phpversion();
 					
 					if(!mail($to, $subject, $message, $headers))
@@ -131,11 +131,11 @@
 
 				$this->db->set($new_data);
 				$this->db->where($check);
-				return $this->db->update('user');
+				return $this->db->update('users');
 			}
 			
 			//Check On The Driver Database
-			else if ($this->db->get_where('driver', $check)->num_rows() > 0)
+			else if ($this->db->get_where('drivers', $check)->num_rows() > 0)
 			{
 					$to = $email;
 					$subject = "Your Reseted Password";
@@ -160,7 +160,7 @@
 
 				$this->db->set($new_data);
 				$this->db->where($check);
-				return $this->db->update('driver');
+				return $this->db->update('drivers');
 			}
 
 			//Check On The Clients Database
@@ -189,7 +189,7 @@
 
 				$this->db->set($new_data);
 				$this->db->where($check);
-				return $this->db->update('driver');
+				return $this->db->update('drivers');
 			}
 
 			else
@@ -199,14 +199,33 @@
 
 		}
 
-		public function getUserdata ($data = '')
+		public function verifyUser ($username, $password)
 		{
-			if($this->db->get_where('user', $data)->num_rows() > 0)
+			if($this->db->get_where('users', array('username' => $username, 'password' => $password))->num_rows() > 0)
 			{
-				return $this->db->get_where('user', $data)->row();
-			}else if($this->db->get_where('driver', $data)->num_rows() > 0)
+				return $this->db->get_where('users', array('username' => $username, 'password' => $password))->row();
+			}else if($this->db->get_where('drivers', array('username' => $username, 'password' => $password))->num_rows() > 0)
 			{
-				return $this->db->get_where('driver', $data)->row();
+				return $this->db->get_where('drivers', array('username' => $username, 'password' => $password))->row();
+			}
+			else if($this->db->get_where('restaurants', array('username' => $username, 'password' => $password))->num_rows() > 0)
+			{
+				return $this->db->get_where('restaurants', array('username' => $username, 'password' => $password))->row();
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function getUserdata ($data ='')
+		{
+			if($this->db->get_where('users', $data)->num_rows() > 0)
+			{
+				return $this->db->get_where('users', $data)->row();
+			}else if($this->db->get_where('drivers', $data)->num_rows() > 0)
+			{
+				return $this->db->get_where('drivers', $data)->row();
 			}
 			else if($this->db->get_where('restaurants', $data)->num_rows() > 0)
 			{
@@ -289,19 +308,19 @@
 
 					);
 
-				if($this->db->get_where('user', $data)->num_rows() > 0)
+				if($this->db->get_where('users', $data)->num_rows() > 0)
 				{
 
 					$this->db->set($set);
 					$this->db->where($data);
-					return $this->db->update('user');
+					return $this->db->update('users');
 
-				}else if($this->db->get_where('driver', $data)->num_rows() > 0)
+				}else if($this->db->get_where('drivers', $data)->num_rows() > 0)
 				{
 					
 					$this->db->set($set);
 					$this->db->where($data);
-					return $this->db->update('driver');
+					return $this->db->update('drivers');
 
 				}else
 				{

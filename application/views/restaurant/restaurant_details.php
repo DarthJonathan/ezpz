@@ -36,30 +36,20 @@
 		  
 		  <div class="tab-content">
 		    <div id="home" class="tab-pane fade in active">
+		    	<?php foreach($dishes as $dish): ?>
 		    	<div class="row">
 		    		<div class="col-xs-2 hidden-xs" style="margin-bottom:5px; ">
-		    			<img class="img-responsive" src="http://placehold.it/250x220" alt="">
+		    			<img class="img-responsive" width="60" src="<?php echo base_url().$dish->photo ?>" alt="">
 		    		</div>
 		    		<div class="col-xs-10" style="padding-left:0px">
-		    			<div class="panel-body"><h3 style="display:inline;" >Menu</h3><input type="number" name="" class="food-number pull-right" placeholder=" 0" <?php echo $disabled ?> >
-					      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.AAAAAAAAAAAAAAAAAAAAAAA</p>
-					      <p>Price : $9</p>
+		    			<div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="" class="food-number pull-right" placeholder=" 0" <?php echo $disabled ?> >
+					      <p><?php echo $dish->description ?></p>
+					      <p>Price : $<?php echo $dish->price ?></p>
 					    </div>
 		    			<p class="btn btn-primary pull-right">Add to Cart</p>
 		    		</div>
 		    	</div>					    	
-		    	<div class="row">
-		    		<div class="col-xs-2 hidden-xs" style="margin-bottom:5px; ">
-		    			<img class="img-responsive" src="http://placehold.it/250x220" alt="">
-		    		</div>
-		    		<div class="col-xs-10" style="padding-left:0px">
-		    			<div class="panel-body"><h3 style="display:inline;" >Menu</h3><input type="number" name="" class="food-number pull-right" placeholder=" 0" <?php echo $disabled ?> >
-					      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.AAAAAAAAAAAAAAAAAAAAAAA</p>
-					      <p>Price : $9</p>
-					    </div>
-		    			<p class="btn btn-primary pull-right">Add to Cart</p>
-		    		</div>
-		    	</div>
+		    	<?php endforeach; ?>
 		    </div>
 
 		    <div id="menu1" class="tab-pane fade">

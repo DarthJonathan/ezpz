@@ -8,7 +8,7 @@
 		<div class="col-md-6">
 
 				<div class="login">
-					<?php echo form_open('accounts/signup_submit/client', array ("id" => "loginForm", 'name' => 'loginForm', 'onSubmit' => 'formValidate(); return false')) ?>
+					<?php echo form_open_multipart('accounts/signup_submit/client', array ("id" => "loginForm", 'name' => 'loginForm', 'onSubmit' => 'formValidate(); return false')) ?>
 					<table align="center">
 						<tr>
 					    	<td>
@@ -102,7 +102,7 @@
 					    </td>
 					    </tr>
 					    <tr>
-					    	<td><input type="submit" name="submit" value="Login" onClick="submitForm ()" id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;"></td>
+					    	<td><input type="submit" name="submit" value="Login"  id="loginButton" class="btn btn-block btn-lg btn-primary float" style="display: block; margin-top:1em; width: 100%;"></td>
 						</tr>
 						
 					   	 

@@ -34,7 +34,7 @@
 						<p><?php echo $restaurant->opentime.' - '.$restaurant->closetime?></p>
 				    </div>
 				    <div class="panel-heading">
-				        <p>Image</p>
+				        <img src="<?php echo base_url().$restaurant->photo ?>" width="80" alt="">
 				    </div>
 				</div>
 			</div>

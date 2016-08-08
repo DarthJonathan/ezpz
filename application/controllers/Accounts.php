@@ -34,8 +34,7 @@
 					else if($mode == 'client')
 					{
 						$data['page_title'] = 'Become a partner';
-						$this->load->view('template/header', $data);
-						$this->load->view('logins/add_partner', $data);
+						$this->template->load('default','logins/add_partner', $data);
 					}
 				}else
 				{
@@ -123,16 +122,16 @@
 					$verification_string = $this->input->post('username') . '~' . $verification_code;
 					$new_pass = substr(md5(microtime()),rand(0,26),5);
 					
-					$config['allowed_types']        = 'jpg';
+					$config['allowed_types']        = 'jpg|png';
 		            $config['max_size']             = 5000;
 		            // $config['max_width']            = 1000;
 		            // $config['max_height']           = 768;
 
 		            
 										
-					$config['upload_path']          = 'uploads/user/' . $this->session->userdata('user_id');
+					$config['upload_path']          = 'uploads/user/' . $this->input->post('name');
 					$config['overwrite']			= True;
-					$config['file_name']			= 'photo.jpg';
+					#$config['file_name']			= 'photo.jpg';
 					$this->upload->initialize($config);
 
 					//Check if the folder for the upload existed
@@ -163,7 +162,9 @@
 						'created' => date('Y-m-d')
 					);
 
-					$this->load->model('login_model');
+					
+
+					
 
 					//Check if The Username is unique
 					if(!$this->login_model->insert_data_new_user('restaurants', $data))
@@ -171,7 +172,7 @@
 						$this->session->set_flashdata('error', 'Username or Email has been Registered');
 
 						redirect('accounts/signup/client');
-						echo $photo;
+						
 
 					}else
 					{
@@ -179,7 +180,7 @@
 						$this->session->set_flashdata('success', 'User has been added');
 
 						redirect('accounts/signup/client');
-						echo $photo;
+						
 					}
 				}
 			}else
@@ -195,103 +196,98 @@
 			if($this->input->post())
 			{
 				$username = $this->input->post('username');
-				$password = $this->input->post('password');
+				$password = hash_password($this->input->post('password'));
 
-				$this->load->model('login_model');
-				$data_username = array('username'  => $username);
-				if(!$data_user = $this->login_model->getUserdata($data_username))
+				
+				
+				if(!$data_user = $this->login_model->verifyUser($username,$password))
 				{
-					$this->session->set_flashdata('error', 'Username or Password is Wrong (debug 1)');
+					$this->session->set_flashdata('error', 'Username or Password is Wrongz');
 					redirect('accounts/');
 				}else
 				{
-					if(password_verify($password, $data_user->password))
+				
+					$type = $this->login_model->getAccountType($username);
+
+					if($type == 'driver')
 					{
-						$type = $this->login_model->getAccountType($username);
-
-						if($type == 'driver')
+						//Check if user have completed their data
+						if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo_front == NULL && $data_user->photo_back == NULL)
 						{
-							//Check if user have completed their data
-							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo_front == NULL && $data_user->photo_back == NULL)
-							{
-								$complete = FALSE;
-							}else
-							{
-								$complete = True;
-							}
-
-							//Set the session for login
-							$session_user 	= array (
-
-								'username'		=> $username,
-								'name'			=> $data_user->firstname .' '. $data_user->lastname,
-								'user_id'		=> $data_user->id,
-								'data_complete'	=> $complete,
-								'is_verified'	=> $data_user->is_verified,
-								'isLogged'		=> TRUE,
-								'type'			=> 'driver'
-								
-							);
-							$this->session->set_userdata($session_user);
-
-							redirect('main');
-						}else if($type == 'clients')
-						{
-							//Check if user have completed their data
-							if($data_user->name == NULL && $data_user->address == NULL && $data_user->opentime == NULL && $data_user->closetime == NULL && $data_user->opendays == NULL && $data_user->longitude == NULL  && $data_user->latitude == NULL && $data_user->photo == NULL  && $data_user->phone == NULL)
-							{
-								$complete = FALSE;
-							}else
-							{
-								$complete = True;
-							}
-
-							//Set the session for login
-							$session_user 	= array (
-
-								'username'		=> $username,
-								'name'			=> $data_user->name,
-								'user_id'		=> $data_user->id,
-								'data_complete'	=> $complete,
-								'isLogged'		=> TRUE,
-								'type'			=> 'clients'
-								
-							);
-							$this->session->set_userdata($session_user);
-
-							redirect('main');
+							$complete = FALSE;
 						}else
-						{	
-							//Check if user have completed their data
-							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo == NULL)
-							{
-								$complete = False;
-							}else
-							{
-								$complete = True;
-							}
-
-							//Set the session for login
-							$session_user 	= array (
-
-								'username'		=> $username,
-								'name'			=> $data_user->firstname .' '. $data_user->lastname,
-								'user_id'		=> $data_user->id,
-								'data_complete'	=> $complete,
-								'is_verified'	=> $data_user->is_verified,
-								'isLogged'		=> TRUE,
-								'type'			=> 'user'
-								
-							);
-							$this->session->set_userdata($session_user);
-
-							redirect('main');
+						{
+							$complete = True;
 						}
-					}else
+
+						//Set the session for login
+						$session_user 	= array (
+
+							'username'		=> $username,
+							'name'			=> $data_user->firstname .' '. $data_user->lastname,
+							'user_id'		=> $data_user->id,
+							'data_complete'	=> $complete,
+							'is_verified'	=> $data_user->is_verified,
+							'isLogged'		=> TRUE,
+							'type'			=> 'driver'
+							
+						);
+						$this->session->set_userdata($session_user);
+
+						redirect('main');
+					}else if($type == 'clients')
 					{
-						$this->session->set_flashdata('error', 'Username or Password is Wrong (debug 2)');
-						redirect('accounts/');
+						//Check if user have completed their data
+						if($data_user->name == NULL && $data_user->address == NULL && $data_user->opentime == NULL && $data_user->closetime == NULL && $data_user->opendays == NULL && $data_user->longitude == NULL  && $data_user->latitude == NULL && $data_user->photo == NULL  && $data_user->phone == NULL)
+						{
+							$complete = FALSE;
+						}else
+						{
+							$complete = True;
+						}
+
+						//Set the session for login
+						$session_user 	= array (
+
+							'username'		=> $username,
+							'name'			=> $data_user->name,
+							'user_id'		=> $data_user->id,
+							'data_complete'	=> $complete,
+							'isLogged'		=> TRUE,
+							'type'			=> 'clients'
+							
+						);
+						$this->session->set_userdata($session_user);
+
+						redirect('main');
+					}else
+					{	
+						//Check if user have completed their data
+						if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo == NULL)
+						{
+							$complete = False;
+						}else
+						{
+							$complete = True;
+						}
+
+						//Set the session for login
+						$session_user 	= array (
+
+							'username'		=> $username,
+							'name'			=> $data_user->firstname .' '. $data_user->lastname,
+							'user_id'		=> $data_user->id,
+							'data_complete'	=> $complete,
+							'is_verified'	=> $data_user->is_verified,
+							'isLogged'		=> TRUE,
+							'type'			=> 'user'
+							
+						);
+						$this->session->set_userdata($session_user);
+
+						redirect('main');
 					}
+					
 				}
 
 			}else
@@ -305,9 +301,7 @@
 			if($param1 == 'forget')
 			{
 				$data['page_title'] = 'Login';
-				$this->load->view('template/header', $data);
-				$this->load->view('logins/forget', $data);
-				$this->load->view('template/footer', $data);
+				$this->template->load('default','logins/forget', $data);
 			}else if($param1 == 'reset')
 			{
 				$email = $this->input->post('email');

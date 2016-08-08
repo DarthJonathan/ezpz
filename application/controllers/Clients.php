@@ -68,7 +68,7 @@ class Clients extends CI_Controller{
 				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
 
 				$data['page_title'] = 'Update Restaurant Data';
-				$this->template->load('default','dashboard/update_form_clients' ,$data);	
+				$this->template->load('default','clients/update_form_clients' ,$data);	
 		    }
 		}
 
@@ -131,8 +131,57 @@ class Clients extends CI_Controller{
 			$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('username' => $this->session->userdata('username')))->row();
 
 			$data['page_title'] = 'Update Restaurant Data';
-			$this->template->load('default','restaurant/menu' ,$data);
+			$this->template->load('default','clients/menu' ,$data);
 			
+
+		}
+
+		public function add_menu(){
+
+			if($this->input->post('submit')){
+
+				$config['allowed_types']        = 'jpg|png';
+	            $config['max_size']             = 5000;
+	            // $config['max_width']            = 1000;
+	            // $config['max_height']           = 768;
+
+	            
+									
+				$config['upload_path']          = 'uploads/user/' . $this->session->userdata('username').'/menu';
+				$config['overwrite']			= True;
+				#$config['file_name']			= 'photo.jpg';
+				$this->upload->initialize($config);
+
+				//Check if the folder for the upload existed
+				if(!file_exists($config['upload_path']))
+				{
+					//if not make the folder so the upload is possible
+					mkdir($config['upload_path'], 0777, true);
+				}
+
+                if ($this->upload->do_upload('photo'))
+                {
+                    //Get the link for the database
+                    $photo = $this->upload->data();
+                    $photo = $config ['upload_path'] . '/' . $photo ['file_name'];
+                }
+
+                $data = array(
+						
+						'name' => $this->input->post('name'),
+						'restaurant_id' => $this->session->userdata('user_id'),
+						'price' => $this->input->post('price'),
+						'photo' => $photo,
+						'available' => 1
+						
+						
+						
+					);
+
+                $this->db->insert('dishes', $data);
+			}
+
+			redirect('clients/menu');
 
 		}
 
