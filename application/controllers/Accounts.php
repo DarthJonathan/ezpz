@@ -12,10 +12,8 @@
 					$this->template->load('default','logins/login_user', $data);
 				}else
 				{
-					redirect('dashboard');
-				}
-
-			
+					redirect('main');
+				}	
 		}
 
 		public function signup($mode = 'user')
@@ -236,7 +234,7 @@
 							);
 							$this->session->set_userdata($session_user);
 
-							redirect('/dashboard');
+							redirect('main');
 						}else if($type == 'clients')
 						{
 							//Check if user have completed their data
@@ -261,7 +259,7 @@
 							);
 							$this->session->set_userdata($session_user);
 
-							redirect('/dashboard');
+							redirect('main');
 						}else
 						{	
 							//Check if user have completed their data
@@ -287,7 +285,7 @@
 							);
 							$this->session->set_userdata($session_user);
 
-							redirect('/dashboard');
+							redirect('main');
 						}
 					}else
 					{
@@ -347,7 +345,7 @@
 		{
 			if($md5 == '')
 			{
-				redirect('main');
+				redirect('accounts/');
 			}else
 			{
 				$this->load->model('login_model');
@@ -363,6 +361,12 @@
 				}
 			}
 
+		}
+
+		public function logout ()
+		{
+			$this->session->sess_destroy();
+			redirect('main');
 		}
 
 	}

@@ -31,7 +31,7 @@ function formValidate ()
 		<div class="col-md-12">	
 		
 				<div class="login">
-					<?php echo form_open_multipart('dashboard/complete_data/submit/clients') ?>
+					<?php echo form_open_multipart('clients/complete_data/submit') ?>
 					<table align="center">
 						<tr>
 					    	<td>

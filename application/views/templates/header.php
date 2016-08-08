@@ -189,13 +189,13 @@ function initMap() {
 		        <ul class="dropdown-menu">
 
 		        <?php if($this->session->userdata('type') == 'user' || $this->session->userdata('type') == 'driver' || $this->session->userdata('type') == 'clients'): ?>
-		          <li><a href="<?php echo base_url('dashboard/complete_data/'); ?>" class="nav-link">Edit Profile</a></li>
+		          <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" class="nav-link">Edit Profile</a></li>
 				<?php endif; ?>
 
 		          <li><a href="#">Change Password</a></li>
 		        </ul>
 	        </li>
-	        <li><a href="<?php echo base_url('dashboard/logout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+	        <li><a href="<?php echo base_url('accounts/logout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 
 	      </ul>
 	  	  <?php endif; ?>
