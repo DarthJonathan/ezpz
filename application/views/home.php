@@ -21,7 +21,7 @@
 	<div class="row">
 	<h3>What You Can Do</h3></div></div>
 </div>
-<div class="container-fluid padding-top-five" style="overflow:auto">
+<div class="container-fluid" style="overflow:auto; padding-top:20px;">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">

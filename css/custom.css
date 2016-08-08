@@ -1,6 +1,6 @@
 /*General*/
 .padding-top-five{
-  padding-top: 20px;
+  padding-top: 5%;
 }
 /*For navbar*/
 .nav.navbar-nav.navbar-left a,.nav.navbar-nav.navbar-right a{
@@ -8,6 +8,9 @@
 }
 .nav.navbar-nav.navbar-left a:hover,.nav.navbar-nav.navbar-right a:hover{
 	color: #e67e22;
+}
+.nav .navbar-nav .dropdown .dropdown-menu ul li a:hover{
+  background-color: transparent;
 }
 
 /* Global */

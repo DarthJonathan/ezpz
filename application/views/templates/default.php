@@ -177,13 +177,13 @@
 		  	<li><a href=""><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.4em"></i></a></li>
 	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->session->userdata('username') ?>
         	<span class="caret"></span></a>
-		        <ul class="dropdown-menu">
+		        <ul class="dropdown-menu" style="background-color: #000;">
 
 		        <?php if($this->session->userdata('type') == 'user' || $this->session->userdata('type') == 'driver' || $this->session->userdata('type') == 'clients'): ?>
 		          <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" class="nav-link">Edit Profile</a></li>
 				<?php endif; ?>
 
-		          <li><a href="#">Change Password</a></li>
+		          <li><a href="#">Top Up Wallet</a></li>
 		        </ul>
 	        </li>
 	        <li><a href="<?php echo base_url('accounts/logout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
