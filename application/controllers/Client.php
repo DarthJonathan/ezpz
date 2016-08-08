@@ -1,6 +1,6 @@
 <?php 
 
-class Driver extends CI_Controller{
+class Client extends CI_Controller{
 	
 	public function complete_data ($param1 = '')
 	{
@@ -64,7 +64,7 @@ class Driver extends CI_Controller{
 		        }
 		    }else
 		    {
-		    	$this->load->model('login_model');
+		    	
 				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
 
 				$data['page_title'] = 'Update Restaurant Data';
@@ -113,5 +113,28 @@ class Driver extends CI_Controller{
 		        redirect('main');
 			}
 		}
+
+		public function update_location($lat,$lng){
+
+			$data = array(
+				 'latitude' => urldecode($lat),
+				 'longitude' => urldecode($lng)
+				);
+			$this->db->update('restaurants',$data, array('id' => $this->session->userdata('user_id')) );
+		}
+
+		public function menu(){
+
+			$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
+
+			$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
+			$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('username' => $this->session->userdata('username')))->row();
+
+			$data['page_title'] = 'Update Restaurant Data';
+			$this->template->load('default','restaurant/menu' ,$data);
+			
+
+		}
+
 	}
  ?>

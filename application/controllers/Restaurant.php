@@ -25,15 +25,7 @@
 
 		}
 
-		public function update_location($lat,$lng){
-
-			$data = array(
-				 'latitude' => urldecode($lat),
-				 'longitude' => urldecode($lng)
-				);
-			$this->db->update('restaurants',$data, array('id' => $this->session->userdata('user_id')) );
-		}
-
+		
 	}
 
  ?>

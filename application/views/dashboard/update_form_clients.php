@@ -122,7 +122,7 @@ function formValidate ()
 								      	lng = document.getElementById("lngbox").value;
 								      	
 										$.ajax({		                
-											url: "<?php echo base_url(); ?>" + 'restaurant/update_location/' + encodeURIComponent(lat) + '/' + encodeURIComponent(lng),
+											url: "<?php echo base_url(); ?>" + 'client/update_location/' + encodeURIComponent(lat) + '/' + encodeURIComponent(lng),
 											type: 'GET',
 											success: function(data) 
 											{
