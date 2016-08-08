@@ -33,7 +33,7 @@
 					}
 					else if($mode == 'client')
 					{
-						$data['page_title'] = 'Sign Up Driver';
+						$data['page_title'] = 'Become a partner';
 						$this->load->view('template/header', $data);
 						$this->load->view('logins/add_partner', $data);
 					}
