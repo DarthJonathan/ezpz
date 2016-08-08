@@ -1,5 +1,4 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
 <!doctype html>
 <html>
 <head>
@@ -7,31 +6,24 @@
 	<title><?php echo $page_title; ?> - EZPZ</title>
     
     <!-- Stylesheet -->
-    <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
-	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
-
-
-
+    <link href="<?php echo base_url() ?>css/flat-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
     <!-- Begin Scripts -->
-   
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/flat-ui.min.js"></script>
-    <script src="<?php echo base_url() ?>js/jquery-3.1.0.js"></script>
-    <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
-    <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
     
     <style>
 		@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
 		@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
 		@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
 	
+		
 		body
 		{
-			
+			background-image: url("images/login/display.jpg");
 			background-size:100% 100%;
 			background-repeat: no-repeat;
     		background-attachment: fixed;
@@ -138,8 +130,6 @@
 </head>
 
 <body>
-
-
 <!--NavBar-->
 <div class="container-fluid">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -150,70 +140,36 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span> 
 	      </button>
-	      <a class="navbar-brand" href="<?php echo base_url('main') ?>">EZPZ</a>
+	      <a class="navbar-brand" href="#">EZPZ</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav navbar-left">
-	        <li><a href="<?php echo base_url('main') ?>" class="nav-link">Home</a></li>
-	        <li><a href="<?php echo base_url('main/about/') ?>" class="nav-link">About Us</a></li>
-	        <li><a href="<?php echo base_url('restaurant/cuisine/') ?>" class="nav-link">Restaurants</a></li> 
-	        
-	        <!-- Menu Available available in diffrent login types -->
-	        <?php if($this->session->userdata('type') == 'user'): ?>
-	        	<li><a href="#" class="nav-link">Top Up Wallet</a></li>
-	        <?php elseif($this->session->userdata('type') == 'driver'): ?>
-				<li><a href="#" class="nav-link">Top Up Wallet</a></li>
-	    	<?php endif; ?>
-	        
-	      	<li role="separator" class="divider" style="background-color: white; height: 1px"></li>
+	        <li class="active"><a href="<?php echo base_url('admin') ?>" class="nav-link">Home</a></li>
+	        <li><a href="#" class="nav-link">About Us</a></li>
+	        <li><a href="#" class="nav-link">Restaurants</a></li> 
+	        <li><a href="#" class="nav-link">Top Up Wallet</a></li> 
 	      </ul>
-
-	      <?php if(!$this->session->userdata('user_id')) : ?>		
 	      <ul class="nav navbar-nav navbar-right">
-	      
-	        <li><a href="<?php echo base_url('accounts/signup') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	        <li><a href="<?php echo base_url('accounts/') ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	      	<?php if($this->session->userdata('admin_isLogged') == FALSE): ?>
+	        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	        <?php else: ?>
+	        	<li><a href="#">Welcome, Reyner !</a></li>
+	        	<li><a href="<?php echo base_url('admin/logout') ?>"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	        <?php endif; ?>
 	      </ul>
-		  <?php else : ?>
-		  <ul class="nav navbar-nav navbar-right">
-		  	<li></li>
-	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->session->userdata('username') ?>
-        	<span class="caret"></span></a>
-		        <ul class="dropdown-menu" style="background-color: #000;">
-
-		        <?php if($this->session->userdata('type') == 'user' || $this->session->userdata('type') == 'driver' || $this->session->userdata('type') == 'clients'): ?>
-		          <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" class="nav-link">Edit Profile</a></li>
-				<?php endif; ?>
-				  <?php echo $this->session->userdata('type') == 'clients' ? '<li><a href="'.base_url().$this->session->userdata('type').'/menu">Edit Menu</a></li>' : '';  ?>
-
-		          <li><a href="#">Top Up Wallet</a></li>
-		        </ul>
-	        </li>
-	        <li><a href="<?php echo base_url('accounts/logout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-
-	      </ul>
-	  	  <?php endif; ?>
-
 	    </div>
 	  </div>
 	</nav>
 </div>
-
-<div class="cart">
-	<a href="#"><?php echo $this->cart->total_items() ?><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i></a>
-</div>
-
-
+<!--Navbar End-->
+				
 <?php echo $body ?>
 
-<!--Navbar End-->
-				<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
 
 </body>
 </html>

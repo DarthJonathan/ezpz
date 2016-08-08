@@ -125,7 +125,7 @@ $("#restaurant-search").typeahead({
 
 function submit(){
 
-	$("#search").submit() {
+	$("#search").submit();
 }
 
 	

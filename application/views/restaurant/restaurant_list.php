@@ -33,8 +33,8 @@
 						<p><?php echo $restaurant->address ?></p>
 						<p><?php echo $restaurant->opentime.' - '.$restaurant->closetime?></p>
 				    </div>
-				    <div class="panel-heading">
-				        <img src="<?php echo base_url().$restaurant->photo ?>" width="80" alt="">
+				    <div class="panel-heading" style="background-image: url('<?php echo base_url().$restaurant->photo ?>');background-size: cover;background-repeat: no-repeat;background-position: center center; ">
+				        &nbsp;
 				    </div>
 				</div>
 			</div>

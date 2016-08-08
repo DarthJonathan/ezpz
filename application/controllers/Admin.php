@@ -8,16 +8,15 @@
 				if(!$this->session->userdata('admin_isLogged'))
 				{
 					$data['page_title'] = 'Login Admin';
-					$this->load->view('admin/template/header', $data);
-					$this->load->view('admin/login', $data);
+					$this->template->load('default_admin', 'admin/login', $data);
 				}else
 				{
 					$data['page_title'] = 'Admin Dashboard';
-					$this->load->view('admin/template/header', $data);
-					$this->load->view('admin/dashboard', $data);
+				
+					$this->template->load('default_admin', 'admin/dashboard', $data);
 				}
 
-			$this->load->view('admin/template/footer');
+		
 		}
 		
 		public function login ()
@@ -25,33 +24,27 @@
 			if($this->input->post())
 			{
 				$username = $this->input->post('username');
-				$password = $this->input->post('password');
+				$password = hash_password($this->input->post('password'));
 
-				$this->load->model('admin_model');
-				$data_username = array('username'  => $username);
-				if(!$data_user = $this->admin_model->getUserdata($data_username))
+				
+				if(!$data_user = $this->admin_model->verifyUser($username,$password))
 				{
 					$this->session->set_flashdata('error', 'Username or Password is Wrong (debug 1)');
 					redirect('admin/');
 				}else
 				{
-					if(password_verify($password, $data_user->password))
-					{
-						$session_user = array (
+					
+					$session_user = array (
 
-							'admin_isLogged'		=> True,
-							'admin_username'		=> $username
+						'admin_isLogged'		=> True,
+						'admin_username'		=> $username
 
-							);
+						);
 
-						$this->session->set_userdata($session_user);
+					$this->session->set_userdata($session_user);
 
-						redirect('admin/');
-					}else
-					{
-						$this->session->set_flashdata('error', 'Username or Password is Wrong (debug 2)');
-						redirect('admin/');
-					}
+					redirect('admin/');
+					
 				}
 
 			}else
@@ -65,9 +58,8 @@
 			if($param1 == 'forget')
 			{
 				$data['page_title'] = 'Reset Admin Password';
-				$this->load->view('admin/template/header', $data);
-				$this->load->view('admin/forget', $data);
-				$this->load->view('admin/template/footer', $data);
+				
+					$this->template->load('default_admin', 'admin/forget', $data);
 			}else if($param1 == 'reset')
 			{
 				$email = $this->input->post('email');
@@ -111,13 +103,12 @@
 				{
 					if($id == '')
 					{
-						$users = $this->admin_model->getUsers($type);
+						$users = $this->admin_model->getUsers('users');
 						$data['users'] = $users;
 						$data['type']= $type;
 						$data['page_title'] = 'Reset Admin Password';
-						$this->load->view('admin/template/header', $data);
-						$this->load->view('admin/view_users', $data);
-						$this->load->view('admin/template/footer', $data);
+						
+					$this->template->load('default_admin', 'admin/view_users', $data);
 					}else
 					{
 						$data_user = $this->admin_model->getUsers($type, $id);
@@ -143,7 +134,7 @@
 								
 							);
 						$this->session->set_userdata($session_user);
-						redirect('dashboard/');
+						redirect('main');
 					}
 				}break;
 
@@ -151,13 +142,12 @@
 				{
 					if($id == '')
 					{
-						$users = $this->admin_model->getUsers($type);
+						$users = $this->admin_model->getUsers('drivers');
 						$data['users'] = $users;
 						$data['type']= $type;
 						$data['page_title'] = 'Reset Admin Password';
-						$this->load->view('admin/template/header', $data);
-						$this->load->view('admin/view_users', $data);
-						$this->load->view('admin/template/footer', $data);
+					
+					$this->template->load('default_admin', 'admin/view_users', $data);
 					}else
 					{
 						$data_user  = $this->admin_model->getUsers($type, $id);
@@ -183,7 +173,7 @@
 								
 							);
 						$this->session->set_userdata($session_user);
-						redirect('dashboard/');
+						redirect('main/');
 					}
 				}break;
 
@@ -195,9 +185,8 @@
 						$data['users'] = $users;
 						$data['type']= $type;
 						$data['page_title'] = 'Reset Admin Password';
-						$this->load->view('admin/template/header', $data);
-						$this->load->view('admin/view_users', $data);
-						$this->load->view('admin/template/footer', $data);
+					
+					$this->template->load('default_admin', 'admin/view_users', $data);
 					}else
 					{
 						$data_user = $this->admin_model->getUsers('restaurants', $id);
@@ -222,7 +211,7 @@
 								
 							);
 						$this->session->set_userdata($session_user);
-						redirect('dashboard/');
+						redirect('main/');
 					}
 				}break;
 
@@ -243,9 +232,8 @@
 			if($param1 == 'new')
 			{
 				$data['page_title'] = 'New Client Account';
-				$this->load->view('admin/template/header', $data);
-				$this->load->view('admin/new_client', $data);
-				$this->load->view('admin/template/footer', $data);
+				
+					$this->template->load('default_admin', 'admin/new_client', $data);
 			}else if($param1 == 'submit')
 			{
 				if($this->input->post())
@@ -305,9 +293,8 @@
 			if($param1 == '')
 			{
 				$data['page_title'] = 'Create New Admin';
-				$this->load->view('admin/template/header', $data);
-				$this->load->view('admin/new', $data);
-				$this->load->view('admin/template/footer', $data);
+				
+					$this->template->load('default_admin', 'admin/new', $data);
 			}else if($param1 == 'submit')
 			{
 				if($this->input->post())
@@ -319,7 +306,7 @@
 					$data = array (
 
 						'username'		=> $username,
-						'password'		=> password_hash($password, PASSWORD_BCRYPT),
+						'password'		=> hash_password($password),
 						'email'			=> $email,
 						'created'		=> date('Y-m-d')
 

@@ -9,6 +9,12 @@
 			return $this->db->get_where('admin', $data)->row();
 		}
 
+		public function verifyUser($username,$password)
+		{
+			return $this->db->get_where('admin', array('username' => $username, 'password' => $password))->row();
+		}
+
+
 		public function newAdmin ($data)
 		{
 			return $this->db->insert('admin', $data);

@@ -120,7 +120,7 @@
 				}else if($mode == 'client')
 				{
 					$verification_string = $this->input->post('username') . '~' . $verification_code;
-					$new_pass = substr(md5(microtime()),rand(0,26),5);
+					
 					
 					$config['allowed_types']        = 'jpg|png';
 		            $config['max_size']             = 5000;
@@ -131,7 +131,7 @@
 										
 					$config['upload_path']          = 'uploads/user/' . $this->input->post('name');
 					$config['overwrite']			= True;
-					#$config['file_name']			= 'photo.jpg';
+					$config['file_name']			= 'photo.jpg';
 					$this->upload->initialize($config);
 
 					//Check if the folder for the upload existed
@@ -149,7 +149,6 @@
 
 					$data = array(
 						'username' => $this->input->post('name'),
-						'password' => $new_pass,
 						'name' => $this->input->post('name'),
 						'address' => $this->input->post('address'),
 						'cuisine' => implode(', ',$this->input->post('cuisine')),
