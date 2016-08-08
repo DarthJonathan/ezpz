@@ -3,7 +3,7 @@
 </div>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-sm-xs">
+		<div class="col-xs-12">
 			<div class="col-xs-12 restaurant-detail">
 					
 				<h2 style="display:inline;"><?php echo $restaurant->username.' ' ?></h2>

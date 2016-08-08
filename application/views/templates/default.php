@@ -170,7 +170,7 @@
 
 	      <?php if(!$this->session->userdata('user_id')) : ?>		
 	      <ul class="nav navbar-nav navbar-right">
-	      <li><a href=""><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.4em"></i></a></li>
+	      
 	        <li><a href="<?php echo base_url('accounts/signup') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 	        <li><a href="<?php echo base_url('accounts/') ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	      </ul>
@@ -184,6 +184,7 @@
 		        <?php if($this->session->userdata('type') == 'user' || $this->session->userdata('type') == 'driver' || $this->session->userdata('type') == 'clients'): ?>
 		          <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" class="nav-link">Edit Profile</a></li>
 				<?php endif; ?>
+				  <?php echo $this->session->userdata('type') == 'clients' ? '<li><a href="'.base_url().$this->session->userdata('type').'/menu">Edit Menu</a></li>' : '';  ?>
 
 		          <li><a href="#">Top Up Wallet</a></li>
 		        </ul>

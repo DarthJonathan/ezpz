@@ -1,6 +1,6 @@
 <?php 
 
-class Client extends CI_Controller{
+class Clients extends CI_Controller{
 	
 	public function complete_data ($param1 = '')
 	{
