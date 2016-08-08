@@ -8,9 +8,7 @@
 				$data['cuisine_name'] = $cuisine_name;
 				$data['page_title']	= 'Restaurants';
 				$data['restaurants']=$this->db->get_where('restaurants',array('cuisine' => $cuisine_name) )->result();
-				$this->load->view('template/header', $data);
-				$this->load->view('restaurant/restaurant_list.php', $data);
-				$this->load->view('template/footer');
+				$this->template->load('default','restaurant/restaurant_list' ,$data);	
 		}
 		
 
@@ -19,9 +17,7 @@
 			$restaurant_name = str_replace('%20', ' ', $name);
 			$data['page_title']	= $restaurant_name;
 			$data['restaurant'] = $this->db->get_where('restaurants', array('username' => $restaurant_name))->row();
-			$this->load->view('template/header', $data);
-			$this->load->view('restaurant/restaurant_details.php', $data);
-			$this->load->view('template/footer');
+			$this->template->load('default','restaurant/restaurant_details' ,$data);	
 
 		}
 

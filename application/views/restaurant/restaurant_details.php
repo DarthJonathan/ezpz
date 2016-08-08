@@ -1,54 +1,69 @@
-<div class="container-fluid image-full-section">
+<?php date_default_timezone_set('Asia/Jakarta'); ?>
+<div class="container-fluid image-full-section restaurant-photo">
+</div>
+<div class="container-fluid">
 	<div class="row">
-		<form role="form">
-		<div class="form-group center-block">
-			<div class="input-group">
-				<input type="text" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant name">
-				<span class="input-group-btn">
- 				<button class="btn btn-default" type="submit">
-          		<span class="glyphicon glyphicon-search"></span>
+		<div class="col-sm-xs">
+			<div class="col-xs-12 restaurant-detail">
+					
+				<h2 style="display:inline;"><?php echo $restaurant->username.' ' ?></h2>
+				<span class="rating">
+					<h3 class="label label-info" style="font-size:12px;display:inline;line-height:15px;">3 / 5</h3><p style="font-size:10px;display:inline;margin-left:2px;">100 votes</p>
+				</span>
+				<p><?php echo $restaurant->cuisine.' ' ?></p>
+				<p><?php echo $restaurant->opendays.' '.date('H:i',strtotime($restaurant->opentime)).' - '.date('H:i',strtotime($restaurant->closetime)) ?></p>
+				<p><?php echo $restaurant->phone.' ' ?></p>
 			</div>
 		</div>
-	</form>
 	</div>
 </div>
-<div class="container-fluid padding-top-five">
-	<h2 style="margin-left:1%;"><?php echo $restaurant->username ?></h2>
-	<hr></hr>
-	<div class="col-md-4 col-xs-12">
-		<div class="panel panel-default panel-horizontal">
-		    <div class="panel-body">
-		        <p class="brand">Restaurant Brand</p>
-				<p>Address</p>
-				<p>Open</p>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+		  <ul class="nav nav-tabs">
+		    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
+		    <li><a data-toggle="tab" href="#menu1">Reviews</a></li>
+		    <li><a data-toggle="tab" href="#menu2">Photos</a></li>
+		  </ul>
+		 
+		  <?php if(date('H:i') < date('H:i',strtotime($restaurant->opentime))){
+		  		$disabled = 'disabled';?>
+		  		
+				<?php }else{
+		  		$disabled = '';
+		  	}?>
+		  
+		  <div class="tab-content">
+		    <div id="home" class="tab-pane fade in active">
+		    	<div class="row">
+		    		<div class="col-md-8">
+		    			<div class="panel-body"><h3 style="display:inline;" >Menu</h3><input type="number" name="" class="food-number pull-right" placeholder=" 0" <?php echo $disabled ?> >
+					      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.AAAAAAAAAAAAAAAAAAAAAAA</p>
+					      <p>Price : $9</p>
+					    </div>
+		    			
+		    		</div>
+		    		<div class="col-md-4">
+		    			<div class="panel-body"><h3>Cart</h3>
+					      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+					      <p class="btn btn-danger pull-right">Order Now</p>
+		    		</div>
+		    	</div>		
+
 		    </div>
-		    <div class="panel-heading">
-		        <p>Image</p>
+
+		    <div id="menu1" class="tab-pane fade">
+		      <h3>Reviews</h3>
+		      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		    </div>
-		</div>
-	</div>
-	<div class="col-md-4 col-xs-12">
-		<div class="panel panel-default panel-horizontal">
-		    <div class="panel-body">
-		        <p class="brand">Restaurant Brand</p>
-				<p>Address</p>
-				<p>Open</p>
+
+		    <div id="menu2" class="tab-pane fade">
+		      <h3>Photos</h3>
+		      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
 		    </div>
-		    <div class="panel-heading">
-		        <p>Image</p>
-		    </div>
-		</div>
-	</div>
-	<div class="col-md-4 col-xs-12">
-		<div class="panel panel-default panel-horizontal">
-		    <div class="panel-body">
-		        <p class="brand">Restaurant Brand</p>
-				<p>Address</p>
-				<p>Open</p>
-		    </div>
-		    <div class="panel-heading">
-		        <p>Image</p>
-		    </div>
-		</div>
+		  </div>
+		 </div>
 	</div>
 </div>
+

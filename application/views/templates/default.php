@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <!doctype html>
 <html>
 <head>
@@ -21,17 +22,6 @@
     <script src="<?php echo base_url() ?>js/flat-ui.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery-3.1.0.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
-    <script type="text/javascript">
-
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 8
-  });
-}
-
-    </script>
     <style>
 		@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
 		@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
@@ -146,6 +136,8 @@ function initMap() {
 </head>
 
 <body>
+
+
 <!--NavBar-->
 <div class="container-fluid">
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -203,5 +195,18 @@ function initMap() {
 	  </div>
 	</nav>
 </div>
+
+
+
+<?php echo $body ?>
+
 <!--Navbar End-->
-				
+				<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+
+</body>
+</html>
