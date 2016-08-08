@@ -7,11 +7,10 @@
 	<title><?php echo $page_title; ?> - EZPZ</title>
     
     <!-- Stylesheet -->
+    <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/bootstrap-theme.min.css" type="text/css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>css/flat-ui.min.css" type="text/css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
 
