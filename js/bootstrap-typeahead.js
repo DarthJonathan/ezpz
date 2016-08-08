@@ -170,17 +170,18 @@
 
   , listen: function () {
       this.$element
-        .on('blur',     $.proxy(this.blur, this))
-        .on('keypress', $.proxy(this.keypress, this))
-        .on('keyup',    $.proxy(this.keyup, this))
+    .on('blur',     $.proxy(this.blur, this))
+    .on('keypress', $.proxy(this.keypress, this))
+    .on('keyup',    $.proxy(this.keyup, this))
 
-      if ($.browser.chrome || $.browser.webkit || $.browser.msie) {
-        this.$element.on('keydown', $.proxy(this.keydown, this))
-      }
+    // if ($.browser.webkit || $.browser.msie) {
+    this.$element.on('keydown', $.proxy(this.keypress, this))
+    // }
 
-      this.$menu
-        .on('click', $.proxy(this.click, this))
-        .on('mouseenter', 'li', $.proxy(this.mouseenter, this))
+    this.$menu
+    .on('click', $.proxy(this.click, this))
+    .on('mouseenter', 'li', $.proxy(this.mouseenter, this))
+    .on('mouseleave', 'li', $.proxy(this.mouseleave, this))
     }
 
   , move: function (e) {
@@ -254,11 +255,17 @@
     }
 
   , mouseenter: function (e) {
-      this.$menu.find('.active').removeClass('active')
+      
       $(e.currentTarget).addClass('active')
     }
 
+  ,mouseleave: function () {
+      this.$menu.find('.active').removeClass('active')
   }
+
+  }
+
+
 
 
   /* TYPEAHEAD PLUGIN DEFINITION

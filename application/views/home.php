@@ -3,13 +3,14 @@
 <!--Full Div Image from div bg-->
 <div class="container-fluid image-full">
 	<div class="row">
-		<form role="form">
+		<form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
 		<div class="form-group center-block">
 			<div class="input-group">
-				<input type="text" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant address">
+				<input type="text" autocomplete="off" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant address">
 				<span class="input-group-btn">
- 				<button class="btn btn-default" type="submit">
-          		<span class="glyphicon glyphicon-search"></span>
+ 					<button class="btn btn-default" type="submit" name="search" onclick="submit()">
+          		<span class="glyphicon glyphicon-search"></span></button>
+          		</span>
 			</div>
 		</div>
 	</form>
@@ -112,14 +113,23 @@ var test = [""];
 
 $("#restaurant-search").typeahead({
 
-						
-					
-
                         minLength: 0,
                         items: 9999,
                         source: test,   
                     });
 </script>
 
+
+
+<script>
+
+function submit(){
+
+	$("#search").submit() {
+}
+
+	
+
+</script>
 
 

@@ -14,6 +14,10 @@
 
 		public function detail($name = ''){
 
+			if($this->input->post()){
+				$name = $this->input->post('restaurant-search');
+			}
+
 			$restaurant_name = str_replace('%20', ' ', $name);
 			$data['page_title']	= $restaurant_name;
 			$data['restaurant'] = $this->db->get_where('restaurants', array('username' => $restaurant_name))->row();

@@ -15,6 +15,7 @@
 	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
 
 
+
     <!-- Begin Scripts -->
    
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
@@ -22,6 +23,7 @@
     <script src="<?php echo base_url() ?>js/jquery-3.1.0.js"></script>
     <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
+    
     <style>
 		@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
 		@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css);
