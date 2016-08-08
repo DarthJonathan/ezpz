@@ -37,20 +37,29 @@
 		  <div class="tab-content">
 		    <div id="home" class="tab-pane fade in active">
 		    	<div class="row">
-		    		<div class="col-md-8">
+		    		<div class="col-xs-2 hidden-xs" style="margin-bottom:5px; ">
+		    			<img class="img-responsive" src="http://placehold.it/250x220" alt="">
+		    		</div>
+		    		<div class="col-xs-10" style="padding-left:0px">
 		    			<div class="panel-body"><h3 style="display:inline;" >Menu</h3><input type="number" name="" class="food-number pull-right" placeholder=" 0" <?php echo $disabled ?> >
 					      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.AAAAAAAAAAAAAAAAAAAAAAA</p>
 					      <p>Price : $9</p>
 					    </div>
-		    			
+		    			<p class="btn btn-primary pull-right">Add to Cart</p>
 		    		</div>
-		    		<div class="col-md-4">
-		    			<div class="panel-body"><h3>Cart</h3>
-					      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
-					      <p class="btn btn-danger pull-right">Order Now</p>
+		    	</div>					    	
+		    	<div class="row">
+		    		<div class="col-xs-2 hidden-xs" style="margin-bottom:5px; ">
+		    			<img class="img-responsive" src="http://placehold.it/250x220" alt="">
 		    		</div>
-		    	</div>		
-
+		    		<div class="col-xs-10" style="padding-left:0px">
+		    			<div class="panel-body"><h3 style="display:inline;" >Menu</h3><input type="number" name="" class="food-number pull-right" placeholder=" 0" <?php echo $disabled ?> >
+					      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.AAAAAAAAAAAAAAAAAAAAAAA</p>
+					      <p>Price : $9</p>
+					    </div>
+		    			<p class="btn btn-primary pull-right">Add to Cart</p>
+		    		</div>
+		    	</div>
 		    </div>
 
 		    <div id="menu1" class="tab-pane fade">
