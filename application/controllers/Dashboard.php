@@ -11,11 +11,10 @@
 				}else
 				{
 					$data['page_title']	= 'Dashboard';
-					$this->load->view('template/header', $data);
-					$this->load->view('dashboard/dashboard.php');
+					$this->template->load('default','dashboard/dashboard', $data);
 				}
 
-			$this->load->view('template/footer');
+			
 		}
 
 		public function logout ()

@@ -8,14 +8,14 @@
 				if(!$this->session->userdata('user_id'))
 				{
 					$data['page_title'] = 'Login';
-					$this->load->view('template/header', $data);
-					$this->load->view('logins/login_user', $data);
+					
+					$this->template->load('default','logins/login_user', $data);
 				}else
 				{
 					redirect('dashboard');
 				}
 
-			$this->load->view('template/footer');
+			
 		}
 
 		public function signup($mode = 'user')
@@ -26,20 +26,18 @@
 					if($mode == 'user')
 					{
 						$data['page_title'] = 'Sign Up User';
-						$this->load->view('template/header', $data);
-						$this->load->view('logins/signup_form', $data);
+						$this->template->load('default','logins/signup_form', $data);
 					}
 						else if($mode == 'driver')
 					{
 						$data['page_title'] = 'Sign Up Driver';
-						$this->load->view('template/header', $data);
-						$this->load->view('logins/signup_form_driver', $data);
+						$this->template->load('default','logins/signup_form_driver', $data);
 					}
 				}else
 				{
 					redirect('dashboard');
 				}
-			$this->load->view('template/footer');
+			
 		}
 
 		public function signup_submit($mode = 'user'){
