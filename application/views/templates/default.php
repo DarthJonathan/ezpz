@@ -21,6 +21,7 @@
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
     <script src="<?php echo base_url() ?>js/flat-ui.min.js"></script>
     <script src="<?php echo base_url() ?>js/jquery-3.1.0.js"></script>
+    <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
     <style>
 		@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700);
@@ -174,7 +175,7 @@
 	      </ul>
 		  <?php else : ?>
 		  <ul class="nav navbar-nav navbar-right">
-		  	<li><a href=""><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.4em"></i></a></li>
+		  	<li></li>
 	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->session->userdata('username') ?>
         	<span class="caret"></span></a>
 		        <ul class="dropdown-menu" style="background-color: #000;">
@@ -196,6 +197,9 @@
 	</nav>
 </div>
 
+<div class="cart">
+	<a href="#"><?php echo $this->cart->total_items() ?><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i></a>
+</div>
 
 
 <?php echo $body ?>

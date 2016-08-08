@@ -15,8 +15,9 @@
 	</form>
 	</div>
 </div>
+
 <!--Full Div End, What you can do div-->
-<div class="container-fluid col-sm-12 section-head">
+<div class="container-fluid col-sm-12 section-head" >
 	<div class="container">
 	<div class="row">
 	<h3>What You Can Do</h3></div></div>
@@ -98,6 +99,27 @@
 	<?php endforeach;?>
 </div>
 </div>
+
+<script>
+
+var test = [""];
+<?php $i = 0; ?>
+
+<?php foreach ($restaurants as $restaurant): ?>
+	test[<?php echo $i ?>] = "<?php echo $restaurant['username'] ?>"
+	<?php $i++; ?>
+<?php endforeach; ?>
+
+$("#restaurant-search").typeahead({
+
+						
+					
+
+                        minLength: 0,
+                        items: 9999,
+                        source: test,   
+                    });
+</script>
 
 
 
