@@ -1,9 +1,14 @@
+<?php if($this->session->flashdata('error')): ?>
+  	<div class="alert alert-danger">
+	<?php echo $this->session->flashdata('error'); ?>
+	</div>
+<?php endif; ?>	
 <div class="container-fluid" style="padding-top:5%;">
 		
 		<div class="col-md-6">
 
 				<div class="login">
-					<?php echo form_open('main/add_partner/submit', array ("id" => "loginForm", 'name' => 'loginForm', 'onSubmit' => 'formValidate(); return false')) ?>
+					<?php echo form_open('accounts/signup_submit/client', array ("id" => "loginForm", 'name' => 'loginForm', 'onSubmit' => 'formValidate(); return false')) ?>
 					<table align="center">
 						<tr>
 					    	<td>
@@ -39,12 +44,8 @@
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon">Cuisine</span>
-					            <select class="form-control" id="multi" multiple="multiple" onchange="show_value(this)" name="cuisine[]">
-						            <option value="Asian">Asian</option>
-						            <option value="Italian">Italian</option>
-						            <option value="Indonesian">Indonesian</option>
-						        </select>
+					            <span class="input-group-addon">Email</span>
+					            <input type="text" name = "email"  class="form-control"  required>
 					        </div>
 					    </td>
 					    </tr>
@@ -67,8 +68,20 @@
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon">Cuisine</span>
+					            <select class="form-control" id="multi" multiple="multiple" name="cuisine[]">
+						            <option value="Asian">Asian</option>
+						            <option value="Italian">Italian</option>
+						            <option value="Indonesian">Indonesian</option>
+						        </select>
+					        </div>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon">Open Days</span>
-					            <select class="form-control" id="multiDays" multiple="multiple" onchange="show_value(this)" name="opendays[]">
+					            <select class="form-control" id="multiDays" multiple="multiple" name="opendays[]">
 						            <option value="Monday">Monday</option>
 						            <option value="Tuesday">Tuesday</option>
 						            <option value="Wednesday">Wednesday</option>
@@ -84,7 +97,7 @@
 					    <td>
 					    	<div class="input-group input-group-lg">
 					            <span class="input-group-addon">Photo</span>
-					            <input type="file" name = "photo"  class="form-control"  required>
+					            <input type="file" name = "photo"  class="form-control" required >
 					        </div>
 					    </td>
 					    </tr>
@@ -112,12 +125,7 @@
 		$('#multi').multiSelect();
 		$('#multiDays').multiSelect();
 	</script>
-	<script>
-		function show_value(el){
-
-			alert($(el).val());
-		}
-	</script>
+	
 
 </div>
 

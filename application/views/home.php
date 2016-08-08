@@ -42,7 +42,7 @@
 					</div>
 					<div class="panel-body">
 						<p>Work as a freelancer with EZPZ. Free working time, profit, easy.</p>
-						<a class="btn btn-warning do-button" href="<?php echo base_url('accounts/signup') ?>">Sign Up as Freelancer</a>
+						<a class="btn btn-warning do-button" href="<?php echo base_url('accounts/signup/driver') ?>">Sign Up as Freelancer</a>
 					</div>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 					</div>
 					<div class="panel-body">
 						<p>Team up with us and get more profit and reach more customers.</p>
-						<a class="btn btn-danger do-button" href="<?php echo base_url('main/add_partner') ?>">Be a Partner</a>
+						<a class="btn btn-danger do-button" href="<?php echo base_url('accounts/signup/client') ?>">Be a Partner</a>
 					</div>
 				</div>
 			</div>

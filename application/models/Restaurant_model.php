@@ -13,6 +13,5 @@
 		{
 			return 	$this->db->get_where('dishes', array('restaurant_id' => $resto))->row();
 		}
-		
 	}
  ?>

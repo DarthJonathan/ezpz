@@ -33,6 +33,7 @@
 				);
 			$this->db->update('restaurants',$data, array('id' => $this->session->userdata('user_id')) );
 		}
+
 	}
 
  ?>

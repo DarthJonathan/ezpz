@@ -29,11 +29,17 @@
 						$this->load->view('template/header', $data);
 						$this->load->view('logins/signup_form', $data);
 					}
-						else if($mode == 'driver')
+					else if($mode == 'driver')
 					{
 						$data['page_title'] = 'Sign Up Driver';
 						$this->load->view('template/header', $data);
 						$this->load->view('logins/signup_form_driver', $data);
+					}
+					else if($mode == 'client')
+					{
+						$data['page_title'] = 'Sign Up Driver';
+						$this->load->view('template/header', $data);
+						$this->load->view('logins/add_partner', $data);
 					}
 				}else
 				{
@@ -115,6 +121,69 @@
 
 						redirect('accounts/signup/driver');
 
+					}
+				}else if($mode == 'client')
+				{
+					$verification_string = $this->input->post('username') . '~' . $verification_code;
+					$new_pass = substr(md5(microtime()),rand(0,26),5);
+					
+					$config['allowed_types']        = 'jpg';
+		            $config['max_size']             = 5000;
+		            // $config['max_width']            = 1000;
+		            // $config['max_height']           = 768;
+
+		            
+										
+					$config['upload_path']          = 'uploads/user/' . $this->session->userdata('user_id');
+					$config['overwrite']			= True;
+					$config['file_name']			= 'photo.jpg';
+					$this->upload->initialize($config);
+
+					//Check if the folder for the upload existed
+					if(!file_exists($config['upload_path']))
+					{
+						//if not make the folder so the upload is possible
+						mkdir($config['upload_path'], 0777, true);
+					}
+
+	                if ($this->upload->do_upload('photo'))
+	                {
+	                    //Get the link for the database
+	                    $photo = $config ['upload_path'] . '/' . $config ['file_name'];
+	                }
+
+					$data = array(
+						'username' => $this->input->post('name'),
+						'password' => $new_pass,
+						'name' => $this->input->post('name'),
+						'address' => $this->input->post('address'),
+						'cuisine' => implode(', ',$this->input->post('cuisine')),
+						'opentime' => $this->input->post('opentime'),
+						'closetime' => $this->input->post('closetime'),
+						'opendays' => implode(', ',$this->input->post('opendays')),
+						'photo' => $photo,
+						'phone' => $this->input->post('phone'),
+						'email' => $this->input->post('email'),
+						'created' => date('Y-m-d')
+					);
+
+					$this->load->model('login_model');
+
+					//Check if The Username is unique
+					if(!$this->login_model->insert_data_new_user('restaurants', $data))
+					{
+						$this->session->set_flashdata('error', 'Username or Email has been Registered');
+
+						redirect('accounts/signup/client');
+						echo $photo;
+
+					}else
+					{
+						$this->login_model->email('verify_account', $data['email'], $verification_string);
+						$this->session->set_flashdata('success', 'User has been added');
+
+						redirect('accounts/signup/client');
+						echo $photo;
 					}
 				}
 			}else
