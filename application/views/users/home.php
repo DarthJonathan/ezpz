@@ -97,11 +97,10 @@ var test = [""];
 <?php endforeach; ?>
 
 $("#restaurant-search").typeahead({
-
-                        minLength: 0,
-                        items: 9999,
-                        source: test,   
-                    });
+    minLength: 0,
+    items: 9999,
+    source: test,   
+});
 </script>
 
 
