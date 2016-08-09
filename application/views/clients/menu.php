@@ -41,7 +41,7 @@
 			    				<td><?php echo $i ?></td>
 			    				<td><img src="<?php echo base_url($dish->photo) ?>" width="50" alt=""></td>
 			    				<td><?php echo $dish->name ?></td>
-			    				<td><?php echo $dish->price ?></td>
+			    				<td><?php echo price($dish->price) ?></td>
 			    			</tr>
 			    			<?php $i++; ?>
 			    			<?php endforeach; ?>

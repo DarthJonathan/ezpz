@@ -223,10 +223,10 @@
 	  	<h2>EZPZ</h2>
 	  </div>
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Drivers</a>
-  <a href="#">Users</a>
-  <a href="#">Partners</a>
-  <a href="#">Unapproved Partners</a>
+  <a href="<?php echo base_url('admin/users/driver') ?>">Drivers</a>
+  <a href="<?php echo base_url('admin/users/user') ?>">Users</a>
+  <a href="<?php echo base_url('admin/users/client') ?>">Partners</a>
+  <a href="<?php echo base_url('admin/users/driver') ?>">Unapproved Partners</a>
   <a href="<?php echo base_url('admin/logout') ?>"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
 </div>
 

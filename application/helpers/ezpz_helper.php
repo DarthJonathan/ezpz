@@ -60,8 +60,8 @@ function nama_bulan($month){
 
 }
 
-function rupiah($number){
+function price($number){
 
-		return 'Rp. '.number_format($number,0,',','.');
+		return '$ '.number_format($number,2);
 
 }

@@ -16,11 +16,6 @@
 		</div>
 	<?php endif; ?>
 
-		<div class="col-md-6">
-			<a href="<?php echo base_url('admin/clients/new') ?>"><button class="btn btn-primary">New Client</button></a>
-			<a href="<?php echo base_url('admin/users/user') ?>"><button class="btn btn-primary">View Users</button></a>
-			<a href="<?php echo base_url('admin/users/driver') ?>"><button class="btn btn-primary">View Drivers</button></a>
-			<a href="<?php echo base_url('admin/users/client') ?>"><button class="btn btn-primary">View Clients</button></a>
-		</div>
+		<h1>DASHBOARD</h1>
 	</div>
 </div>
