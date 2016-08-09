@@ -1,17 +1,6 @@
-<?php 
+ <?php 
 
 class Clients extends CI_Controller{
-
-
-	public function index(){
-			$data['page_title'] = "Client's Home";
-			$data['cuisines']	= array('Asian', 'Italian', 'Indonesian', 'Irvan', ' Jonathan', 'setyawan', 'felita','Other');
-			$data['restaurants'] = $this->db->get('restaurants')->result_array();
-			
-			$this->template->load('default','clients/home' ,$data);	
-			
-	}
-
 	
 	public function complete_data ($param1 = '')
 	{
@@ -78,13 +67,8 @@ class Clients extends CI_Controller{
 		    	
 				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
 
-				$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
-
-				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
-				$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('username' => $this->session->userdata('username')))->row();
-
 				$data['page_title'] = 'Update Restaurant Data';
-				$this->template->load('default','clients/update_form_clients' ,$data);
+				$this->template->load('default_clients','clients/update_form_clients' ,$data);	
 		    }
 		}
 
@@ -147,7 +131,7 @@ class Clients extends CI_Controller{
 			$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('username' => $this->session->userdata('username')))->row();
 
 			$data['page_title'] = 'Update Restaurant Data';
-			$this->template->load('default','clients/menu' ,$data);
+			$this->template->load('default_clients','clients/menu' ,$data);
 			
 
 		}
