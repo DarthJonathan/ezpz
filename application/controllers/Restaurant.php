@@ -9,7 +9,7 @@
 				$cuisine_name = str_replace('%20', ' ', $cuisine);
 				$data['cuisine_name'] = $cuisine_name;
 				$data['page_title']	= 'Restaurants';
-				$data['restaurants']=$this->db->get_where('restaurants',array('cuisine' => $cuisine_name,'is_approved' => 1) )->result();
+				$data['restaurants']=$this->db->get_where('restaurants',array('cuisine' => $cuisine_name,'is_verified' => 1) )->result();
 
 			}else{
 				$data['cuisine_name'] = "All Restaurants";
