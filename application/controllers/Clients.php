@@ -68,6 +68,8 @@ class Clients extends CI_Controller{
 				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
 
 				$data['page_title'] = 'Update Restaurant Data';
+				$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
+				$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('username' => $this->session->userdata('username')))->row();
 				$this->template->load('default_clients','clients/update_form_clients' ,$data);	
 		    }
 		}
@@ -147,7 +149,7 @@ class Clients extends CI_Controller{
 
 	            
 									
-				$config['upload_path']          = 'uploads/user/' . $this->session->userdata('username').'/menu';
+				$config['upload_path']          = 'uploads/user/' . $this->session->userdata('username').'/update_form_clients';
 				$config['overwrite']			= True;
 				#$config['file_name']			= 'photo.jpg';
 				$this->upload->initialize($config);
@@ -181,7 +183,7 @@ class Clients extends CI_Controller{
                 $this->db->insert('dishes', $data);
 			}
 
-			redirect('clients/menu');
+			redirect('clients/update_form_clients');
 
 		}
 
