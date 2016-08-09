@@ -250,6 +250,7 @@
 							'name'			=> $data_user->name,
 							'user_id'		=> $data_user->id,
 							'data_complete'	=> $complete,
+							'is_verified'	=> $data_user->is_verified,
 							'isLogged'		=> TRUE,
 							'type'			=> 'clients'
 							
@@ -356,8 +357,15 @@
 
 		public function logout ()
 		{
-			$this->session->sess_destroy();
-			redirect('main');
+			if($this->session->userdata('admin_isLogged') == True)
+			{
+				
+				$this->session->unset_userdata('')
+			}else
+			{
+				$this->session->sess_destroy();
+				redirect('main');
+			}
 		}
 
 	}
