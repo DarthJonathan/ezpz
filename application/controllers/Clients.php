@@ -78,8 +78,13 @@ class Clients extends CI_Controller{
 		    	
 				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
 
+				$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
+
+				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
+				$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('username' => $this->session->userdata('username')))->row();
+
 				$data['page_title'] = 'Update Restaurant Data';
-				$this->template->load('default','clients/update_form_clients' ,$data);	
+				$this->template->load('default','clients/update_form_clients' ,$data);
 		    }
 		}
 

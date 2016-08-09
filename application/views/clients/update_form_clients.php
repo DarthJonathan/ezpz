@@ -274,7 +274,7 @@ function formValidate ()
 							    				<td><?php echo $i ?></td>
 							    				<td><img src="<?php echo base_url($dish->photo) ?>" width="50" alt=""></td>
 							    				<td><?php echo $dish->name ?></td>
-							    				<td><?php echo $dish->price ?></td>
+							    				<td><?php echo price($dish->price) ?></td>
 							    			</tr>
 							    			<?php $i++; ?>
 							    			<?php endforeach; ?>
@@ -290,4 +290,36 @@ function formValidate ()
 				</div>
 			</div><!--End of tab content-->
 		</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="add_menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Add Menu</h4>
+      </div>
+      <?php echo form_open_multipart('clients/add_menu') ?>
+      <div class="modal-body">
+        	<div class="form-group">
+        		<label for="">Name :</label>
+        		<input type="text" class="form-control" name="name" value="" placeholder="Dish's Name" required="1">
+        	</div>
+        	<div class="form-group">
+        		<label for="">Price :</label>
+        		<input type="number" class="form-control" name="price" value="" placeholder="Dish's Price" required="1">
+        	</div>
+        	<div class="form-group">
+        		<label for="">Photo :</label>
+        		<input type="file" class="form-control" name="photo" value="" placeholder="Dish's Photo" required="1">
+        	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
+      </div>
+      <?php echo form_close() ?>
+    </div>
+  </div>
 </div>
