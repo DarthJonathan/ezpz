@@ -1,4 +1,4 @@
-<?php echo form_open() ?>
+
 <div class="container-fluid image-full-section restaurant-photo">
 </div>
 	
@@ -55,8 +55,6 @@
 		</div>
 	</div>
 </div>
-
-<?php echo form_close() ?>
 
 
 <!-- Modal -->
