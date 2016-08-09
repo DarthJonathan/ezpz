@@ -36,9 +36,8 @@
 						$data['page_title'] = 'Become a partner';
 						$this->template->load('default','logins/add_partner', $data);
 					}
-				}else
-				{
-					redirect('dashboard');
+				}else{
+					redirect('main');
 				}
 			
 		}
@@ -64,8 +63,6 @@
 						'created'			=> date('Y-m-d')
 
 						);
-
-					$this->load->model('login_model');
 
 					//Check if The Username is unique
 					if(!$this->login_model->insert_data_new_user('users', $data))
@@ -100,7 +97,6 @@
 
 						);
 
-					$this->load->model('login_model');
 
 					//Check if The Username is unique
 					if(!$this->login_model->insert_data_new_user('drivers', $data))
@@ -114,7 +110,7 @@
 						$this->login_model->email('verify_account', $data['email'], $verification_string);
 						$this->session->set_flashdata('success', 'User has been added');
 
-						redirect('accounts/signup/driver');
+						redirect('accounts');
 
 					}
 				}else if($mode == 'client')
@@ -178,7 +174,7 @@
 						$this->login_model->email('verify_account', $data['email'], $verification_string);
 						$this->session->set_flashdata('success', 'User has been added');
 
-						redirect('accounts/signup/client');
+						redirect('accounts');
 						
 					}
 				}
@@ -288,9 +284,6 @@
 					
 				}
 
-			}else
-			{
-				redirect('main');
 			}
 		}
 
@@ -304,7 +297,7 @@
 			{
 				$email = $this->input->post('email');
 				$new_pass = substr(md5(microtime()),rand(0,26),5);
-				$this->load->model('login_model');
+				
 
 				$user_data = array('email' => $email);
 
@@ -340,11 +333,11 @@
 				redirect('accounts/');
 			}else
 			{
-				$this->load->model('login_model');
+				
 				if($this->login_model->verify_account($md5))
 				{
 					$this->session->set_flashdata('success', 'Account Verification is Successful!');
-					redirect('dashboard/');
+					redirect('main');
 				}else
 				{
 					$this->session->set_flashdata('error', 'Account Verification is not Successful!');

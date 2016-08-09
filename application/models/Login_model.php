@@ -127,7 +127,7 @@
 						return false;
 					}
 
-				$new_data = array('password' => password_hash($data['password'], PASSWORD_BCRYPT));
+				$new_data = array('password' => hash_password($data['password']));
 
 				$this->db->set($new_data);
 				$this->db->where($check);
@@ -156,7 +156,7 @@
 						return false;
 					}
 
-				$new_data = array('password' => password_hash($data['password'], PASSWORD_BCRYPT));
+				$new_data = array('password' => hash_password($data['password']));
 
 				$this->db->set($new_data);
 				$this->db->where($check);
@@ -185,7 +185,7 @@
 						return false;
 					}
 
-				$new_data = array('password' => password_hash($data['password'], PASSWORD_BCRYPT));
+				$new_data = array('password' => hash_password($data['password']));
 
 				$this->db->set($new_data);
 				$this->db->where($check);
@@ -292,11 +292,11 @@
 		public function verify_account($md5)
 		{
 
-				$seperated_code = explode('~', $md5);
+				$separated_code = explode('~', $md5);
 				$data = array(
 
-					'username' => $seperated_code[0], 
-					'verification_code' => $seperated_code[1]
+					'username' => $separated_code[0], 
+					'verification_code' => $separated_code[1]
 
 					);
 
