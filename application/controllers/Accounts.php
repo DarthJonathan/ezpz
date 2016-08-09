@@ -202,7 +202,7 @@
 				
 					$type = $this->login_model->getAccountType($username);
 
-					if($type == 'driver')
+					if($type == 'drivers')
 					{
 						//Check if user have completed their data
 						if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo_front == NULL && $data_user->photo_back == NULL)
@@ -222,12 +222,12 @@
 							'data_complete'	=> $complete,
 							'is_verified'	=> $data_user->is_verified,
 							'isLogged'		=> TRUE,
-							'type'			=> 'driver'
+							'type'			=> 'drivers'
 							
 						);
 						$this->session->set_userdata($session_user);
 
-						redirect('main');
+						redirect('driver');
 					}else if($type == 'clients')
 					{
 						//Check if user have completed their data
@@ -253,7 +253,7 @@
 						);
 						$this->session->set_userdata($session_user);
 
-						redirect('main');
+						redirect('clients');
 					}else
 					{	
 						//Check if user have completed their data
@@ -279,7 +279,7 @@
 						);
 						$this->session->set_userdata($session_user);
 
-						redirect('main');
+						redirect('user');
 					}
 					
 				}

@@ -2,6 +2,17 @@
 
 class User extends CI_Controller{
 
+
+
+	public function index(){
+			$data['page_title'] = "User's Home";
+			$data['cuisines']	= array('Asian', 'Italian', 'Indonesian', 'Irvan', ' Jonathan', 'setyawan', 'felita','Other');
+			$data['restaurants'] = $this->db->get('restaurants')->result_array();
+			
+			$this->template->load('default','users/home' ,$data);	
+			
+	}
+
 	public function complete_data ($param1 = '')
 	{
 		if($param1 == 'submit' && $this->session->userdata('type') == 'user')

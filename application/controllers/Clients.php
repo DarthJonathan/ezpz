@@ -1,6 +1,17 @@
 <?php 
 
 class Clients extends CI_Controller{
+
+
+	public function index(){
+			$data['page_title'] = "Client's Home";
+			$data['cuisines']	= array('Asian', 'Italian', 'Indonesian', 'Irvan', ' Jonathan', 'setyawan', 'felita','Other');
+			$data['restaurants'] = $this->db->get('restaurants')->result_array();
+			
+			$this->template->load('default','clients/home' ,$data);	
+			
+	}
+
 	
 	public function complete_data ($param1 = '')
 	{
