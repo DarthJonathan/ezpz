@@ -84,8 +84,7 @@ class Clients extends CI_Controller{
 				$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('username' => $this->session->userdata('username')))->row();
 
 				$data['page_title'] = 'Update Restaurant Data';
-				$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
-				$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('username' => $this->session->userdata('username')))->row();
+				
 				$this->template->load('default','clients/update_form_clients' ,$data);	
 		    }
 		}
@@ -141,18 +140,6 @@ class Clients extends CI_Controller{
 			$this->db->update('restaurants',$data, array('id' => $this->session->userdata('user_id')) );
 		}
 
-		public function menu(){
-
-			$data['dishes'] = $this->crud_model->get_by_condition('dishes', array('restaurant_id' => $this->session->userdata('user_id')))->result();
-
-			$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
-			$data['restaurant'] = $this->crud_model->get_by_condition('restaurants', array('username' => $this->session->userdata('username')))->row();
-
-			$data['page_title'] = 'Update Restaurant Data';
-			$this->template->load('default','clients/update_form_clients' ,$data);
-			
-
-		}
 
 		public function add_menu(){
 
@@ -199,7 +186,7 @@ class Clients extends CI_Controller{
                 $this->db->insert('dishes', $data);
 			}
 
-			redirect('clients/update_form_clients');
+			redirect('clients/complete_data');
 
 		}
 

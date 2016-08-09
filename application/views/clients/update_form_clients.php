@@ -39,7 +39,7 @@ function formValidate ()
 			<ul class="nav nav-tabs">
 			    <li class="active"><a data-toggle="tab" href="#info">Update Restaurant Info</a></li>
 			    <li><a data-toggle="tab" href="#menu">Update Menu</a></li>
-			    <li><a data-toggle="tab" href="#menu2">Update Business Time</a></li>
+			    <li><a data-toggle="tab" href="#time">Update Business Time</a></li>
 		  	</ul>
 		  	<div class="tab-content">
 
@@ -320,39 +320,83 @@ function formValidate ()
 					    </div>
 					  </div>
 					</div>
+				</div><!--End of menu tab-->
+				<!-- Modal -->
+				<div class="modal fade" id="add_menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Add Menu</h4>
+				      </div>
+				      <?php echo form_open_multipart('clients/add_menu') ?>
+				      <div class="modal-body">
+				        	<div class="form-group">
+				        		<label for="">Name :</label>
+				        		<input type="text" class="form-control" name="name" value="" placeholder="Dish's Name" required="1">
+				        	</div>
+				        	<div class="form-group">
+				        		<label for="">Price :</label>
+				        		<input type="number" class="form-control" name="price" value="" placeholder="Dish's Price" required="1">
+				        	</div>
+				        	<div class="form-group">
+				        		<label for="">Photo :</label>
+				        		<input type="file" class="form-control" name="photo" value="" placeholder="Dish's Photo" required="1">
+				        	</div>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				        <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
+				      </div>
+				      <?php echo form_close() ?>
+				    </div>
+				  </div>
+				</div><!--End of Modal-->
+				<!--Update Restaurant Time-->
+				<div id="time" class="login tab-pane fade">
+					<?php echo form_open('dashboard/change_password/submit') ?>
+					<table align="center">
+						<tr>
+					    	<td>
+					        	<div class="heading">
+					            	<h3>Change Password</h3>
+					            	<hr>
+					            </div>
+					        </td>
+					    </tr>
+						<tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					            <input type="password" name ="old_password" class="form-control" placeholder="Old Password" required="required">
+					        </div>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					            <input type="password" name ="new_password" class="form-control" placeholder="New Password" required="required">
+					        </div>
+					    </td>
+					    </tr>
+					    <tr>
+					    <td>
+					    	<div class="input-group input-group-lg">
+					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					            <input type="password" name ="conf_password" class="form-control" placeholder="Confirm Password" required="required">
+					        </div>
+					    </td>
+					    </tr>
+					   	<tr>
+					    	<td>
+					    	<input type="submit" name="submit" value="Update" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;">
+					    	</td>
+						</tr>
+					</table>
+					</form>
 				</div>
 			</div><!--End of tab content-->
 		</div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="add_menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Menu</h4>
-      </div>
-      <?php echo form_open_multipart('clients/add_menu') ?>
-      <div class="modal-body">
-        	<div class="form-group">
-        		<label for="">Name :</label>
-        		<input type="text" class="form-control" name="name" value="" placeholder="Dish's Name" required="1">
-        	</div>
-        	<div class="form-group">
-        		<label for="">Price :</label>
-        		<input type="number" class="form-control" name="price" value="" placeholder="Dish's Price" required="1">
-        	</div>
-        	<div class="form-group">
-        		<label for="">Photo :</label>
-        		<input type="file" class="form-control" name="photo" value="" placeholder="Dish's Photo" required="1">
-        	</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
-      </div>
-      <?php echo form_close() ?>
-    </div>
-  </div>
-</div>
