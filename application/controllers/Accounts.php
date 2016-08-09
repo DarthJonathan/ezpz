@@ -68,7 +68,7 @@
 					$this->load->model('login_model');
 
 					//Check if The Username is unique
-					if(!$this->login_model->insert_data_new_user('user', $data))
+					if(!$this->login_model->insert_data_new_user('users', $data))
 					{
 						$this->session->set_flashdata('error', 'Username or Email has been Registered');
 
@@ -103,7 +103,7 @@
 					$this->load->model('login_model');
 
 					//Check if The Username is unique
-					if(!$this->login_model->insert_data_new_user('driver', $data))
+					if(!$this->login_model->insert_data_new_user('drivers', $data))
 					{
 						$this->session->set_flashdata('error', 'Username or Email has been Registered');
 
@@ -196,8 +196,6 @@
 			{
 				$username = $this->input->post('username');
 				$password = hash_password($this->input->post('password'));
-
-				
 				
 				if(!$data_user = $this->login_model->verifyUser($username,$password))
 				{
