@@ -42,7 +42,9 @@ function formValidate ()
 			    <li><a data-toggle="tab" href="#menu2">Update Business Time</a></li>
 		  	</ul>
 		  	<div class="tab-content">
+
 				<div id="info" class="login tab-pane fade in active" style="margin-top:0px;">
+
 					<?php echo form_open_multipart('clients/complete_data/submit') ?>
 					<table align="center">
 						<tr>
