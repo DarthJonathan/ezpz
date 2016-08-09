@@ -86,35 +86,23 @@
 </div>
 </div>
 
-<script>
+	<script>
 
-var test = [""];
-<?php $i = 0; ?>
+	var test = [""];
+	<?php $i = 0; ?>
 
-<?php foreach ($restaurants as $restaurant): ?>
-	test[<?php echo $i ?>] = "<?php echo $restaurant['username'] ?>"
-	<?php $i++; ?>
-<?php endforeach; ?>
+	<?php foreach ($lists as $list): ?>
+		test[<?php echo $i ?>] = "<?php echo $list['username'] ?>"
+		<?php $i++; ?>
+	<?php endforeach; ?>
 
-$("#restaurant-search").typeahead({
+	$("#restaurant-search").typeahead({
 
-                        minLength: 0,
-                        items: 9999,
-                        source: test,   
-                    });
-</script>
+	                        minLength: 0,
+	                        items: 9999,
+	                        source: test,   
+	                    });
 
-
-
-<script>
-
-function submit(){
-
-	$("#search").submit();
-}
-
-	
-
-</script>
+	</script>
 
 

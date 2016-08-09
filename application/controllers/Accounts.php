@@ -9,7 +9,7 @@
 				{
 					$data['page_title'] = 'Login';
 					
-					$this->template->load('default','logins/login_user', $data);
+					$this->template->load('default_login','logins/login_user', $data);
 				}else
 				{
 					redirect('main');

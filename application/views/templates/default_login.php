@@ -201,25 +201,6 @@
 	</nav>
 </div>
 </header>
-<div class="cart">
-	<a href="#"><?php echo $this->cart->total_items() ?><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i></a>
-</div>
-<!--Full Div Image from div bg-->
-<div class="container-fluid image-full" id="top">
-	<div class="row">
-		<form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
-		<div class="form-group center-block">
-			<div class="input-group">
-				<input type="text" autocomplete="off" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant">
-				<span class="input-group-btn">
- 					<button class="btn btn-default" type="submit" name="search" onclick="submit()">
-          		<span class="glyphicon glyphicon-search"></span></button>
-          		</span>
-			</div>
-		</div>
-	</form>
-	</div>
-</div>
 
 <div id="main">
 <?php echo $body ?>
@@ -258,20 +239,5 @@
 		  offset: '-20%'
 		});
 	</script>
-
-	
-	
-
-
-	<script>
-
-	function submit(){
-
-		$("#search").submit();
-	}
-
-		
-
-	</script>
-</body>
-</html>
+	</body>
+	</html>

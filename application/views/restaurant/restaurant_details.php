@@ -1,6 +1,4 @@
 <?php date_default_timezone_set('Asia/Jakarta'); ?>
-<div class="container-fluid image-full-section restaurant-photo">
-</div>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12">

@@ -6,7 +6,7 @@
 		public function index(){
 			$data['page_title'] = 'Home';
 			$data['cuisines']	= array('Asian', 'Italian', 'Indonesian', 'Irvan', ' Jonathan', 'setyawan', 'felita','Other');
-			$data['restaurants'] = $this->db->get('restaurants')->result_array();
+			$data['lists'] = $this->db->get('restaurants')->result_array();
 			
 			$this->template->load('default','users/home' ,$data);	
 			
