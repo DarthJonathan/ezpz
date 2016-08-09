@@ -29,7 +29,7 @@
 				
 				if(!$data_user = $this->admin_model->verifyUser($username,$password))
 				{
-					$this->session->set_flashdata('error', 'Username or Password is Wrong (debug 1)');
+					$this->session->set_flashdata('error', 'Username or Password is Wrong');
 					redirect('admin/');
 				}else
 				{
@@ -93,7 +93,7 @@
 			}
 		}
 
-		public function users ($type = '',$id = '')
+		public function users ($type = '')
 		{
 			$this->load->model('admin_model');
 
@@ -101,118 +101,32 @@
 			{
 				case 'user':
 				{
-					if($id == '')
-					{
 						$users = $this->admin_model->getUsers('users');
 						$data['users'] = $users;
 						$data['type']= $type;
-						$data['page_title'] = 'Reset Admin Password';
+						$data['page_title'] = 'All Users Accounts';
 						
-					$this->template->load('default_admin', 'admin/view_users', $data);
-					}else
-					{
-						$data_user = $this->admin_model->getUsers($type, $id);
-
-						//Check if user have completed their data
-							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo == NULL)
-							{
-								$complete = False;
-							}else
-							{
-								$complete = True;
-							}
-
-						$session_user 	= array (
-
-								'username'		=> $data_user->username,
-								'name'			=> $data_user->firstname .' '. $data_user->lastname,
-								'user_id'		=> $data_user->id,
-								'data_complete'	=> $complete,
-								'is_verified'	=> $data_user->is_verified,
-								'isLogged'		=> TRUE,
-								'type'			=> 'driver'
-								
-							);
-						$this->session->set_userdata($session_user);
-						redirect('main');
-					}
+						$this->template->load('default_admin', 'admin/view_users', $data);
 				}break;
 
 				case 'driver':
 				{
-					if($id == '')
-					{
 						$users = $this->admin_model->getUsers('drivers');
 						$data['users'] = $users;
 						$data['type']= $type;
-						$data['page_title'] = 'Reset Admin Password';
+						$data['page_title'] = 'All Driver Accounts';
 					
-					$this->template->load('default_admin', 'admin/view_users', $data);
-					}else
-					{
-						$data_user  = $this->admin_model->getUsers($type, $id);
-						
-						//Check if user have completed their data
-							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo_front == NULL && $data_user->photo_back == NULL)
-							{
-								$complete = FALSE;
-							}else
-							{
-								$complete = True;
-							}
-
-						$session_user 	= array (
-
-								'username'		=> $data_user->username,
-								'name'			=> $data_user->firstname .' '. $data_user->lastname,
-								'user_id'		=> $data_user->id,
-								'data_complete'	=> $complete,
-								'is_verified'	=> $data_user->is_verified,
-								'isLogged'		=> TRUE,
-								'type'			=> 'user'
-								
-							);
-						$this->session->set_userdata($session_user);
-						redirect('main/');
-					}
+						$this->template->load('default_admin', 'admin/view_users', $data);
 				}break;
 
 				case 'client':
 				{
-					if($id == '')
-					{
 						$users = $this->admin_model->getUsers('restaurants');
 						$data['users'] = $users;
 						$data['type']= $type;
-						$data['page_title'] = 'Reset Admin Password';
+						$data['page_title'] = 'All Client Accounts';
 					
 					$this->template->load('default_admin', 'admin/view_users', $data);
-					}else
-					{
-						$data_user = $this->admin_model->getUsers('restaurants', $id);
-
-						//Check if user have completed their data
-							if($data_user->name == NULL && $data_user->address == NULL && $data_user->opentime == NULL && $data_user->closetime == NULL && $data_user->opendays == NULL && $data_user->longitude == NULL  && $data_user->latitude == NULL && $data_user->photo == NULL  && $data_user->phone == NULL)
-							{
-								$complete = FALSE;
-							}else
-							{
-								$complete = True;
-							}
-
-						$session_user 	= array (
-
-								'username'		=> $data_user->username,
-								'name'			=> $data_user->name,
-								'user_id'		=> $data_user->id,
-								'data_complete'	=> $complete,
-								'isLogged'		=> TRUE,
-								'type'			=> 'clients'
-								
-							);
-						$this->session->set_userdata($session_user);
-						redirect('main/');
-					}
 				}break;
 
 				default:
@@ -272,13 +186,117 @@
 			}
 		}
 
-		public function see_as($param1 = '')
+		//Method for login as anyone *TUGAS MULIA*
+		public function loginEverywhere ($type = '', $id = '')
 		{
-			if(!$this->session->userdata('admin_isLogged'))
+			switch ($type)
+			{	
+				case 'user':
 				{
-					redirect('admin/');
-				}
+					if($id == '')
+					{
+						redirect('admin');
+					}else
+					{
+						$data_user = $this->admin_model->getUsers($type, $id);
 
+						//Check if user have completed their data
+							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo == NULL)
+							{
+								$complete = False;
+							}else
+							{
+								$complete = True;
+							}
+
+						$session_user 	= array (
+
+								'username'		=> $data_user->username,
+								'name'			=> $data_user->firstname .' '. $data_user->lastname,
+								'user_id'		=> $data_user->id,
+								'data_complete'	=> $complete,
+								'is_verified'	=> $data_user->is_verified,
+								'isLogged'		=> TRUE,
+								'type'			=> 'driver'
+								
+							);
+						$this->session->set_userdata($session_user);
+						redirect('main');
+					}
+				}break;
+
+				case 'driver':
+				{
+					if($id == '')
+					{
+						redirect('admin');
+					}else
+					{
+						$data_user  = $this->admin_model->getUsers($type, $id);
+						
+						//Check if user have completed their data
+							if($data_user->firstname == NULL && $data_user->lastname == NULL && $data_user->photo_front == NULL && $data_user->photo_back == NULL)
+							{
+								$complete = FALSE;
+							}else
+							{
+								$complete = True;
+							}
+
+						$session_user 	= array (
+
+								'username'		=> $data_user->username,
+								'name'			=> $data_user->firstname .' '. $data_user->lastname,
+								'user_id'		=> $data_user->id,
+								'data_complete'	=> $complete,
+								'is_verified'	=> $data_user->is_verified,
+								'isLogged'		=> TRUE,
+								'type'			=> 'user'
+								
+							);
+						$this->session->set_userdata($session_user);
+						redirect('main/');
+					}
+				}break;
+
+				case 'client':
+				{
+					if($id == '')
+					{
+						redirect('admin');
+					}else
+					{
+						$data_user = $this->admin_model->getUsers('restaurants', $id);
+
+						//Check if user have completed their data
+							if($data_user->name == NULL && $data_user->address == NULL && $data_user->opentime == NULL && $data_user->closetime == NULL && $data_user->opendays == NULL && $data_user->longitude == NULL  && $data_user->latitude == NULL && $data_user->photo == NULL  && $data_user->phone == NULL)
+							{
+								$complete = FALSE;
+							}else
+							{
+								$complete = True;
+							}
+
+						$session_user 	= array (
+
+								'username'		=> $data_user->username,
+								'name'			=> $data_user->name,
+								'user_id'		=> $data_user->id,
+								'data_complete'	=> $complete,
+								'isLogged'		=> TRUE,
+								'type'			=> 'clients'
+								
+							);
+						$this->session->set_userdata($session_user);
+						redirect('main/');
+					}
+				}break;
+
+				default :
+				{
+					redirect ('admin');
+				}
+			}
 		}
 
 		public function logout()

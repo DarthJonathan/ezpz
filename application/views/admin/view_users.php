@@ -19,7 +19,7 @@
 		<div class="col-md-6">
 			<?php foreach ($users as $user): ?>
 				
-				<a href="<?php echo base_url('admin/users/' . $type . '/' . $user->id) ?>"><h3><?php echo $user->username; ?></h3></a>
+				<a href="<?php echo base_url('admin/loginEverywhere/' . $type . '/' . $user->id) ?>"><h3><?php echo $user->username; ?></h3></a>
 
 			<?php endforeach; ?>
 		</div>
