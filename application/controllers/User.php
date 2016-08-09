@@ -9,7 +9,7 @@ class User extends CI_Controller{
 			$data['cuisines']	= array('Asian', 'Italian', 'Indonesian', 'Irvan', ' Jonathan', 'setyawan', 'felita','Other');
 			$data['restaurants'] = $this->db->get('restaurants')->result_array();
 			
-			$this->template->load('default','users/home' ,$data);	
+			$this->template->load('default_user','users/home' ,$data);	
 			
 	}
 
@@ -76,7 +76,7 @@ class User extends CI_Controller{
 				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
 
 				$data['page_title'] 	= 'Update Data User';
-				$this->template->load('default','users/update_form_user' ,$data);	
+				$this->template->load('default_user','users/update_form_user' ,$data);	
 		    }
 	}
 

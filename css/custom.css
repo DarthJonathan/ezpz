@@ -13,6 +13,12 @@
   background-color: transparent;
 }
 
+header .navbar-default{
+  background-color: transparent;
+  border-color: transparent;
+  transition: 0.3s;
+}
+
 /* Global */
 .navbar-brand a
 {
@@ -76,6 +82,10 @@ width: 50%;
 .panel a:hover,a:active{
   text-decoration: none;
   color: black;
+}
+
+.panel {
+  height: 
 }
 
 /*Css for the full width image div*/

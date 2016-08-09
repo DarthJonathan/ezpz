@@ -8,7 +8,7 @@ class Driver extends CI_Controller{
 			$data['cuisines']	= array('Asian', 'Italian', 'Indonesian', 'Irvan', ' Jonathan', 'setyawan', 'felita','Other');
 			$data['restaurants'] = $this->db->get('restaurants')->result_array();
 			
-			$this->template->load('default','drivers/home' ,$data);	
+			$this->template->load('default_drivers','drivers/home' ,$data);	
 			
 	}
 
