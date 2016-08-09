@@ -61,7 +61,7 @@
 		}
 
 		public function getClients($status){
-			return $this->db->get_where('restaurants',array('is_approved' => $status))->result();
+			return $this->db->get_where('restaurants',array('is_verified' => $status))->result();
 		}
 		
 	}

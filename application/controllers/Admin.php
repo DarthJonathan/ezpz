@@ -284,7 +284,7 @@
 		public function logout()
 		{
 			session_destroy();
-			redirect('main');
+			redirect('admin');
 		}
 
 		//For Creating a new Admin
