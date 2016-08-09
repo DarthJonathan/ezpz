@@ -359,8 +359,9 @@
 		{
 			if($this->session->userdata('admin_isLogged') == True)
 			{
-				
-				$this->session->unset_userdata('')
+				$session_des = array('username, name, user_id, data_complete, is_verified, isLogged, type');	
+				$this->session->unset_userdata($session_des);
+				redirect('admin');
 			}else
 			{
 				$this->session->sess_destroy();
