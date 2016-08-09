@@ -78,7 +78,7 @@
 						$this->login_model->email('verify_account', $data['email'], $verification_string);
 						$this->session->set_flashdata('success', 'User has been added');
 
-						redirect('accounts/signup/user');
+						redirect('accounts');
 					}
 
 				}else if($mode == 'driver')
@@ -199,7 +199,7 @@
 				
 				if(!$data_user = $this->login_model->verifyUser($username,$password))
 				{
-					$this->session->set_flashdata('error', 'Username or Password is Wrongz');
+					$this->session->set_flashdata('error', 'Username or Password is Wrong');
 					redirect('accounts/');
 				}else
 				{
