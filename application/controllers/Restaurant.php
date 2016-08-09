@@ -14,7 +14,7 @@
 			}else{
 				$data['cuisine_name'] = "All Restaurants";
 				$data['page_title']	= 'Restaurants';
-				$data['restaurants']=$this->db->get_where('restaurants',array('is_approved' => 1))->result();
+				$data['restaurants']=$this->db->get_where('restaurants',array('is_verified' => 1))->result();
 			}
 
 				$this->template->load('default','restaurant/restaurant_list' ,$data);	
