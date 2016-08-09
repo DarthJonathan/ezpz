@@ -1,17 +1,4 @@
-<div class="container-fluid image-full-section">
-	<div class="row">
-		<form role="form">
-		<div class="form-group center-block">
-			<div class="input-group">
-				<input type="text" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant name">
-				<span class="input-group-btn">
- 				<button class="btn btn-default" type="submit">
-          		<span class="glyphicon glyphicon-search"></span>
-			</div>
-		</div>
-	</form>
-	</div>
-</div>
+
 <div class="container-fluid padding-top-five">
 	<h2 style="margin-left:1%;"><?php echo $cuisine_name ?></h2>
 	<hr></hr>

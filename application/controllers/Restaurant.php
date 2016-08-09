@@ -16,7 +16,7 @@
 				$data['page_title']	= 'Restaurants';
 				$data['restaurants']=$this->db->get_where('restaurants',array('is_verified' => 1))->result();
 			}
-
+				$data['restaurants_search'] = $this->db->get('restaurants')->result_array();
 				$this->template->load('default','restaurant/restaurant_list' ,$data);	
 		}
 		

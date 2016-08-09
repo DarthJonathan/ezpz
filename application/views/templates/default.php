@@ -208,7 +208,7 @@
 		<form role="form" action="<?php echo base_url('restaurant/detail/') ?>" method="post" id="search">
 		<div class="form-group center-block">
 			<div class="input-group">
-				<input type="text" autocomplete="off" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant address">
+				<input type="text" autocomplete="off" name="restaurant-search" class="form-control" id="restaurant-search" placeholder="Search for restaurant">
 				<span class="input-group-btn">
  					<button class="btn btn-default" type="submit" name="search" onclick="submit()">
           		<span class="glyphicon glyphicon-search"></span></button>
@@ -218,7 +218,6 @@
 	</form>
 	</div>
 </div>
-
 <div id="main">
 <?php echo $body ?>
 </div>
@@ -237,6 +236,7 @@
 		  element: document.getElementById('main'),
 		  handler: function(direction) {
 		  	document.getElementById('navbar').style.backgroundColor = "black";
+		 
 		   	
 		  }
 		});
@@ -249,10 +249,44 @@
 		  element: document.getElementById('top'),
 		  handler: function(direction) {
 		  	document.getElementById('navbar').style.backgroundColor = "transparent";
+		 
 		   
 		  },
 		  offset: '-20%'
 		});
+	</script>
+
+	<script>
+
+	var test = [""];
+	<?php $i = 0; ?>
+
+	<?php foreach ($restaurants as $restaurant): ?>
+		test[<?php echo $i ?>] = "<?php echo $restaurant['username'] ?>"
+		<?php $i++; ?>
+	<?php endforeach; ?>
+
+	$("#restaurant-search").typeahead({
+
+	                        minLength: 0,
+	                        items: 9999,
+	                        source: test,   
+	                    });
+
+
+	</script>
+
+
+
+	<script>
+
+	function submit(){
+
+		$("#search").submit();
+	}
+
+		
+
 	</script>
 </body>
 </html>
