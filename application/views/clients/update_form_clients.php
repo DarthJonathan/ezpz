@@ -28,15 +28,27 @@ function formValidate ()
 }
 
 </script>
-		<div class="col-md-12">	
-		
-				<div class="login">
+<div class="row" style="padding-top:10px;">
+		<div class="col-sm-2">
+			<ul class="nav nav-pills nav-stacked">
+				<li class="profile-pills" class="active"> <a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data"> Update Restaurant Page </a> </li>
+				<li class="profile-pills"> <a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/change_login"> Update Login Details </a> </li>
+			</ul>
+		</div>
+		<div class="col-sm-10">	
+			<ul class="nav nav-tabs">
+			    <li class="active"><a data-toggle="tab" href="#info">Update Restaurant Info</a></li>
+			    <li><a data-toggle="tab" href="#menu">Update Menu</a></li>
+			    <li><a data-toggle="tab" href="#menu2">Update Business Time</a></li>
+		  	</ul>
+		  	<div class="tab-content">
+				<div id="info" class="login fade in active" style="margin-top:0px;">
 					<?php echo form_open_multipart('clients/complete_data/submit') ?>
 					<table align="center">
 						<tr>
 					    	<td>
 					        	<div class="heading">
-					            	<h3>Update Clients Account</h3>
+					            	<h3>Update Restaurant Info</h3>
 					            	<hr>
 					            </div>
 					        </td>
@@ -234,8 +246,46 @@ function formValidate ()
 						</tr>
 					</table>
 					</form>
+				</div><!--End of Restaurant info update-->
+				
+				<div id="menu" class="tab-pane fade">
+					<div class="row">
+						<div class="col-xs-7">
+							<div class="panel panel-default">
+							  <div class="panel-heading">
+							    <h3 class="panel-title">List Menu</h3>
+							  </div>
+							  <div class="panel-body">
+							    	<table class="table table-striped">
+							    		<thead>
+							    			<tr>
+							    				<td>No.</td>
+							    				<td>Photo</td>
+							    				<td>Name</td>
+							    				<td>Price</td>
+							    			</tr>
+							    		</thead>
+							    		<tbody>
+							    			<?php $i = 1 ?>
+							    			<?php foreach($dishes as $dish): ?>
+							    			<tr>
+							    				<td><?php echo $i ?></td>
+							    				<td><img src="<?php echo base_url($dish->photo) ?>" width="50" alt=""></td>
+							    				<td><?php echo $dish->name ?></td>
+							    				<td><?php echo $dish->price ?></td>
+							    			</tr>
+							    			<?php $i++; ?>
+							    			<?php endforeach; ?>
+							    		</tbody>
+							    	</table>
+							  </div>
+							</div>
+						</div>
+						<div class="col-xs-5">
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_menu">Add menu</button>
+						</div>
+					</div>
 				</div>
-
+			</div><!--End of tab content-->
 		</div>
-
 </div>
