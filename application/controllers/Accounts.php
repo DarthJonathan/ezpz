@@ -230,6 +230,10 @@
 						redirect('driver');
 					}else if($type == 'clients')
 					{
+
+						if($data_user->is_verified == 0){
+							redirect('accounts');
+						}
 						//Check if user have completed their data
 						if($data_user->name == NULL && $data_user->address == NULL && $data_user->opentime == NULL && $data_user->closetime == NULL && $data_user->opendays == NULL && $data_user->longitude == NULL  && $data_user->latitude == NULL && $data_user->photo == NULL  && $data_user->phone == NULL)
 						{
