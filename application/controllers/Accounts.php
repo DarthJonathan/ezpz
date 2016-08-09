@@ -359,7 +359,7 @@
 		{
 			if($this->session->userdata('admin_isLogged') == True)
 			{
-				$session_des = array('username, name, user_id, data_complete, is_verified, isLogged, type');	
+				$session_des = array('username', 'name', 'user_id', 'data_complete', 'is_verified', 'isLogged', 'type');	
 				$this->session->unset_userdata($session_des);
 				redirect('admin');
 			}else
