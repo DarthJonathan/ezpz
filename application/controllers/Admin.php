@@ -181,7 +181,7 @@
 				{
 					if($id == '')
 					{
-						$users = $this->admin_model->getUsers('restaurants');
+						$users = $this->admin_model->getClients('1');
 						$data['users'] = $users;
 						$data['type']= $type;
 						$data['page_title'] = 'Reset Admin Password';

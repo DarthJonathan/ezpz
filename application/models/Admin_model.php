@@ -59,6 +59,10 @@
 				return $this->db->get_where($table, array('id' => $id))->row();
 			}
 		}
+
+		public function getClients($status){
+			return $this->db->get_where('restaurants',array('is_approved' => $status))->result();
+		}
 		
 	}
  ?>
