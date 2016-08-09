@@ -91,7 +91,7 @@ class Driver extends CI_Controller{
 				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
 
 				$data['page_title'] = 'Update Driver Data';
-				$this->template->load('default','dashboard/update_form_driver' ,$data);	
+				$this->template->load('default','drivers/update_form_driver' ,$data);	
 		    }
 	}
 

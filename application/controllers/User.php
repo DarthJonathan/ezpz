@@ -65,7 +65,7 @@ class User extends CI_Controller{
 				$data['userdata']		= $this->login_model->getUserdata(array('username' => $this->session->userdata('username')));
 
 				$data['page_title'] 	= 'Update Data User';
-				$this->template->load('default','dashboard/update_form_user' ,$data);	
+				$this->template->load('default','users/update_form_user' ,$data);	
 		    }
 	}
 
