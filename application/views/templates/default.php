@@ -48,7 +48,6 @@
 			margin: auto auto 20px auto;
 
 		}
-			
 		.login .heading {
 		  text-align: center;
 		}
@@ -59,67 +58,62 @@
 		  display: inline-block;
 		  font-weight: bold;
 		  padding-bottom: 5px;
+		  color:#5bc0de;
 		}
 		.login form .input-group {
 		  width: 100%;
 		  margin-bottom: 3px;
 		}
-			.login form .input-group:last-of-type {
-			  border-top: none;
-			}
-			.login form .input-group span {
-			  background: transparent;
-			  min-width: 53px;
-			  border: none;
-			}
-			.login form .input-group span i {
-			  font-size: 1.5em;
-			  width: 50px;
-			}
-			.login form input.form-control {
-			  display: block;
-			  height: auto;
-			  border: none;
-			  outline: none;
-			  box-shadow: none;
-			  background: none;
-			  border-radius: 0px;
-			  padding: 10px;
-			  font-size: 1.6em;
-			  background: transparent;
-			  color: black;
-			}
-			.login form input.form-control:focus {
-			  border: none;
-			}
-			.login form button {
-			  margin-top: 20px;
-			  background: #27AE60;
-			  border: none;
-			  font-size: 1.6em;
-			  font-weight: 300;
-			  padding: 5px 0;
-			  width: 100%;
-			  border-radius: 3px;
-			  color: #b3eecc;
-			  border-bottom: 4px solid #1e8449;
-			}
-			.login form button:hover {
-			  background: #30b166;
-			  -webkit-animation: hop 1s;
-			  animation: hop 1s;
-			}
+		.login form .input-group span {
+		  background: transparent;
+		  min-width: 53px;
+		  border: none;
+		  text-align: right;
+		}
+		.login form .input-group span i {
+		  font-size: 1.5em;
+		  width: 50px;
+		}
+		.login form input.form-control, textarea, select.form-control>option{
+		  display: block;
+		  height: auto;
+		  box-shadow: none;
+		  background: none;
+		  border: 1px solid #5bc0de;
+		  border-radius: 3px !important;
+		  padding: 10px;
+		  font-size: 1.1em;
+		  background: transparent;
+		  color: black;
+		}
+		.login form button {
+		  margin-top: 20px;
+		  background: #27AE60;
+		  border: none;
+		  font-size: 1.6em;
+		  font-weight: 300;
+		  padding: 5px 0;
+		  width: 100%;
+		  border-radius: 3px;
+		  color: #b3eecc;
+		  border-bottom: 4px solid #5bc0de;
+		}
+		.login form button:hover {
+		  background: #30b166;
+		  -webkit-animation: hop 1s;
+		  animation: hop 1s;
+		}
 			
-			.float {
-			  display: inline-block;
-			  -webkit-transition-duration: 0.3s;
-			  transition-duration: 0.3s;
-			  -webkit-transition-property: transform;
-			  transition-property: transform;
-			  -webkit-transform: translateZ(0);
-			  transform: translateZ(0);
-			  box-shadow: 0 0 1px transparent;
-			}
+		.float {
+		  display: inline-block;
+		  -webkit-transition-duration: 0.3s;
+		  transition-duration: 0.3s;
+		  -webkit-transition-property: transform;
+		  transition-property: transform;
+		  -webkit-transform: translateZ(0);
+		  transform: translateZ(0);
+		  box-shadow: 0 0 1px transparent;
+		}
 			
 			.float:hover, .float:focus, .float:active {
 			  -webkit-transform: translateY(-3px);

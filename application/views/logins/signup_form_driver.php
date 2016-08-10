@@ -1,92 +1,110 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <div class="container padding-top-five">
+<div class="row">
 <?php if($this->session->flashdata('error')): ?>
   	<div class="alert alert-danger">
   		<?php echo $this->session->flashdata('error'); ?>
   	</div>
 <?php endif; ?>		
-	<div class="col-md-1"></div>
-
-	<div class="col-md-10 col-xs-12">
+	<div class="col-md-2"></div>
+	<div class="col-md-8 col-xs-12">
 		<div class="login">
+		<div class="row">
+			<div class="heading">
+			    <h3>Register as Freelancer</h3>
+			    <hr>
+		    </div>
+		</div>
+		<div class="row">
 			<?php echo form_open('accounts/signup_submit/driver', array('name'=>'signup_driver_form', 'id'=>'signUpDriverForm', 'onSubmit' => 'form_validation(); return false;')) ?>
+				<div class="col-md-6">
+					<div class="input-group input-group-lg">
+				        <label for="username">Username</label>
+				        <input type="text" name ="username" class="form-control">
+				    </div>
+			        <div class="input-group input-group-lg">
+				        <label for="password">Password</label>
+				        <input type="password" name = "password" class="form-control">
+				    </div>
+				    <div class="input-group input-group-lg">
+				    	<label for="email">E-mail</label>
+				        <input type="text" name = "email" class="form-control">
+				    </div>
+				    <div class="input-group input-group-lg">
+				        <label for="telephone">Telephone</label>
+				        <input type='tel' pattern='[\+]\d{4}\d{4}\d{4}' title='Phone Number (Format: +9999-9999-9999)' class="form-control" name="telephone">
+				        <!-- <input type="text" name = "telephone" class="form-control"> -->
+				    </div>
+				    <div class="input-group input-group-lg">
+				        <label for="address">Address</label>
+				        <div class="col-sm-13">
+						<textarea name="address" class="form-control" rows="3" cols="30" style="font-size: 1.1em;border: 1px solid #5bc0de;border-radius: 3px;"></textarea></div>					      
+				    </div>
+			    </div>
+			    <div class="col-md-6">
+			    	<div class="input-group input-group-lg">
+				        <label for="ird_number">IRD Number</label>
+				        <input type="text" name = "ird_number" class="form-control">
+				    </div>
+				    <div class="input-group input-group-lg">
+				        <label for="driver_license">Driver License</label>
+				        <input type="text" name = "driver_license" class="form-control">
+				    </div>
+				    <div class="input-group input-group-lg">
+				        <label for="license_type">License Type</label>
+				        <select class="form-control" name="license_type" style="font-size: 1.1em;border: 1px solid #5bc0de;border-radius: 3px;">
+				            <option value="learner">Learner</option>
+				            <option value="restricted">Restricted</option>
+				            <option value="full">Full License</option>
+				        </select>
+				    </div>
+			    </div>
+		</div>
+			
 			<table align="center">
 				<tr>
 					<td>
-					    <div class="heading">
-					     <h3>Register as Freelancer</h3>
-					     <hr>
-					     </div>
+					    
 					</td>
 				</tr>
 				<tr>
 					<td>
-					    <div class="input-group input-group-lg">
-					        <span class="input-group-addon">Username</span>
-					        <input type="text" name ="username" class="form-control">
-					    </div>
+					    
 					</td>
 				</tr>
 				<tr>
 					<td>
-					    <div class="input-group input-group-lg">
-					        <span class="input-group-addon">Password</span>
-					        <input type="password" name = "password" class="form-control">
-					    </div>
+					    
 					</td>
 				</tr>
 				<tr>
 					<td>
-					    <div class="input-group input-group-lg">
-					    	<span class="input-group-addon">E-mail</span>
-					        <input type="text" name = "email" class="form-control">
-					    </div>
+					    
 					</td>
 				</tr>
 				<tr>
 					<td>
-					    <div class="input-group input-group-lg">
-					        <span class="input-group-addon">Telephone</span>
-					        <input type='tel' pattern='[\+]\d{4}\d{4}\d{4}' title='Phone Number (Format: +9999-9999-9999)' class="form-control" name="telephone">
-					        <!-- <input type="text" name = "telephone" class="form-control"> -->
-					    </div>
+					    
 					</td>
 				</tr>
 				<tr>
 					<td>
-					    <div class="input-group input-group-lg">
-					        <span class="input-group-addon">Address</span>
-					        <div class="col-sm-13">
-							<textarea name="address" class="form-control" rows="3" cols="30" style="padding-left:20px;"></textarea></div>					      
-					    </div>
+					    
 					</td>
 				</tr>
 				<tr>
 					<td>
-					    <div class="input-group input-group-lg">
-					        <span class="input-group-addon">IRD Number</span>
-					        <input type="text" name = "ird_number" class="form-control">
-					    </div>
+					    
 					</td>
 				</tr>
 				<tr>
 					<td>
-					    <div class="input-group input-group-lg">
-					        <span class="input-group-addon">Driver License</span>
-					        <input type="text" name = "driver_license" class="form-control">
-					    </div>
+					    
 					</td>
 				</tr>
 				<tr>
 					<td>
-					    <div class="input-group input-group-lg">
-					        <span class="input-group-addon">License Type</span>
-					        <select class="form-control" name="license_type">
-					            <option value="learner">Learner</option>
-					            <option value="restricted">Restricted</option>
-					            <option value="full">Full License</option>
-					        </select>
-					    </div>
+					    
 					</td>
 				</tr>
 				<tr>
@@ -97,11 +115,12 @@
 			</table>
 			</form>
 		</div>
+		</div>
 	</div>
 	
-	<div class="col-md-1">	</div>
+	<div class="col-md-2">	</div>
 </div>
-
+</div>
 <script type="text/javascript">
 
 	function validateEmail(email) {

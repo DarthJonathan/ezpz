@@ -30,7 +30,7 @@ function formValidate ()
 }
 
 </script>
-<div class="container-fluid">
+<div class="container-fluid padding-top-five">
 		<?php if($this->session->flashdata('error')): ?>
 			<div class="alert alert-danger">
 			<?php echo $this->session->flashdata('error') ?>
