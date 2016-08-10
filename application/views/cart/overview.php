@@ -57,5 +57,11 @@
         <!-- <input type="hidden" value="<?php echo uri_string(); ?>" name="url"> -->
                                         
 
-        <p><?php echo form_submit('', 'Update your Cart'); ?></p>
+        <p>
+                <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary btn-float")); ?>
+                <?php echo form_close() ?>
+                <a href="<?php echo base_url('cart/checkout'); ?>">
+                        <button type="button" class="btn btn-primary btn-float">Check Out</button>
+                </a>
+        </p>
 </div>

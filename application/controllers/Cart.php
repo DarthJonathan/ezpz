@@ -56,11 +56,20 @@
 					$this->session->set_flashdata('failed', ' Updating Cart Failed!');
 					redirect('cart/overview');
 				}
-			
+
 			}else
 			{
 				redirect ('main');
 			}
+		}
+
+		//Checkout
+		public function checkout ()
+		{
+			echo '<pre>';
+			print_r($this->cart->contents());
+			echo '</pre>';
+			exit;
 		}
 
 		//Cart Overview and Check out
