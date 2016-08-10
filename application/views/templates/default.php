@@ -141,69 +141,75 @@
 </head>
 
 <body>
+
 <header>
 <!--NavBar-->
-<div class="container-fluid">
-	<nav class="navbar navbar-default navbar-fixed-top" id="navbar">
-	  <div class="container-fluid">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span> 
-	      </button>
-	      <a class="navbar-brand" href="<?php echo base_url('main') ?>">EZPZ</a>
-	    </div>
-	    <div class="collapse navbar-collapse" id="myNavbar">
-	      <ul class="nav navbar-nav navbar-left">
-	        <li><a href="<?php echo base_url('main') ?>" class="nav-link">Home</a></li>
-	        <li><a href="<?php echo base_url('main/about/') ?>" class="nav-link">About Us</a></li>
-	        <li><a href="<?php echo base_url('restaurant/cuisine/') ?>" class="nav-link">Restaurants</a></li> 
-	        
-	        <!-- Menu Available available in diffrent login types -->
-	        <?php if($this->session->userdata('type') == 'user'): ?>
-	        	<li><a href="#" class="nav-link">Top Up Wallet</a></li>
-	        <?php elseif($this->session->userdata('type') == 'driver'): ?>
-				<li><a href="#" class="nav-link">Top Up Wallet</a></li>
-	    	<?php endif; ?>
-	        
-	      	<li role="separator" class="divider" style="background-color: white; height: 1px"></li>
-	      </ul>
+	<div class="container-fluid">
+		
+		<nav class="navbar navbar-default navbar-fixed-top" id="navbar">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span> 
+		      </button>
+		      <a class="navbar-brand" href="<?php echo base_url('main') ?>">EZPZ</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="myNavbar">
+		      <ul class="nav navbar-nav navbar-left">
+		        <li><a href="<?php echo base_url('main') ?>" class="nav-link">Home</a></li>
+		        <li><a href="<?php echo base_url('main/about/') ?>" class="nav-link">About Us</a></li>
+		        <li><a href="<?php echo base_url('restaurant/cuisine/') ?>" class="nav-link">Restaurants</a></li> 
+		        
+		        <!-- Menu Available available in diffrent login types -->
+		        <?php if($this->session->userdata('type') == 'user'): ?>
+		        	<li><a href="#" class="nav-link">Top Up Wallet</a></li>
+		        <?php elseif($this->session->userdata('type') == 'driver'): ?>
+					<li><a href="#" class="nav-link">Top Up Wallet</a></li>
+		    	<?php endif; ?>
+		        
+		      	<li role="separator" class="divider" style="background-color: white; height: 1px"></li>
+		      </ul>
 
-	      <?php if(!$this->session->userdata('user_id')) : ?>		
-	      <ul class="nav navbar-nav navbar-right">
-	      
-	        <li><a href="<?php echo base_url('accounts/signup') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	        <li><a href="<?php echo base_url('accounts/') ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	      </ul>
-		  <?php else : ?>
-		  <ul class="nav navbar-nav navbar-right">
-		  	<li></li>
-	        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->session->userdata('username') ?>
-        	<span class="caret"></span></a>
-		        <ul class="dropdown-menu" style="background-color: #000;">
+		      <?php if(!$this->session->userdata('user_id')) : ?>		
+		      <ul class="nav navbar-nav navbar-right">
+		      
+		        <li><a href="<?php echo base_url('accounts/signup') ?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+		        <li><a href="<?php echo base_url('accounts/') ?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		      </ul>
+			  <?php else : ?>
+			  <ul class="nav navbar-nav navbar-right">
+			  	<li></li>
+		        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $this->session->userdata('username') ?>
+	        	<span class="caret"></span></a>
+			        <ul class="dropdown-menu" style="background-color: #000;">
 
-		        <?php if($this->session->userdata('type') == 'user' || $this->session->userdata('type') == 'driver' || $this->session->userdata('type') == 'clients'): ?>
-		          <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" class="nav-link">Edit Profile</a></li>
-				<?php endif; ?>
-				  <?php echo $this->session->userdata('type') == 'clients' ? '<li><a href="'.base_url().$this->session->userdata('type').'/menu">Edit Menu</a></li>' : '';  ?>
+			        <?php if($this->session->userdata('type') == 'user' || $this->session->userdata('type') == 'driver' || $this->session->userdata('type') == 'clients'): ?>
+			          <li><a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data" class="nav-link">Edit Profile</a></li>
+					<?php endif; ?>
+					  <?php echo $this->session->userdata('type') == 'clients' ? '<li><a href="'.base_url().$this->session->userdata('type').'/menu">Edit Menu</a></li>' : '';  ?>
 
-		          <li><a href="#">Top Up Wallet</a></li>
-		        </ul>
-	        </li>
-	        <li><a href="<?php echo base_url('accounts/logout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+			          <li><a href="#">Top Up Wallet</a></li>
+			        </ul>
+		        </li>
+		        <li><a href="<?php echo base_url('accounts/logout') ?>"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
 
-	      </ul>
-	  	  <?php endif; ?>
+		      </ul>
+		  	  <?php endif; ?>
 
-	    </div>
-	  </div>
-	</nav>
-</div>
+		    </div>
+		  </div>
+		</nav>
+
+	</div>
+
 </header>
+
 <div class="cart">
 	<a href="#"><?php echo $this->cart->total_items() ?><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i></a>
 </div>
+
 <!--Full Div Image from div bg-->
 <div class="container-fluid image-full" id="top">
 	<div class="row">
@@ -222,56 +228,70 @@
 </div>
 
 <div id="main">
-<?php echo $body ?>
+	<?php echo $body ?>
 </div>
 
 <!--Navbar End-->
-				<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
 
-    <script>
-    	var waypoint = new Waypoint({
-		  element: document.getElementById('main'),
-		  handler: function(direction) {
-		  	document.getElementById('navbar').style.backgroundColor = "black";
-		 
-		   	
-		  }
-		});
+<script>
+	var waypoint = new Waypoint({
+	  element: document.getElementById('main'),
+	  handler: function(direction) {
+	  	document.getElementById('navbar').style.backgroundColor = "black";
+	 
+	   	
+	  }
+	});
 
-		
-    </script>
-	
-	<script>
-		var waypoint2 = new Waypoint({
-		  element: document.getElementById('top'),
-		  handler: function(direction) {
-		  	document.getElementById('navbar').style.backgroundColor = "transparent";
-		 
-		   
-		  },
-		  offset: '-20%'
-		});
-	</script>
+</script>
 
-	
-	
+<script>
+	var waypoint2 = new Waypoint({
+	  element: document.getElementById('top'),
+	  handler: function(direction) {
+	  	document.getElementById('navbar').style.backgroundColor = "transparent";
+	 
+	   
+	  },
+	  offset: '-20%'
+	});
+</script>
+
+<script>
+
+	var test = [""];
+	<?php $i = 0; ?>
+
+	<?php foreach ($restaurants as $restaurant): ?>
+		test[<?php echo $i ?>] = "<?php echo $restaurant['username'] ?>"
+		<?php $i++; ?>
+	<?php endforeach; ?>
+
+	$("#restaurant-search").typeahead({
+
+	                        minLength: 0,
+	                        items: 9999,
+	                        source: test,   
+	                    });
 
 
-	<script>
+</script>
+
+
+<script>
 
 	function submit(){
 
 		$("#search").submit();
-	}
+}
 
-		
+</script>
 
-	</script>
 </body>
 </html>
