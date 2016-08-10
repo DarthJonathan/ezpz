@@ -50,21 +50,22 @@
 				$data = array (
 					
 				'rowid' 		=> $this->input->post('rowid'),
-				'qty'			=> $this->input->post('quantity')
+				'qty'			=> $this->input->post('qty')
 
 					);
 
-				$url		= $this->input->post('url');
+			for($i = 0; $i < count($this->cart->contents()); $i++){
+				$data_update = array(
+						'rowid' => $data['rowid'][$i],
+						'qty' => $data['qty'][$i],
+						'options' => array('color' => $data['color'][$i] )
+					);
+				$this->cart->update($data_update);
+			}
+					
 
-				$this->cart->update($data);
 
-				echo '<pre>';
-				print_r($this->input->post());
-				echo '</pre>';
-
-				exit;
-
-				redirect($url);
+				redirect('cart/overview');
 			}else
 			{
 				redirect ('main');
@@ -75,6 +76,8 @@
 		public function overview()
 		{
 			$data['page_title'] = 'Your Shopping Cart';
+
+			$data['items'] =$this->cart->contents() ;
 					
 			$this->template->load('default','cart/overview', $data);
 		}
