@@ -1,6 +1,21 @@
 <?php echo form_open('cart/update'); ?>
 
 <div class="container">
+        
+        <?php if($this->session->flashdata('success')): ?>
+                
+                <div class="alert alert-success">
+                        <?php echo $this->session->flashdata('success') ?>
+                </div>
+        
+
+        <?php elseif($this->session->flashdata('failed')): ?>
+
+                <div class="alert alert-danger">
+                        <?php echo $this->session->flashdata('failed') ?>
+                </div>
+
+        <?php endif; ?>
 
         <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-bordered">
 
