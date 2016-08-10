@@ -13,6 +13,7 @@
     
 	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 
 
 
@@ -34,46 +35,35 @@
 	
 		body
 		{
-			
 			background-size:100% 100%;
 			background-repeat: no-repeat;
     		background-attachment: fixed;
 		}
 		
 		.login{
-
-			background:#F0F0F2;
-			padding-top:4em;
+			border: 1px solid #5bc0de;
+			background:#fff;
 			border-radius:10px;
 			padding: 15px;
-			margin: 1% auto 0 auto;
-		}
+			margin: auto auto 20px auto;
 
-		
-		#logoBig{
-			margin-top:20%;
-			max-height:400px;
-			max-width:400px;	
 		}
 			
-			.login .heading {
-			  text-align: center;
-			  margin-top: 1%;
-			}
-			.login .heading h3 {
-			  font-size: 3em;
-			  font-weight: 300;
-			  color: black;
-			  display: inline-block;
-			  font-weight: bold;
-			  padding-bottom: 5px;
-			  
-			}
-			.login form .input-group {
-			  border-bottom: 1px solid #AAA;
-			  border-top: 1px solid rgba(255, 255, 255, 0.1);
-			  width: 100%;
-			}
+		.login .heading {
+		  text-align: center;
+		}
+		.login .heading h3 {
+		  font-size: 2em;
+		  font-weight: 300;
+		  color: black;
+		  display: inline-block;
+		  font-weight: bold;
+		  padding-bottom: 5px;
+		}
+		.login form .input-group {
+		  width: 100%;
+		  margin-bottom: 3px;
+		}
 			.login form .input-group:last-of-type {
 			  border-top: none;
 			}
@@ -243,7 +233,7 @@
 	var waypoint = new Waypoint({
 	  element: document.getElementById('main'),
 	  handler: function(direction) {
-	  	document.getElementById('navbar').style.backgroundColor = "black";
+	  	document.getElementById('navbar').style.backgroundColor = '#5bc0de';
 	 
 	   	
 	  }

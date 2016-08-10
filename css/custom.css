@@ -1,6 +1,9 @@
 /*General*/
 .padding-top-five{
-  padding-top: 5%;
+  padding-top: 20px;
+}
+body{
+  font-family: 'Noto Sans', sans-serif !important;
 }
 /*For navbar*/
 .nav.navbar-nav.navbar-left a,.nav.navbar-nav.navbar-right a{
@@ -85,15 +88,12 @@ width: 50%;
   color: black;
 }
 
-.panel {
-  height: 
-}
-
 /*Css for the full width image div*/
 .image-full{
 	height: 500px;
 	padding-top: 20%;
-	background: url(http://placehold.it/350x250);
+  background-image: url(../images/pihza.jpg);
+  background-position: center;
 }
 .form-group{
 	width: 50%;
@@ -101,6 +101,12 @@ width: 50%;
 /*What can You DO box*/
 .do-button{
   margin-top: 10%;
+}
+.whatdo{
+  overflow:auto; 
+  padding-top:5px;
+  padding-bottom: 20px;
+  background-color: #fff;
 }
 /*For the food section*/
 .section-head{
@@ -114,7 +120,10 @@ width: 50%;
 	margin-top: 7px;
 }
 .food{
+  padding-top:20px;
+  padding-bottom: 20px;
 	margin-bottom: 20px;
+  background-color: #ecf6f9;
 }
 /*Image + Hover*/
 .hovereffect {
