@@ -225,7 +225,7 @@
 
 <script>
 	var waypoint = new Waypoint({
-	  element: document.getElementById('main'),
+	  element: document.getElementById('search'),
 	  handler: function(direction) {
 	  	document.getElementById('navbar').style.backgroundColor = '#5bc0de';
 	 
