@@ -95,7 +95,7 @@
 		test[<?php echo $i ?>] = "<?php echo $list['username'] ?>"
 		<?php $i++; ?>
 	<?php endforeach; ?>
-
+	
 	$("#restaurant-search").typeahead({
 
 	                        minLength: 0,
