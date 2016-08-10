@@ -3,44 +3,36 @@
 
 
 <!--Full Div End, What you can do div-->
-<div class="container-fluid col-sm-12 section-head" >
+<div class="container-fluid whatdo">
 	<div class="container">
-	<div class="row">
-	<h3>What You Can Do</h3></div></div>
-</div>
-<div class="container-fluid" style="overflow:auto; padding-top:20px;">
-	<div class="container">
+		<div class="row text-center">
+		<h1 style="margin-bottom:25px;">What You Can Do</h1>
+		</div>
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="panel panel-info text-center">
-					<div class="panel-heading">
-						Get Your Food Delivered
-					</div>
 					<div class="panel-body">
+						Get Your Food Delivered
 						<p>Be a member of EZPZ and get food delivered to your reach fast, and easy with reasonable price.</p>
 						<p class="btn btn-info do-button">Order Now</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-warning text-center">
-					<div class="panel-heading">
-						Be Our Freelancer
-					</div>
+				<div class="panel panel-info text-center">
 					<div class="panel-body">
+						Be Our Freelancer
 						<p>Work as a freelancer with EZPZ. Free working time, profit, easy.</p>
-						<a class="btn btn-warning do-button" href="<?php echo base_url('accounts/signup/driver') ?>">Sign Up as Freelancer</a>
+						<a class="btn btn-info do-button" href="<?php echo base_url('accounts/signup/driver') ?>">Sign Up as Freelancer</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-danger text-center">
-					<div class="panel-heading">
-						Be Our Partner Restaurant
-					</div>
+				<div class="panel panel-info text-center">
 					<div class="panel-body">
+						Be Our Partner Restaurant
 						<p>Team up with us and get more profit and reach more customers.</p>
-						<a class="btn btn-danger do-button" href="<?php echo base_url('accounts/signup/client') ?>">Be a Partner</a>
+						<a class="btn btn-info do-button" href="<?php echo base_url('accounts/signup/client') ?>">Be a Partner</a>
 					</div>
 				</div>
 			</div>
@@ -48,13 +40,10 @@
 	</div>
 </div>
 <!--What you can do div end, cuisine selection start-->
-<div class="container-fluid col-sm-12 section-head">
-	<div class="container">
-	<div class="row">
-	<h3>Cuisine Selections</h3></div></div>
-</div>
 <div class="container-fluid food">
 	<div class="container">
+	<div class="row text-center">
+	<h1 style="margin-bottom:25px;">Cuisine Selections</h1></div>
 	<?php 
 
 	$counter=0;
