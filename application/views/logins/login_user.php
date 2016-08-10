@@ -9,10 +9,7 @@ if($this->session->flashdata('failed')): ?>
 <?php endif; ?>
 
 
-
-
 <script>
-
 function formValidate ()
 {
 	var username = document.forms["loginForm"]["username"].value;
@@ -28,9 +25,8 @@ function formValidate ()
 		document.getElementById('loginForm').submit();
 	}
 }
-
 </script>
-<div class="container-fluid padding-top-five">
+<div class="container-fluid" style="padding-top:5%;">
 		<?php if($this->session->flashdata('error')): ?>
 			<div class="alert alert-danger">
 			<?php echo $this->session->flashdata('error') ?>

@@ -59,7 +59,7 @@
 						    	<div class="input-group input-group-lg">
 						            <span class="input-group-addon"><i class="fa fa-home"></i></span>
 						            <div class="col-sm-13">
-									<textarea name="address" class="form-control" placeholder="Address" rows="3" cols="35"></textarea>
+									<textarea name="address" class="form-control" placeholder="Address" rows="3" cols="35" style="font-size: 1.1em;border: 1px solid #5bc0de;border-radius: 3px;"></textarea>
 									</div>	
 						        </div>
 						    </td>

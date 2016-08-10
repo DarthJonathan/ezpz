@@ -37,8 +37,7 @@
 				    </div>
 				    <div class="input-group input-group-lg">
 				        <label for="address">Address</label>
-				        <div class="col-sm-13">
-						<textarea name="address" class="form-control" rows="3" cols="30" style="font-size: 1.1em;border: 1px solid #5bc0de;border-radius: 3px;"></textarea></div>					      
+						<textarea name="address" class="form-control" rows="6" cols="30" style="font-size: 1.1em;border: 1px solid #5bc0de;border-radius: 3px;"></textarea></div>					      
 				    </div>
 			    </div>
 			    <div class="col-md-6">

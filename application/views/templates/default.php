@@ -76,7 +76,7 @@
 		}
 		.login form input.form-control, textarea, select.form-control>option{
 		  display: block;
-		  height: auto;
+		  height: 2.8em	;
 		  box-shadow: none;
 		  background: none;
 		  border: 1px solid #5bc0de;
