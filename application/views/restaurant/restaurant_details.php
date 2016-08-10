@@ -35,18 +35,28 @@
 		  <div class="tab-content">
 		    <div id="home" class="tab-pane fade in active">
 		    	<?php foreach($dishes as $dish): ?>
+		    	<?php echo form_open('cart/add') ?>
 		    	<div class="row">
 		    		<div class="col-xs-2 hidden-xs" style="margin-bottom:5px; ">
 		    			<img class="img-responsive" width="60" src="<?php echo base_url().$dish->photo ?>" alt="">
 		    		</div>
 		    		<div class="col-xs-10" style="padding-left:0px">
-		    			<div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="" class="food-number pull-right" placeholder=" 0" <?php echo $disabled ?> >
+		    			<div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> >
 					      <p><?php echo $dish->description ?></p>
 					      <p>Price : $<?php echo $dish->price ?></p>
 					    </div>
-		    			<p class="btn btn-primary pull-right">Add to Cart</p>
+					    
+					    <!-- Get Dishes Ids -->
+					    <input type="hidden" value="<?php echo $dish->id ?>" name="dish_id">
+					    <input type="hidden" value="<?php echo $dish->restaurant_id ?>" name="resto_id">
+					    
+					    <!-- Get URL -->
+					    <input type="hidden" value="<?php echo uri_string(); ?>" name="url">
+		    			
+		    			<input type="submit" value="Add to Cart" class="btn btn-primary pull-right">
 		    		</div>
-		    	</div>					    	
+		    	</div>
+		    	<?php echo form_close() ?>					    	
 		    	<?php endforeach; ?>
 		    </div>
 

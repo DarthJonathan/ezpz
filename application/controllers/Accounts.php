@@ -54,7 +54,7 @@
 					$data = array(
 
 						'username' 			=> $this->input->post('username'),
-						'password' 			=> password_hash($this->input->post('password'),PASSWORD_BCRYPT),
+						'password' 			=> hash_password($this->input->post('password')),
 						'email' 			=> $this->input->post('email'),
 						'telephone' 		=> $this->input->post('telephone'),
 						'address' 			=> $this->input->post('address'),
@@ -84,7 +84,7 @@
 					$data = array(
 
 						'username' 			=> $this->input->post('username'),
-						'password' 			=> password_hash($this->input->post('password'),PASSWORD_BCRYPT),
+						'password' 			=> hash_password($this->input->post('password')),
 						'email' 			=> $this->input->post('email'),
 						'phone'		 		=> $this->input->post('telephone'),
 						'address' 			=> $this->input->post('address'),
