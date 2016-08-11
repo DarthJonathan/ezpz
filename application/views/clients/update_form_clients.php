@@ -219,7 +219,7 @@ function formValidate ()
 					</table>
 					</form>
 				</div><!--End of Restaurant info update-->
-				
+				<!--Menu Table-->
 				<div id="menu" class="tab-pane fade">
 					<div class="row">
 						<div class="col-xs-12"><?php echo form_open() ?>
@@ -231,10 +231,11 @@ function formValidate ()
 							    	<table class="table table-striped">
 							    		<thead>
 							    			<tr>
-							    				<td>No.</td>
-							    				<td>Photo</td>
-							    				<td>Name</td>
-							    				<td>Price</td>
+							    				<th>No.</th>
+							    				<th>Photo</th>
+							    				<th>Name</th>
+							    				<th>Price</th>
+							    				<th>Action</th>
 							    			</tr>
 							    		</thead>
 							    		<tbody>
@@ -245,6 +246,9 @@ function formValidate ()
 							    				<td><img src="<?php echo base_url($dish->photo) ?>" width="50" alt=""></td>
 							    				<td><?php echo $dish->name ?></td>
 							    				<td><?php echo price($dish->price) ?></td>
+							    				<td><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+							    				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							    				</td>
 							    			</tr>
 							    			<?php $i++; ?>
 							    			<?php endforeach; ?>
@@ -258,11 +262,11 @@ function formValidate ()
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_menu">Add menu</button>
 						</div>
 					</div>
-
+					<!--Menu Table end-->
 					<!-- Modal -->
 					<div class="modal fade" id="add_menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					  <div class="modal-dialog" role="document">
-					    <div class="modal-content">
+					    <div class="modal-content login">
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					        <h4 class="modal-title" id="myModalLabel">Add Menu</h4>
@@ -270,21 +274,25 @@ function formValidate ()
 					      <?php echo form_open_multipart('clients/add_menu') ?>
 					      <div class="modal-body">
 					        	<div class="form-group">
-					        		<label for="">Name :</label>
+					        		<label for="name">Name</label>
 					        		<input type="text" class="form-control" name="name" value="" placeholder="Dish's Name" required="1">
 					        	</div>
 					        	<div class="form-group">
-					        		<label for="">Price :</label>
+					        		<label for="price">Price</label>
 					        		<input type="number" class="form-control" name="price" value="" placeholder="Dish's Price" required="1">
 					        	</div>
 					        	<div class="form-group">
-					        		<label for="">Photo :</label>
+					        		<label for="photo">Photo</label>
 					        		<input type="file" class="form-control" name="photo" value="" placeholder="Dish's Photo" required="1">
+					        	</div>
+					        	<div class="form-group">
+					        		<label for="description">Description</label>
+					        		<textarea class="form-control" name="price" value="" placeholder="Dish's Description" rows="3" cols="35" style="font-size: 1.1em;border: 1px solid #5bc0de;border-radius: 3px;"></textarea>
 					        	</div>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					        <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
+					        <input type="submit" class="btn btn-danger" data-dismiss="modal" value="Close">
 					      </div>
 					      <?php echo form_close() ?>
 					    </div>
