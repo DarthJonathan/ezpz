@@ -57,61 +57,10 @@
 				            <option value="full">Full License</option>
 				        </select>
 				    </div>
+				    <input type="submit" name="submit" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;" value="Sign Up">
 			    </div>
 		</div>
 			
-			<table align="center">
-				<tr>
-					<td>
-					    
-					</td>
-				</tr>
-				<tr>
-					<td>
-					    
-					</td>
-				</tr>
-				<tr>
-					<td>
-					    
-					</td>
-				</tr>
-				<tr>
-					<td>
-					    
-					</td>
-				</tr>
-				<tr>
-					<td>
-					    
-					</td>
-				</tr>
-				<tr>
-					<td>
-					    
-					</td>
-				</tr>
-				<tr>
-					<td>
-					    
-					</td>
-				</tr>
-				<tr>
-					<td>
-					    
-					</td>
-				</tr>
-				<tr>
-					<td>
-					    
-					</td>
-				</tr>
-				<tr>
-					<td>
-					<input type="submit" name="submit" class="btn btn-block btn-lg btn-primary float" id="loginButton" style="display: block; margin-top:1em; width: 100%;" value="Sign Up">
-					</td>
-				</tr>
-			</table>
 			</form>
 		</div>
 		</div>

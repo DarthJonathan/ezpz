@@ -11,6 +11,10 @@ class Clients extends CI_Controller{
 
 	}
 
+	public function index(){
+		redirect('main');
+	}
+
 	public function complete_data ($param1 = '')
 	{
 		if($param1 == 'submit' && $this->session->userdata('type') == 'client')

@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<div class="container-fluid padding-top-five">
+<div class="container-fluid" style="padding-top:4%;">
 <?php if($this->session->flashdata('error')): ?>
 	<div class="alert alert-danger">
 		<?php echo $this->session->flashdata('error') ?>
@@ -29,7 +29,7 @@ function formValidate ()
 
 </script>
 <div class="row" style="padding-top:10px;">
-		<div class="col-sm-2">
+		<div class="col-sm-2 hidden-xs">
 			<ul class="nav nav-pills nav-stacked">
 				<li class="profile-pills" class="active"> <a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data"> Update Restaurant Page </a> </li>
 				<li class="profile-pills"> <a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/change_login"> Update Login Details </a> </li>
@@ -58,7 +58,7 @@ function formValidate ()
 					    <tr>
 							<td>
 							    <div class="input-group input-group-lg">
-							        <span class="input-group-addon">Username</span>
+							        <label for="username">Username</label>
 							        <input type="text" name ="username" class="form-control" value="<?php echo $userdata->username; ?>">
 							    </div>
 							</td>
@@ -66,7 +66,7 @@ function formValidate ()
 						<tr>
 							<td>
 							    <div class="input-group input-group-lg">
-							    	<span class="input-group-addon">E-mail</span>
+							    	<label for="email">E-mail</label>
 							        <input type="text" name = "email" class="form-control" value="<?php echo $userdata->email; ?>">
 							    </div>
 							</td>
@@ -74,7 +74,7 @@ function formValidate ()
 						<tr>
 							<td>
 							    <div class="input-group input-group-lg">
-							        <span class="input-group-addon">Telephone</span>
+							        <label for="tel">Telephone</label>
 							        <input type='tel' pattern='[\+]\d{4}\d{4}\d{4}' title='Phone Number (Format: +9999-9999-9999)' class="form-control" name="telephone" value="<?php echo $userdata->phone; ?>">
 							        <!-- <input type="text" name = "telephone" class="form-control"> -->
 							    </div>
@@ -83,7 +83,7 @@ function formValidate ()
 						<tr>
 							<td>
 							    <div class="input-group input-group-lg">
-							        <span class="input-group-addon">Address</span>
+							        <label for="address">Address</label>
 							        <div class="col-sm-13">
 									<textarea name="address" class="form-control" rows="3" cols="30" style="padding-left:20px;"><?php echo $userdata->address; ?></textarea></div>					      
 							    </div>
@@ -144,13 +144,7 @@ function formValidate ()
 											},
 										});
 
-								      }
-
-								       
-
-								      
-										
-										
+								      }		
 									
 								    </script>
 								    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmTsHuYy6fLCGmHRPZs20KRkEnfLE4anA&callback=initMap"
@@ -162,39 +156,15 @@ function formValidate ()
 						 <tr>
 							<td>
 							    <div class="input-group input-group-lg">
-							        <span class="input-group-addon">Cuisine</span>
+							        <label for="cuisine">Cuisine</label>
 							        <input type="text" name ="cuisine" class="form-control" value="<?php echo $userdata->cuisine; ?>">
-							    </div>
-							</td>
-						</tr>
-						 <tr>
-							<td>
-							    <div class="input-group input-group-lg">
-							        <span class="input-group-addon">Open Time</span>
-							        <input type="time" name ="opentime" class="form-control" value="<?php echo $userdata->opentime; ?>">
-							    </div>
-							</td>
-						</tr>
-						 <tr>
-							<td>
-							    <div class="input-group input-group-lg">
-							        <span class="input-group-addon">Close Time</span>
-							        <input type="time" name ="closetime" class="form-control" value="<?php echo $userdata->closetime; ?>">
-							    </div>
-							</td>
-						</tr>
-						 <tr>
-							<td>
-							    <div class="input-group input-group-lg">
-							        <span class="input-group-addon">Open Days</span>
-							        <input type="text" name ="opendays" class="form-control" value="<?php echo $userdata->opendays; ?>">
 							    </div>
 							</td>
 						</tr>
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+					            <label for="photo">Photo</label>
 					            <input type="file" name = "photo" class="form-control" placeholder="Profile Photo" required="required">
 					        </div>
 					    </td>
@@ -220,7 +190,7 @@ function formValidate ()
 						<tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					            <label for="old_password">Old Password</label>
 					            <input type="password" name ="old_password" class="form-control" placeholder="Old Password" required="required">
 					        </div>
 					    </td>
@@ -228,7 +198,7 @@ function formValidate ()
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					            <label for="new_password">New Password</label>
 					            <input type="password" name ="new_password" class="form-control" placeholder="New Password" required="required">
 					        </div>
 					    </td>
@@ -236,7 +206,7 @@ function formValidate ()
 					    <tr>
 					    <td>
 					    	<div class="input-group input-group-lg">
-					            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+					            <label for="conf_password">Confirm Password</label>
 					            <input type="password" name ="conf_password" class="form-control" placeholder="Confirm Password" required="required">
 					        </div>
 					    </td>
@@ -249,7 +219,7 @@ function formValidate ()
 					</table>
 					</form>
 				</div><!--End of Restaurant info update-->
-				
+				<!--Menu Table-->
 				<div id="menu" class="tab-pane fade">
 					<div class="row">
 						<div class="col-xs-12"><?php echo form_open() ?>
@@ -261,10 +231,11 @@ function formValidate ()
 							    	<table class="table table-striped">
 							    		<thead>
 							    			<tr>
-							    				<td>No.</td>
-							    				<td>Photo</td>
-							    				<td>Name</td>
-							    				<td>Price</td>
+							    				<th>No.</th>
+							    				<th>Photo</th>
+							    				<th>Name</th>
+							    				<th>Price</th>
+							    				<th>Action</th>
 							    			</tr>
 							    		</thead>
 							    		<tbody>
@@ -275,6 +246,9 @@ function formValidate ()
 							    				<td><img src="<?php echo base_url($dish->photo) ?>" width="50" alt=""></td>
 							    				<td><?php echo $dish->name ?></td>
 							    				<td><?php echo price($dish->price) ?></td>
+							    				<td><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+							    				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							    				</td>
 							    			</tr>
 							    			<?php $i++; ?>
 							    			<?php endforeach; ?>
@@ -288,33 +262,37 @@ function formValidate ()
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add_menu">Add menu</button>
 						</div>
 					</div>
-
+					<!--Menu Table end-->
 					<!-- Modal -->
 					<div class="modal fade" id="add_menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					  <div class="modal-dialog" role="document">
-					    <div class="modal-content">
-					      <div class="modal-header">
+					    <div class="modal-content login">
+					      <div class="modal-header heading">
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					        <h4 class="modal-title" id="myModalLabel">Add Menu</h4>
 					      </div>
 					      <?php echo form_open_multipart('clients/add_menu') ?>
 					      <div class="modal-body">
 					        	<div class="form-group">
-					        		<label for="">Name :</label>
+					        		<label for="name">Name</label>
 					        		<input type="text" class="form-control" name="name" value="" placeholder="Dish's Name" required="1">
 					        	</div>
 					        	<div class="form-group">
-					        		<label for="">Price :</label>
+					        		<label for="price">Price</label>
 					        		<input type="number" class="form-control" name="price" value="" placeholder="Dish's Price" required="1">
 					        	</div>
 					        	<div class="form-group">
-					        		<label for="">Photo :</label>
+					        		<label for="photo">Photo</label>
 					        		<input type="file" class="form-control" name="photo" value="" placeholder="Dish's Photo" required="1">
+					        	</div>
+					        	<div class="form-group">
+					        		<label for="description">Description</label>
+					        		<textarea class="form-control" name="price" value="" placeholder="Dish's Description" rows="3" cols="35" style="font-size: 1.1em;border: 1px solid #5bc0de;border-radius: 3px;"></textarea>
 					        	</div>
 					      </div>
 					      <div class="modal-footer">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					        <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
+					        <input type="submit" class="btn btn-danger" data-dismiss="modal" value="Close">
 					      </div>
 					      <?php echo form_close() ?>
 					    </div>
@@ -399,4 +377,4 @@ function formValidate ()
 			</div><!--End of tab content-->
 		</div>
 </div>
-
+</div>

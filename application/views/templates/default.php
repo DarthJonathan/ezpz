@@ -10,7 +10,6 @@
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    
 	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
@@ -18,11 +17,8 @@
 
 
     <!-- Begin Scripts -->
-    <script src="<?php echo base_url() ?>js/jquery-3.1.0.js"></script>
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
 	<script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
-    <script src="<?php echo base_url() ?>js/flat-ui.min.js"></script>
-    
     <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
 
@@ -38,70 +34,6 @@
 			background-size:100% 100%;
 			background-repeat: no-repeat;
     		background-attachment: fixed;
-		}
-		
-		.login{
-			border: 1px solid #5bc0de;
-			background:#fff;
-			border-radius:10px;
-			padding: 15px;
-			margin: auto auto 20px auto;
-
-		}
-		.login .heading {
-		  text-align: center;
-		}
-		.login .heading h3 {
-		  font-size: 2em;
-		  font-weight: 300;
-		  color: black;
-		  display: inline-block;
-		  font-weight: bold;
-		  padding-bottom: 5px;
-		  color:#5bc0de;
-		}
-		.login form .input-group {
-		  width: 100%;
-		  margin-bottom: 3px;
-		}
-		.login form .input-group span {
-		  background: transparent;
-		  min-width: 53px;
-		  border: none;
-		  text-align: right;
-		}
-		.login form .input-group span i {
-		  font-size: 1.5em;
-		  width: 50px;
-		}
-		.login form input.form-control, textarea, select.form-control>option{
-		  display: block;
-		  height: 2.8em	;
-		  box-shadow: none;
-		  background: none;
-		  border: 1px solid #5bc0de;
-		  border-radius: 3px !important;
-		  padding: 10px;
-		  font-size: 1.1em;
-		  background: transparent;
-		  color: black;
-		}
-		.login form button {
-		  margin-top: 20px;
-		  background: #27AE60;
-		  border: none;
-		  font-size: 1.6em;
-		  font-weight: 300;
-		  padding: 5px 0;
-		  width: 100%;
-		  border-radius: 3px;
-		  color: #b3eecc;
-		  border-bottom: 4px solid #5bc0de;
-		}
-		.login form button:hover {
-		  background: #30b166;
-		  -webkit-animation: hop 1s;
-		  animation: hop 1s;
 		}
 			
 		.float {
@@ -191,7 +123,7 @@
 </header>
 
 <div class="cart">
-	<a href="<?php echo base_url('cart/overview') ?>"><?php echo $this->cart->total_items() ?><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i></a>
+	<a href="#" data-toggle="modal" data-target="#cartModal"><?php echo $this->cart->total_items() ?><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i></a>
 </div>
 
 <!--Full Div Image from div bg-->
@@ -215,7 +147,9 @@
 	<?php echo $body ?>
 </div>
 
-<!--Navbar End-->
+<!-- Modal -->
+<?php $this->load->view('cart/overview') ?>
+      
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>

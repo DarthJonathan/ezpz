@@ -57,7 +57,7 @@
 
 			<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 			    <div class="hovereffect">
-			        <img class="img-responsive" src="http://placehold.it/350x250" alt="">
+			        <img class="img-responsive" src="images/ramyeon.jpg" alt="">
 			            <div class="overlay">
 			                <h2><?php echo $cuisine; ?></h2>
 							<p> 

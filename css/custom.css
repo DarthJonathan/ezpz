@@ -22,12 +22,75 @@ header .navbar-default{
   transition: 0.3s;
  
 }
-
 /* Global */
 .navbar-brand a
 {
   font-size: 20px;
   color:#fff;
+}
+
+/*Form Styling*/
+.login{
+  border: 1px solid #5bc0de;
+  background:#fff !important;
+  border-radius:10px;
+  padding: 15px;
+  margin: auto auto 20px auto;
+}
+.login .heading {
+  text-align: center;
+}
+.login .heading h3,h4 {
+  font-size: 2em;
+  font-weight: 300;
+  color: black;
+  display: inline-block;
+  font-weight: bold;
+  padding-bottom: 5px;
+  color:#5bc0de !important;
+}
+.login form .input-group {
+  width: 100%;
+  margin-bottom: 3px;
+}
+.login form .input-group span {
+  background: transparent;
+  min-width: 53px;
+  border: none;
+  text-align: right;
+}
+.login form .input-group span i {
+  font-size: 1.5em;
+  width: 50px;
+}
+.login form input.form-control, textarea, select.form-control>option{
+  display: block;
+  height: 2.8em ;
+  box-shadow: none;
+  background: none;
+  border: 1px solid #5bc0de;
+  border-radius: 3px !important;
+  padding: 10px;
+  font-size: 1.1em;
+  background: transparent;
+  color: black;
+}
+.login form button {
+  margin-top: 20px;
+  background: #27AE60;
+  border: none;
+  font-size: 1.6em;
+  font-weight: 300;
+  padding: 5px 0;
+  width: 100%;
+  border-radius: 3px;
+  color: #b3eecc;
+  border-bottom: 4px solid #5bc0de;
+}
+.login form button:hover {
+  background: #30b166;
+  -webkit-animation: hop 1s;
+  animation: hop 1s;
 }
 
 /* cart */
@@ -92,8 +155,11 @@ width: 50%;
 .image-full{
 	height: 500px;
 	padding-top: 20%;
-  background-image: url(../images/pihza.jpg);
+  background-color: #000;
+  background-image: url(../images/pihza.png);
   background-position: center;
+  background-size: cover;
+
 }
 .form-group{
 	width: 50%;
@@ -109,16 +175,6 @@ width: 50%;
   background-color: #fff;
 }
 /*For the food section*/
-.section-head{
-	height: 40px;
-	background-color: #000;
-	line-height: 40px;
-	color: #fff;
-
-}
-.section-head h3{
-	margin-top: 7px;
-}
 .food{
   padding-top:20px;
   padding-bottom: 20px;
@@ -134,7 +190,7 @@ width: 50%;
   position: relative;
   text-align: center;
   cursor: default;
-  background: #e67e22;
+  background: #000;
   margin-top: 20px;
 }
 
