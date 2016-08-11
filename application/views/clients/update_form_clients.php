@@ -29,22 +29,23 @@ function formValidate ()
 
 </script>
 <div class="row" style="padding-top:10px;">
+		<!--Side Navigation-->
 		<div class="col-sm-2 hidden-xs">
 			<ul class="nav nav-pills nav-stacked">
 				<li class="profile-pills" class="active"> <a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/complete_data"> Update Restaurant Page </a> </li>
 				<li class="profile-pills"> <a href="<?php echo base_url(); echo $this->session->userdata('type'); ?>/change_login"> Update Login Details </a> </li>
 			</ul>
 		</div>
-		<div class="col-sm-10">	
+		<!--The content tabs-->
+		<div class="col-sm-10">
 			<ul class="nav nav-tabs">
 			    <li class="active"><a data-toggle="tab" href="#info">Update Restaurant Info</a></li>
 			    <li><a data-toggle="tab" href="#menu">Update Menu</a></li>
 			    <li><a data-toggle="tab" href="#time">Update Business Time</a></li>
 		  	</ul>
+		  	<!--Restaurant Detail Tab-->
 		  	<div class="tab-content">
-
 				<div id="info" class="login tab-pane fade in active" style="margin-top:0px;">
-
 					<?php echo form_open_multipart('clients/complete_data/submit') ?>
 					<table align="center">
 						<tr>
@@ -219,7 +220,7 @@ function formValidate ()
 					</table>
 					</form>
 				</div><!--End of Restaurant info update-->
-				<!--Menu Table-->
+				<!--Menu Tab-->
 				<div id="menu" class="tab-pane fade">
 					<div class="row">
 						<div class="col-xs-12"><?php echo form_open() ?>
@@ -299,37 +300,6 @@ function formValidate ()
 					  </div>
 					</div>
 				</div><!--End of menu tab-->
-				<!-- Modal -->
-				<div class="modal fade" id="add_menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="myModalLabel">Add Menu</h4>
-				      </div>
-				      <?php echo form_open_multipart('clients/add_menu') ?>
-				      <div class="modal-body">
-				        	<div class="form-group">
-				        		<label for="">Name :</label>
-				        		<input type="text" class="form-control" name="name" value="" placeholder="Dish's Name" required="1">
-				        	</div>
-				        	<div class="form-group">
-				        		<label for="">Price :</label>
-				        		<input type="number" class="form-control" name="price" value="" placeholder="Dish's Price" required="1">
-				        	</div>
-				        	<div class="form-group">
-				        		<label for="">Photo :</label>
-				        		<input type="file" class="form-control" name="photo" value="" placeholder="Dish's Photo" required="1">
-				        	</div>
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				        <input type="submit" value="Save changes" name="submit" class="btn btn-primary">
-				      </div>
-				      <?php echo form_close() ?>
-				    </div>
-				  </div>
-				</div><!--End of Modal-->
 				<!--Update Restaurant Time-->
 				<div id="time" class="login tab-pane fade">
 					<?php echo form_open('dashboard/change_password/submit') ?>

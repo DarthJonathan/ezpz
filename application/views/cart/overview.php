@@ -1,6 +1,10 @@
 <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 <div class="modal-dialog" role="document" style="width:60%">
-<div class="modal-content">
+<div class="modal-content login">
+<div class="modal-header heading">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Food Cart</h4>
+</div>
 <div class="modal-body">
 <?php echo form_open('cart/update'); ?>
         <?php if($this->session->flashdata('success')): ?>    
@@ -16,7 +20,7 @@
 
         <?php endif; ?>
 
-        <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-bordered">
+        <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-striped table-bordered">
 
         <tr>
                 <th>No.</th>
@@ -53,13 +57,11 @@
 
         <!-- Get URL -->
         <!-- <input type="hidden" value="<?php echo uri_string(); ?>" name="url"> -->
-                                        
-
         <p>
                 <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary btn-float")); ?>
                 <?php echo form_close() ?>
                 <a href="<?php echo base_url('cart/checkout'); ?>">
-                        <button type="button" class="btn btn-primary btn-float">Check Out</button>
+                        <input type="submit" class="btn btn-primary btn-float" value="Check Out">
                 </a>
         </p>
 </div>
