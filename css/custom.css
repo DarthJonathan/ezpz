@@ -92,6 +92,7 @@ width: 50%;
 .image-full{
 	height: 500px;
 	padding-top: 20%;
+  background-color: #000;
   background-image: url(../images/pihza.jpg);
   background-position: center;
 }
@@ -109,16 +110,6 @@ width: 50%;
   background-color: #fff;
 }
 /*For the food section*/
-.section-head{
-	height: 40px;
-	background-color: #000;
-	line-height: 40px;
-	color: #fff;
-
-}
-.section-head h3{
-	margin-top: 7px;
-}
 .food{
   padding-top:20px;
   padding-bottom: 20px;
@@ -134,7 +125,7 @@ width: 50%;
   position: relative;
   text-align: center;
   cursor: default;
-  background: #e67e22;
+  background: #000;
   margin-top: 20px;
 }
 
