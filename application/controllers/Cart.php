@@ -3,11 +3,11 @@
 
 	class Cart extends CI_Controller{
 
-		public function index(){
+		public function __construct(){
 			
 			parent::__construct();
 
-			if($this->session->userdata('isLogged') == False)
+			if($this->session->userdata('isLogged') == False || $this->session->userdata('type') != 'user')
 			{
 				redirect('main');
 			}
@@ -66,19 +66,16 @@
 		//Checkout
 		public function checkout ()
 		{
-			echo '<pre>';
-			print_r($this->cart->contents());
-			echo '</pre>';
-			exit;
+			$data['page_title']	= 'Your Shopping';
+			$data['items']		= $this->cart->contents();
+			$this->template->load('default','cart/checkout', $data);
 		}
 
 		//Cart Overview and Check out
 		public function overview()
 		{
 			$data['page_title'] = 'Your Shopping Cart';
-
-			$data['items'] =$this->cart->contents() ;
-					
+			$data['items'] 		= $this->cart->contents() ;
 			$this->template->load('default','cart/overview', $data);
 		}
 

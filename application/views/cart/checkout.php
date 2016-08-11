@@ -1,12 +1,4 @@
-<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-<div class="modal-dialog" role="document" style="width:60%">
-<div class="modal-content login">
-<div class="modal-header heading">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Food Cart</h4>
-</div>
-<div class="modal-body">
-<?php echo form_open('cart/update'); ?>
+<?php echo form_open(''); ?>
 
 <div class="container" id="cart-info">
         
@@ -15,6 +7,7 @@
                 <div class="alert alert-success">
                         <?php echo $this->session->flashdata('success') ?>
                 </div>
+        
 
         <?php elseif($this->session->flashdata('failed')): ?>
 
@@ -24,7 +17,7 @@
 
         <?php endif; ?>
 
-        <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-striped table-bordered">
+        <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-bordered">
 
         <tr>
                 <th>No.</th>
@@ -42,7 +35,7 @@
 
                 <tr>
                         <td><?php echo $i ?></td>
-                        <td><?php echo form_input(array('name' => 'quantity[]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
+                        <td><?php echo $items['qty']; ?></td>
                         <td><?php echo $items['name']; ?> </td>
                         <td style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
                         <td style="text-align:right">$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
@@ -58,16 +51,10 @@
         </tr>
 
         </table>
-        <!-- Get URL -->
-        <!-- <input type="hidden" value="<?php echo uri_string(); ?>" name="url"> -->
+      
         <p>
-                <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary btn-float")); ?>
-                <?php echo form_close() ?>
-                <a href="<?php echo base_url('cart/checkout'); ?>">
-                        <input type="submit" class="btn btn-primary btn-float" value="Check Out">
-                </a>
+       		<a href="<?php echo base_url('order/search_driver'); ?>">
+                <button type="button" class="btn btn-primary btn-float">Find Driver</button>
+            </a>     
         </p>
-</div>
-</div>
-</div>
 </div>
