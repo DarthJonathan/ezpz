@@ -1,7 +1,8 @@
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document" style="width:60%">
+<div class="modal-content">
+<div class="modal-body">
 <?php echo form_open('cart/update'); ?>
-
-<div class="container padding-top-five">
-        
         <?php if($this->session->flashdata('success')): ?>    
                 <div class="alert alert-success">
                         <?php echo $this->session->flashdata('success') ?>
@@ -40,7 +41,6 @@
                 </tr>
 
         <?php $i++; ?>
-
         <?php endforeach; ?>
 
         <tr>
@@ -62,4 +62,7 @@
                         <button type="button" class="btn btn-primary btn-float">Check Out</button>
                 </a>
         </p>
+</div>
+</div>
+</div>
 </div>

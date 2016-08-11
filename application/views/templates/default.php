@@ -10,7 +10,6 @@
     <link href="<?php echo base_url() ?>css/custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/restaurant-custom.css" type="text/css" rel="stylesheet">
     <link href="<?php echo base_url() ?>css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    
 	<link href="<?php echo base_url() ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<link href="<?php echo base_url() ?>css/multi-select.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
@@ -18,11 +17,8 @@
 
 
     <!-- Begin Scripts -->
-    <script src="<?php echo base_url() ?>js/jquery-3.1.0.js"></script>
 	<script src="<?php echo base_url() ?>js/bootstrap.min.js"></script>
 	<script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
-    <script src="<?php echo base_url() ?>js/flat-ui.min.js"></script>
-    
     <script src="<?php echo base_url() ?>js/bootstrap-typeahead.js"></script>
     <script src="<?php echo base_url() ?>js/jquery.multi-select.js"></script>
 
@@ -152,18 +148,8 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
+<?php $this->load->view('cart/overview') ?>
       
-      <div class="modal-body">
-
-        <?php $this->load->view('cart/overview') ?>
-        
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>

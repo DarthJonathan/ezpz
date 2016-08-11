@@ -267,7 +267,7 @@ function formValidate ()
 					<div class="modal fade" id="add_menu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content login">
-					      <div class="modal-header">
+					      <div class="modal-header heading">
 					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					        <h4 class="modal-title" id="myModalLabel">Add Menu</h4>
 					      </div>
