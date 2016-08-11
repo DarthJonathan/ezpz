@@ -1,4 +1,4 @@
-<?php echo form_open('cart/update'); ?>
+<?php echo form_open(''); ?>
 
 <div class="container" id="cart-info">
         
@@ -35,14 +35,13 @@
 
                 <tr>
                         <td><?php echo $i ?></td>
-                        <td><?php echo form_input(array('name' => 'quantity[]', 'value' => $items['qty'], 'maxlength' => '3', 'size' => '5')); ?></td>
+                        <td><?php echo $items['qty']; ?></td>
                         <td><?php echo $items['name']; ?> </td>
                         <td style="text-align:right"><?php echo $this->cart->format_number($items['price']); ?></td>
                         <td style="text-align:right">$<?php echo $this->cart->format_number($items['subtotal']); ?></td>
                 </tr>
 
         <?php $i++; ?>
-
         <?php endforeach; ?>
 
         <tr>
@@ -52,13 +51,10 @@
         </tr>
 
         </table>
-                                        
-
+      
         <p>
-                <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary btn-float")); ?>
-                <?php echo form_close() ?>
-                <a href="<?php echo base_url('cart/checkout'); ?>">
-                        <button type="button" class="btn btn-primary btn-float">Check Out</button>
-                </a>
+       		<a href="<?php echo base_url('order/search_driver'); ?>">
+                <button type="button" class="btn btn-primary btn-float">Find Driver</button>
+            </a>     
         </p>
 </div>
