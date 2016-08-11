@@ -5,11 +5,9 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Food Cart</h4>
 </div>
-<div class="modal-body">
+<div class="modal-body" id="cart-info">
 <?php echo form_open('cart/update'); ?>
-
-<div class="container" id="cart-info">
-        
+      
         <?php if($this->session->flashdata('success')): ?>
                 
                 <div class="alert alert-success">
@@ -24,7 +22,7 @@
 
         <?php endif; ?>
 
-        <table cellpadding="6" cellspacing="1" style="width:100%" border="0" class="table table-striped table-bordered">
+        <table cellpadding="6" cellspacing="1" border="0" class="table table-striped table-bordered" >
 
         <tr>
                 <th>No.</th>
