@@ -127,7 +127,7 @@
 </header>
 
 <div class="cart">
-	<a href="<?php echo base_url('cart/overview') ?>"><?php echo $this->cart->total_items() ?><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i></a>
+	<a href="#" data-toggle="modal" data-target="#cartModal"><?php echo $this->cart->total_items() ?><i class="fa fa-shopping-cart fa-2x" aria-hidden="true" style="font-size:1.7em"></i></a>
 </div>
 
 <!--Full Div Image from div bg-->
@@ -151,7 +151,19 @@
 	<?php echo $body ?>
 </div>
 
-<!--Navbar End-->
+<!-- Modal -->
+<div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+
+        <?php $this->load->view('cart/overview') ?>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="<?php echo base_url(); ?>js/jquery-1.11.0.min.js"></script>
