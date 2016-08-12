@@ -61,7 +61,6 @@ class Email_model extends CI_Model{
 					<br>
 						Address :" . $data->address . "\n
 					<br>
-					For Safety Please Quickly Change Your Password!
 					</p>";
 		$headers = 'Content-type: text/html; charset=utf-8' . "\r\n";
 		$headers .= 'From: ordering@ezpzdelivery.co.nz' . "\r\n" .
@@ -71,6 +70,9 @@ class Email_model extends CI_Model{
 		if(!mail($to, $subject, $message, $headers))
 		{
 			return false;
+		}else
+		{
+			return true;
 		}
 	}
 	

@@ -62,7 +62,7 @@ class Order_model extends CI_Model{
 			return $order_id;
 		}else
 		{
-			return false;
+			return 0;
 		}
 
 	}

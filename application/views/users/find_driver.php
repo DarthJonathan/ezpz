@@ -3,11 +3,12 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div id="driver">
-				<h2>Waiting For Driver</h2>
+				<h2>Waiting For Driver
+          <?php echo $order_id; ?>  
+        </h2>
 			</div>
 		</div>
 	</div>
-	<?php print_r($order); ?>	
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
