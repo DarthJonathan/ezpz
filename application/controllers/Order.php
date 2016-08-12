@@ -14,19 +14,23 @@ class Order extends CI_Controller{
 
 	public function search_driver ()
 	{
-		//Put Orders Into Database
+		//Put Orders Into Database & Email The Drivers *Look Inside Order_model*
 		$this->load->model('order_model');
-		$this->order_model->new_order($this->cart->contents());
+		// $order_id = $this->order_model->new_order($this->cart->contents());
+		$order_id = 25;
+		$data['order_id'] = $order_id;
+		$data['page_title'] = 'order';
+		$data['order'] = $this->db->get_where('order_history', array('id' => $order_id))->row();
 
-		//Email Drivers
-		$drivers  = $this->crud_model->get_data('drivers')->result();
 
-		foreach ($drivers as $driver)
-		{
-			$emails[] = $driver->email;
-		}
+		$this->template->load('default','users/find_driver', $data);
+	}
 
-		$to = implode (", ", $emails); 
+	public function tracking ($order_id)
+	{
+		$status = $this->db->get_where('order_history', array('id' => $order_id))->row()->status;
+
+		echo $status;
 	}
 
 }

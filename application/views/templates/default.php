@@ -148,25 +148,6 @@
 	});
 </script>
 
-<script>
-
-	var test = [""];
-	<?php $i = 0; ?>
-
-	<?php foreach ($restaurants as $restaurant): ?>
-		test[<?php echo $i ?>] = "<?php echo $restaurant['username'] ?>"
-		<?php $i++; ?>
-	<?php endforeach; ?>
-
-	$("#restaurant-search").typeahead({
-
-	                        minLength: 0,
-	                        items: 9999,
-	                        source: test,   
-	                    });
-
-
-</script>
 
 
 <script>
