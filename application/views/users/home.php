@@ -75,7 +75,7 @@
 </div>
 </div>
 
-	<script>
+	<!-- <script>
 
 	var test = [""];
 	<?php $i = 0; ?>
@@ -92,6 +92,6 @@
 	                        source: test,   
 	                    });
 
-	</script>
+	</script> -->
 
 
