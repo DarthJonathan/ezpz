@@ -81,7 +81,7 @@
 	<?php $i = 0; ?>
 
 	<?php foreach ($lists as $list): ?>
-		test[<?php echo $i ?>] = "<?php echo $list['username'] ?>"
+		test[<?php echo $i ?>] = "<?php echo $list['name'] ?>"
 		<?php $i++; ?>
 	<?php endforeach; ?>
 	

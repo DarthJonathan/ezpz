@@ -7,7 +7,7 @@
 			$data['page_title'] = 'Home';
 			$data['cuisines']	= array('Asian', 'Italian', 'Indonesian', 'Irvan', ' Jonathan', 'setyawan', 'felita','Other');
 			$data['lists'] = $this->db->get('restaurants')->result_array();
-			
+			$data['background'] = base_url()."images/pihza.jpg";
 			$this->template->load('default','users/home' ,$data);	
 			
 		}
