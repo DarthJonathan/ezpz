@@ -8,9 +8,9 @@
 				<span class="rating">
 					<h3 class="label label-info" style="font-size:12px;display:inline;line-height:15px;">3 / 5</h3><p style="font-size:10px;display:inline;margin-left:2px;">100 votes</p>
 				</span>
-				<p><?php echo $restaurant->cuisine.' ' ?></p>
-				<p><?php echo $restaurant->opendays.' '.date('H:i',strtotime($restaurant->opentime)).' - '.date('H:i',strtotime($restaurant->closetime)) ?></p>
-				<p><?php echo $restaurant->phone.' ' ?></p>
+				
+				
+				<p><?php echo $restaurant->telephone.' ' ?></p>
 			</div>
 		</div>
 	</div>
@@ -21,17 +21,9 @@
 		<div class="col-xs-12">
 		  <ul class="nav nav-tabs">
 		    <li class="active"><a data-toggle="tab" href="#home">Menu</a></li>
-		    <li><a data-toggle="tab" href="#menu1">Reviews</a></li>
+		    <li><a data-toggle="tab" href="#review">Reviews</a></li>
 		    <li><a data-toggle="tab" href="#menu2">Photos</a></li>
 		  </ul>
-		 
-		  <?php if(date('H:i') < date('H:i',strtotime($restaurant->opentime))){
-		  		$disabled = 'disabled';?>
-		  		
-				<?php }else{
-		  		$disabled = '';
-		  	}?>
-		  
 		  <div class="tab-content">
 		    <div id="home" class="tab-pane fade in active">
 		    	<?php foreach($dishes as $dish): ?>
@@ -41,7 +33,7 @@
 		    			<img class="img-responsive" width="60" src="<?php echo base_url().$dish->photo ?>" alt="">
 		    		</div>
 		    		<div class="col-xs-10" style="padding-left:0px">
-		    			<div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0" <?php echo $disabled ?> >
+		    			<div class="panel-body"><h3 style="display:inline;" ><?php echo $dish->name ?></h3><input type="number" name="quantity" class="food-number pull-right" required placeholder=" 0">
 					      <p><?php echo $dish->description ?></p>
 					      <p>Price : $<?php echo $dish->price ?></p>
 					    </div>
@@ -60,9 +52,20 @@
 		    	<?php endforeach; ?>
 		    </div>
 
-		    <div id="menu1" class="tab-pane fade">
+		    <div id="review" class="tab-pane fade">
 		      <h3>Reviews</h3>
-		      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		      <div class="row">
+		      	<div class="col-md-1"></div>
+		      	<div class="col-md-11">
+		      		<div class="row">
+		      			<ul class="c-rating"></ul>
+		      		</div>
+		      		<div class="row">
+		      			<textarea></textarea>
+		      		</div>
+		      	</div>
+		      	
+		      </div>
 		    </div>
 
 		    <div id="menu2" class="tab-pane fade">
@@ -74,3 +77,12 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+  var el=document.getElementById("#review");
+  var currentRate=0;
+  var maxRate=0;
+  var callback= function(rating){ alert(rating); };
+  var rating=rating(el,currentRate,maxRate,callback);
+  rating.setRating(3,true);
+  rating.getRating();
+</script>
