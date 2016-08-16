@@ -120,6 +120,7 @@
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="<?php echo base_url() ?>js/jquery.color.js"></script>
 <script src="<?php echo base_url() ?>js/jquery.stellar.min.js"></script>
 <script src="<?php echo base_url() ?>js/jquery.waypoints.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
