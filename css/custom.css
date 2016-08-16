@@ -47,14 +47,13 @@ header .navbar-default{
 .login .heading {
   text-align: center;
 }
-.login .heading h3,h4 {
+.login .heading h3{
   font-size: 2em;
   font-weight: 300;
-  color: black;
   display: inline-block;
   font-weight: bold;
   padding-bottom: 5px;
-  color:#5bc0de !important;
+  color:#5bc0de;
 }
 .login form .input-group {
   width: 100%;
@@ -98,6 +97,15 @@ header .navbar-default{
   background: #30b166;
   -webkit-animation: hop 1s;
   animation: hop 1s;
+}
+/*cart modal*/
+.cartheader{
+  font-size: 2em;
+  font-weight: 200;
+  display: inline-block;
+  font-weight: bold;
+  padding-bottom: 5px;
+  color:#5bc0de;
 }
 
 /* cart */

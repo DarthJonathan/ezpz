@@ -1,9 +1,9 @@
 <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 <div class="modal-dialog" role="document" style="width:60%">
 <div class="modal-content">
-<div class="modal-header">
+<div class="modal-header text-center">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Food Cart</h4>
+        <h4 class="modal-title cartheader" id="myModalLabel">Food Cart</h4>
 </div>
 <div class="modal-body" id="cart-info">
 <?php echo form_open('cart/update'); ?>
@@ -58,13 +58,12 @@
         </table>
         <!-- Get URL -->
         <!-- <input type="hidden" value="<?php echo uri_string(); ?>" name="url"> -->
-        <p>
-                <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary btn-float")); ?>
-                <?php echo form_close() ?>
-                <a href="<?php echo base_url('cart/checkout'); ?>">
-                        <input type="submit" class="btn btn-primary btn-float" value="Check Out">
-                </a>
-        </p>
+        
+                <?php echo form_submit('', 'Update your Cart', array('class' => "btn btn-primary")); ?>
+                <a href="<?php echo base_url('cart/checkout'); ?>"><button type="button" class="btn btn-primary" value="Check Out">Checkout</button></a>
+                </form>
+                
+        
 </div>
 </div>
 </div>
